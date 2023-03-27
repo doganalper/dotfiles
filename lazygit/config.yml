@@ -1,0 +1,7 @@
+gui:
+  authorColors:
+    '*': '#0000ff'
+    "Alper Doğan": "green"
+  branchColors:
+    'develop': 'blue'
+    'main': 'red'

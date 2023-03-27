@@ -1,0 +1,12 @@
+.git
+.mono
+iterm2
+configstore
+fish
+htop
+yarn
+raycast
+.DS_STORE
+lazygit/state.yml
+nvim/pack
+nvim/plugin

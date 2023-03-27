@@ -1,0 +1,17 @@
+{
+	"name": "example-snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"typescript",
+					"typescriptreact",
+					"javascriptreact",
+					"javascript",
+					"vue"
+				],
+				"path": "./js.json"
+			}
+		]
+	}
+}

@@ -1,0 +1,5 @@
+require("modules.packer")
+require("modules.generals")
+require("modules.mappings")
+require("modules.commands")
+require("plugins.index")
