@@ -34,16 +34,19 @@ Bind("n", "<leader>gb", GitBlame, { desc = "[G]it [B]lame" })
 
 -- Buffers
 Bind("n", "<leaderlg", "<cmd>Telescope buffers<cr>", { desc = "Space [L]ist [B]uffers" })
-Bind("n", "<leader>cb", "<cmd>bd!<cr>", { desc = "Space [C]lose [B]uffer" })
--- Bind("n", "gt", "<cmd>bnext<cr>", { desc = "Space [B]uffer Next" })
--- Bind("n", "gT", "<cmd>bprev<cr>", { desc = "Space [B]uffer Prev" })
+Bind("n", "<leader>cb", "<cmd>bd<cr>", { desc = "Space [C]lose [B]uffer" })
+Bind("n", "gt", function()
+	vim.cmd(vim.v.count .. "bnext")
+end, { desc = "Space [B]uffer Next" })
+Bind("n", "gT", function()
+	vim.cmd(vim.v.count .. "bprev")
+end, { desc = "Space [B]uffer Prev" })
 
 -- Vim Related Mappings
 Bind("n", "<leader>LR", function()
 	vim.cmd("LspRestart")
 	print("Lsp Restarted")
 end, { desc = "Space [L]sp [R]estart", silent = false })
-Bind("n", "<leader>PS", "<cmd>PackerSync<cr>", { desc = "Space [P]acker [S]ync" })
 
 -- Buffer Select
 Bind("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "[B]uffers [L]ist" })

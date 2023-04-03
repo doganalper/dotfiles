@@ -14,12 +14,6 @@ require("bufferline").setup({
 				text_align = "center",
 				separator = true,
 			},
-			{
-				filetype = "packer",
-				text = "Packer",
-				text_align = "center",
-				separator = true,
-			},
 		},
 		truncate_names = false,
 		diagnostics = "nvim_lsp",

@@ -18,9 +18,10 @@ require("telescope").setup({
 	},
 	pickers = {
 		colorscheme = commonDropdown,
-		live_grep = {
-			theme = "ivy",
-		},
+		-- live_grep = commonDropdown,
+		-- live_grep = {
+		-- 	theme = "ivy",
+		-- },
 		find_files = commonDropdown,
 		oldfiles = commonDropdown,
 		git_bcommits = {

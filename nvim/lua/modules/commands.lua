@@ -7,6 +7,11 @@ vim.api.nvim_create_user_command("GP", "Git push", {})
 -- Turn pixel to rem
 vim.api.nvim_create_user_command("TPR", "echo (0.0625 * <q-args>)", { nargs = 1 })
 
+-- Replace string on open buffer
+vim.api.nvim_create_user_command("RP", function(val)
+	vim.cmd("%s/" .. val.args:gsub(" ", "/") .. "/g")
+end, { nargs = 1 })
+
 -- Treesitter toggle highlight
 vim.api.nvim_create_user_command("TSH", "TSBufToggle highlight", {})
 
@@ -17,6 +22,7 @@ local links = {
 	{ "tw", "https://tailwindcss.com/docs/customizing-colors" },
 	{ "gh", "https://github.com/" },
 	{ "local", "http://localhost:3000/" },
+	{ "go", "http://google.com" },
 
 	-- JOB SPECIFIC LINKS
 	{ "linear", "https://linear.app/storespy/team/DEV/active" },

@@ -8,6 +8,7 @@
 					"typescriptreact",
 					"javascriptreact",
 					"javascript",
+					"astro",
 					"vue"
 				],
 				"path": "./js.json"

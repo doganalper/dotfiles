@@ -1,6 +1,6 @@
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.wrap = true
+vim.o.wrap = false
 vim.o.swapfile = false
 vim.o.hlsearch = true
 vim.o.ignorecase = true
@@ -21,26 +21,9 @@ local general_sets = {
 	"syntax on",
 }
 
----@diagnostic disable-next-line: unused-function
-local function setBackground()
-	local hour = os.date("*t").hour
-	if hour > 15 then
-		table.insert(general_sets, "set background=dark")
-	else
-		table.insert(general_sets, "set background=light")
-		table.insert(general_sets, "highlight Cursor guifg=white guibg=black")
-		table.insert(general_sets, "highlight iCursor guifg=white guibg=steelblue")
-		table.insert(general_sets, "set guicursor=n-v-c:block-Cursor")
-		table.insert(general_sets, "set guicursor+=i:ver100-iCursor")
-		table.insert(general_sets, "set guicursor+=n-v-c:blinkon0")
-		table.insert(general_sets, "set guicursor+=i:blinkwait10")
-	end
-end
-
 local function setGeneralCommands()
-	-- setBackground() -- uncomment this after thinking whether i need it or not
 	for _, command in pairs(general_sets) do
-		vim.api.nvim_command(command)
+		vim.cmd(command)
 	end
 end
 setGeneralCommands()
