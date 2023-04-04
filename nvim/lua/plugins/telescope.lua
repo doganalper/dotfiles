@@ -8,7 +8,8 @@ require("telescope").setup({
 		layout_strategy = "horizontal",
 		layout_config = {
 			horizontal = {
-				prompt_position = "top",
+				prompt_position = "bottom",
+				preview_width = 80,
 			},
 			center = {
 				prompt_position = "top",
@@ -18,17 +19,8 @@ require("telescope").setup({
 	},
 	pickers = {
 		colorscheme = commonDropdown,
-		-- live_grep = commonDropdown,
-		-- live_grep = {
-		-- 	theme = "ivy",
-		-- },
 		find_files = commonDropdown,
 		oldfiles = commonDropdown,
-		git_bcommits = {
-			layout_config = {
-				preview_width = 100,
-			},
-		},
 		buffers = commonDropdown,
 	},
 })
