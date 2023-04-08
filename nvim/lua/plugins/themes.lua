@@ -4,7 +4,7 @@ require("catppuccin").setup({
 		light = "latte",
 		dark = "macchiato",
 	},
-	transparent_background = true,
+	transparent_background = false,
 	custom_highlights = function(c)
 		return {
 			LineNr = {

@@ -12,11 +12,11 @@ require("nvim-tree").setup({
 		number = true,
 		relativenumber = true,
 		side = "right",
+		float = {
+			enable = true,
+		},
 	},
 	git = {
 		ignore = false,
-	},
-	filters = {
-		dotfiles = true,
 	},
 })
