@@ -46,7 +46,10 @@ local plugins = {
 		"akinsho/bufferline.nvim",
 		dependencies = { "nvim-web-devicons" },
 	},
-	"fatih/vim-go",
+	{
+		"fatih/vim-go",
+		ft = "go",
+	},
 	"lukas-reineke/indent-blankline.nvim",
 	{
 		"catppuccin/nvim",
