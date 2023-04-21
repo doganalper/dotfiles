@@ -3,13 +3,15 @@ local commonDropdown = {
 	theme = "dropdown",
 }
 
-require("telescope").setup({
+local telescope = require("telescope")
+
+telescope.setup({
 	defaults = {
 		layout_strategy = "horizontal",
 		layout_config = {
 			horizontal = {
-				prompt_position = "bottom",
-				preview_width = 80,
+				prompt_position = "top",
+				preview_width = 0.6,
 			},
 			center = {
 				prompt_position = "top",
@@ -19,8 +21,15 @@ require("telescope").setup({
 	},
 	pickers = {
 		colorscheme = commonDropdown,
-		find_files = commonDropdown,
 		oldfiles = commonDropdown,
-		buffers = commonDropdown,
+	},
+	extensions = {
+		advanced_git_search = {
+			diff_plugin = "fugitive",
+			git_flags = {},
+			git_diff_flags = {},
+		},
 	},
 })
+
+telescope.load_extension("advanced_git_search")

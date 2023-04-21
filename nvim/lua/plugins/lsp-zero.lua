@@ -7,67 +7,6 @@ local lspkind = require("lspkind")
 
 lsp.preset("recommended")
 
--- see: https://twitter.com/thdxr/status/1623769303819460608?s=20&t=l1K_q3dsJzl0tZ_GS4NHig
-lsp.setup_nvim_cmp({
-	mapping = ConcatTables(lsp.defaults.cmp_mappings(), {
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-			-- they way you will only jump inside the snippet region
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif HasWordsBefore() then
-				cmp.complete()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-	}),
-	documentation = {
-		border = { "", "", "", "", "", "", "", "" },
-	},
-	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			local kind = lspkind.cmp_format({
-				mode = "symbol_text",
-				maxwidth = 50,
-				ellipsis_char = "...",
-			})(entry, vim_item)
-			local strings = vim.split(kind.kind, "%s", { trimempty = true })
-			kind.kind = " " .. strings[1] .. " "
-			kind.menu = "[" .. entry.source.name .. "]"
-
-			return kind
-		end,
-	},
-	view = {
-		entries = { name = "custom", selection_order = "near_cursor" },
-	},
-	snippet = {
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
-		end,
-	},
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-	}, {
-		{ name = "buffer" },
-	}),
-})
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lsp.set_preferences({
@@ -85,6 +24,7 @@ lsp.on_attach(function(client, bufnr)
 	Bind("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Space [R]e[n]ame" })
 	Bind("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
 	Bind("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
+	Bind("n", "<leader>gtd", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" })
 	Bind("n", "gr", function()
 		vim.api.nvim_command("set switchbuf+=usetab,newtab")
 		vim.lsp.buf.references()

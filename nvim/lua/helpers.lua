@@ -1,3 +1,5 @@
+local lspkind = require("lspkind")
+
 function ConcatTables(t1, t2)
 	local T = {}
 

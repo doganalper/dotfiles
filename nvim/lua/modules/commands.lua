@@ -19,6 +19,7 @@ local links = {
 	{ "vuetify", "https://v2.vuetifyjs.com/en/" },
 	{ "vue2", "https://v2.vuejs.org/" },
 	{ "vue3", "https://vuejs.org/guide/introduction.html" },
+	{ "nuxt3", "https://nuxt.com/docs" },
 	{ "tw", "https://tailwindcss.com/docs/customizing-colors" },
 	{ "gh", "https://github.com/" },
 	{ "local", "http://localhost:3000/" },

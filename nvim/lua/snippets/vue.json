@@ -1,0 +1,18 @@
+{
+	"Vue 2 Template": {
+		"prefix": "vue2",
+		"body": [
+			"<template>$1</template>",
+			"",
+			"<script>",
+			"export default {$2}",
+			"</script>"
+		],
+		"description": "Create Vue2 SFC template"
+	},
+	"Import vue component": {
+		"prefix": "vimp",
+		"body": "import $1 from '@/components/$2/$1.vue'",
+		"description": "Import vue file"
+	}
+}

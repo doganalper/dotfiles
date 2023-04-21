@@ -11,10 +11,7 @@ require("nvim-tree").setup({
 		adaptive_size = true,
 		number = true,
 		relativenumber = true,
-		side = "right",
-		float = {
-			enable = true,
-		},
+		side = "left",
 	},
 	git = {
 		ignore = false,

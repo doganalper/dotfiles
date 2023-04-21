@@ -9,13 +9,14 @@ vim.o.clipboard = "unnamedplus"
 vim.o.hidden = true
 vim.o.t_Co = 256
 vim.o.mouse = "a"
-vim.o.pumheight = 10
+vim.opt.pumheight = 10
 vim.o.signcolumn = "yes"
 vim.o.autoread = true
 vim.o.encoding = "utf-8"
 vim.o.updatetime = 100
 vim.o.foldenable = true
 vim.o.foldmethod = "manual"
+vim.o.cursorline = true
 
 local general_sets = {
 	"syntax on",

@@ -1,6 +1,17 @@
 local commonDisables = { "help" }
 
 require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"vim",
+		"typescript",
+		"lua",
+		"vimdoc",
+		"vue",
+		"tsx",
+		"jsdoc",
+		"html",
+		"css",
+	},
 	highlight = {
 		enable = true,
 		disable = commonDisables,

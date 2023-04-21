@@ -24,12 +24,12 @@ COLOR_DIR=$'\e[38;5;197m'
 COLOR_GIT=$'\e[38;5;39m'
 NEW_LINE=$'\n'
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_DIR}%2~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}'
+export PROMPT='${COLOR_DIR}%2~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEW_LINE}'
 export DENO_INSTALL="/Users/alperdogan/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH":~/.node/bin
-export FZF_DEFAULT_OPTS='--height 40% --border'
+export FZF_DEFAULT_OPTS='--layout=reverse'
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

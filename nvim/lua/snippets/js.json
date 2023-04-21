@@ -27,6 +27,11 @@
 			"}"
 		]
 	},
+	"JSDOC Return": {
+		"prefix": "jdreturn",
+		"body": "/** @returns {$1} */",
+		"description": "Insert function return type with JSDOC"
+	},
 	"Create Spec Template": {
 	    "prefix": "spec",
 	    "body": [
@@ -41,24 +46,24 @@
 	      "})"
 	    ]
 	  },
-	  "Create It": {
+	"Create It": {
 	    "prefix": "itspec",
 	    "body": ["it('should $1', () => {", "$2", "})"]
-	  },
-	  "Snapshot": {
+	},
+	"Snapshot": {
 	    "prefix": "snap",
 	    "body": ["expect(wrapper.html()).toMatchSnapshot()"]
-	  },
-	  "Inline Snapshot": {
+	},
+	"Inline Snapshot": {
 	    "prefix": "inlinesnap",
 	    "body": ["expect(wrapper.html()).toMatchInlineSnapshot()"]
-	  },
-	  "Create Wrapper": {
+	},
+	"Create Wrapper": {
 	    "prefix": "cwrapper",
 	    "body": ["const wrapper = factory($1)", "$2"]
-	  },
-	  "Match Text": {
+	},
+	"Match Text": {
 	    "prefix": "etext",
 	    "body": "expect(wrapper.text()).toContain($1)"
-	  }
+	}
 }
