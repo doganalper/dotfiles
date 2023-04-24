@@ -17,6 +17,8 @@ vim.o.updatetime = 100
 vim.o.foldenable = true
 vim.o.foldmethod = "manual"
 vim.o.cursorline = true
+vim.opt.splitright = true -- Split windows right to the current windows
+vim.opt.splitbelow = true -- Split windows below to the current windows
 
 local general_sets = {
 	"syntax on",
