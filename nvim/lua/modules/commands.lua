@@ -12,9 +12,6 @@ vim.api.nvim_create_user_command("RP", function(val)
 	vim.cmd("%s/" .. val.args:gsub(" ", "/") .. "/g")
 end, { nargs = 1 })
 
--- Treesitter toggle highlight
-vim.api.nvim_create_user_command("TSH", "TSBufToggle highlight", {})
-
 local links = {
 	{ "vuetify", "https://v2.vuetifyjs.com/en/" },
 	{ "vue2", "https://v2.vuejs.org/" },

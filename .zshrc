@@ -8,6 +8,7 @@ alias vi="\nvim"
 alias tmux='tmux -f ~/.config/tmux/.tmux.conf'
 alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
+alias cover="~/Desktop/projects/cover-letter-generator"
 
 eval $(/opt/homebrew/bin/brew shellenv)
 

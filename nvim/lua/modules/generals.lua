@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.wrap = true
@@ -14,11 +15,16 @@ vim.o.signcolumn = "yes"
 vim.o.autoread = true
 vim.o.encoding = "utf-8"
 vim.o.updatetime = 100
-vim.o.foldenable = true
-vim.o.foldmethod = "manual"
 vim.o.cursorline = true
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
+
+-- folding
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 local general_sets = {
 	"syntax on",

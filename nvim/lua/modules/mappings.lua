@@ -1,7 +1,5 @@
 require("helpers")
 
-vim.g.mapleader = " "
-
 local function GitBlame()
 	if vim.bo.filetype == "fugitiveblame" then
 		vim.cmd("x")
@@ -14,6 +12,7 @@ Bind("i", "jj", "<ESC>", { desc = "Map jj to <Esc>" })
 Bind("n", "<leader>o", "<cmd>Telescope find_files<cr>", { desc = "Space [O]pen" })
 Bind("n", "<leader>f", "<cmd>Telescope live_grep<cr>", { desc = "Space [F]ind" })
 Bind("n", "<leader>wf", "<cmd>Telescope grep_string<cr>", { desc = "[W]ord [F]ind" })
+Bind("n", "<leader>sd", "<cmd>Telescope diagnostics<cr>", { desc = "[S]how [D]iagnostics" })
 Bind("n", "<leader><leader>", "<cmd>Telescope<cr>", { desc = "Map space-space to see Telescope menu" })
 Bind("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Map space-1 to toggle folder tree" })
 Bind("n", "<leader>rf", function()
@@ -66,3 +65,19 @@ Bind("n", "<C-Right>", "<cmd>vertical resize +4<cr>", { desc = "Increase window 
 
 -- Clear search with <esc>
 Bind({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
+-- Folding
+local ufo = require("ufo")
+Bind("n", "zR", ufo.openAllFolds, { desc = "Open All Folds" })
+Bind("n", "zM", ufo.closeAllFolds, { desc = "Close All Folds" })
+Bind("n", "K", function()
+	local winid = ufo.peekFoldedLinesUnderCursor()
+	if not winid then
+		vim.lsp.buf.hover()
+	end
+end)
+
+-- Split Size Changes
+Bind("n", "<leader>whe", "<C-w>|", { desc = "[W]indow [H]orizontally [E]xpand", silent = true })
+Bind("n", "<leader>wve", "<C-w>_", { desc = "[W]indow [V]ertically [E]xpand", silent = true })
+Bind("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
