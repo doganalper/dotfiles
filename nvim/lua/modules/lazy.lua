@@ -23,6 +23,11 @@ local plugins = {
 	"lukas-reineke/indent-blankline.nvim",
 }
 
-local opts = {}
+local opts = {
+	change_detection = {
+		enabled = true,
+		notify = false,
+	},
+}
 
 require("lazy").setup(plugins, opts)
