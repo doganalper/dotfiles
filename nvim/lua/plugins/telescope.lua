@@ -27,6 +27,7 @@ return {
 				colorscheme = commonDropdown,
 				oldfiles = commonDropdown,
 				find_files = commonDropdown,
+				buffers = commonDropdown,
 			},
 			extensions = {
 				advanced_git_search = {
