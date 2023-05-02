@@ -15,6 +15,7 @@ local plugins = {
 	{ import = "plugins.treesitter" },
 	{ import = "plugins.ufo" },
 	{ import = "plugins.vim-go" },
+	{ import = "plugins.wilder" },
 	"tpope/vim-fugitive",
 	"nvim-lua/plenary.nvim",
 	"jiangmiao/auto-pairs",
