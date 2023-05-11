@@ -23,8 +23,12 @@ end, { desc = "Space [R]ecent [F]iles" })
 Bind("n", "<leader>tsp", "<cmd>TSPlaygroundToggle<cr>", { desc = "[T]ree[s]itter [P]layground" })
 
 -- background theme
-Bind("n", "<leader>sbd", "<cmd>set background=dark<cr>", { desc = "[S]et [B]ackground [D]ark" })
-Bind("n", "<leader>sbl", "<cmd>set background=light<cr>", { desc = "[S]et [B]ackground [L]ight" })
+Bind("n", "<leader>sbd", function()
+	vim.cmd("colorscheme catppuccin")
+end, { desc = "[S]et [B]ackground [D]ark" })
+Bind("n", "<leader>sbl", function()
+	vim.cmd("colorscheme tokyonight-day")
+end, { desc = "[S]et [B]ackground [L]ight" })
 
 -- Git Mappings
 -- Extension for git commits see:https://github.com/aaronhallaert/advanced-git-search.nvim
@@ -72,9 +76,6 @@ Bind("n", "zR", ufo.openAllFolds, { desc = "Open All Folds" })
 Bind("n", "zM", ufo.closeAllFolds, { desc = "Close All Folds" })
 Bind("n", "K", function()
 	local winid = ufo.peekFoldedLinesUnderCursor()
-	if not winid then
-		vim.lsp.buf.hover()
-	end
 end)
 
 -- Split Size Changes

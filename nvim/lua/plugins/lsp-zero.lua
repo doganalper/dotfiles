@@ -1,6 +1,6 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
-	branch = "v1.x",
+	branch = "v2.x",
 	dependencies = {
 		-- LSP Support
 		{ "neovim/nvim-lspconfig" }, -- Required
@@ -21,7 +21,8 @@ return {
 		local lsp = require("lsp-zero")
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
-		local root_pattern = require("lspconfig").util.root_pattern
+		local lsp_config = require("lspconfig")
+		local root_pattern = lsp_config.util.root_pattern
 		local lspkind = require("lspkind")
 
 		lsp.preset("recommended")
@@ -55,7 +56,7 @@ return {
 			end, { buffer = bufnr, desc = "[G]oto [R]eferences" })
 		end)
 
-		lsp.configure("eslint", {
+		lsp_config.eslint.setup({
 			on_attach = function()
 				-- Map space-ef to eslintfix
 				Bind(
@@ -68,7 +69,10 @@ return {
 			capabilities = capabilities,
 		})
 
-		lsp.configure("tsserver", {
+		lsp_config.tsserver.setup({
+			on_attach = function()
+				print("AA")
+			end,
 			settings = {
 				completions = {
 					completeFunctionCalls = true,
@@ -78,19 +82,20 @@ return {
 		})
 
 		-- attach vetur when there's a vetur file
-		lsp.configure("vuels", {
+		lsp_config.vuels.setup({
 			root_dir = root_pattern("vetur*"),
 			capabilities = capabilities,
 		})
 
 		-- attach volar when there's a vite file
-		lsp.configure("volar", {
+		lsp_config.volar.setup({
 			root_dir = root_pattern("vite*"),
 			capabilities = capabilities,
 		})
 
-		lsp.configure("lua_ls", {
+		lsp_config.lua_ls.setup({
 			on_attach = function()
+				print("LUA LS ATTACHED")
 				vim.api.nvim_create_autocmd("BufWritePost", {
 					group = vim.api.nvim_create_augroup("Lua Format", { clear = true }),
 					callback = function()
@@ -108,12 +113,11 @@ return {
 			"typescriptreact",
 			"javascriptreact",
 		}
-		lsp.configure("html", {
+		lsp_config.html.setup({
 			filetypes = htmlFileTypes,
 			capabilities = capabilities,
 		})
-
-		lsp.configure("emmet_ls", {
+		lsp_config.emmet_ls.setup({
 			filetypes = htmlFileTypes,
 			capabilities = capabilities,
 		})

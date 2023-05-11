@@ -12,6 +12,11 @@ vim.api.nvim_create_user_command("RP", function(val)
 	vim.cmd("%s/" .. val.args:gsub(" ", "/") .. "/g")
 end, { nargs = 1 })
 
+-- Replace string on line current line
+vim.api.nvim_create_user_command("RPL", function(val)
+	vim.cmd("s/" .. val.args:gsub(" ", "/") .. "/g")
+end, { nargs = 1 })
+
 local links = {
 	{ "vuetify", "https://v2.vuetifyjs.com/en/" },
 	{ "vue2", "https://v2.vuejs.org/" },

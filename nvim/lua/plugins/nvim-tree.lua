@@ -15,13 +15,15 @@ return {
 				adaptive_size = true,
 				number = true,
 				relativenumber = true,
-				float = {
-					enable = true,
-					quit_on_focus_loss = true,
-				},
+				side = "left",
 			},
 			git = {
 				ignore = false,
+			},
+			actions = {
+				open_file = {
+					quit_on_open = false,
+				},
 			},
 		})
 	end,

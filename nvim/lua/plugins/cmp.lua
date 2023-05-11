@@ -29,14 +29,12 @@ return {
 
 		-- see: https://twitter.com/thdxr/status/1623769303819460608?s=20&t=l1K_q3dsJzl0tZ_GS4NHig
 		cmp.setup({
-			mapping = ConcatTables(lsp.defaults.cmp_mappings(), {
+			mapping = cmp.mapping.preset.insert({
 				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item()
-					-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-					-- they way you will only jump inside the snippet region
-					elseif luasnip.expand_or_jumpable() then
+					if luasnip.expand_or_jumpable() then
 						luasnip.expand_or_jump()
+					elseif cmp.visible() then
+						cmp.select_next_item()
 					elseif HasWordsBefore() then
 						cmp.complete()
 					else
@@ -44,18 +42,47 @@ return {
 					end
 				end, { "i", "s" }),
 				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif luasnip.jumpable(-1) then
+					if luasnip.jumpable(-1) then
 						luasnip.jump(-1)
+					elseif cmp.visible() then
+						cmp.select_prev_item()
 					else
 						fallback()
 					end
 				end, { "i", "s" }),
 			}),
+			-- mapping = ConcatTables(lsp.defaults.cmp_mappings(), {
+			-- 	["<Tab>"] = cmp.mapping(function(fallback)
+			-- 		if cmp.visible() then
+			-- 			cmp.select_next_item()
+			-- 		elseif luasnip.expand_or_jumpable() then
+			-- 			luasnip.expand_or_jump()
+			-- 		elseif HasWordsBefore() then
+			-- 			cmp.complete()
+			-- 		else
+			-- 			fallback()
+			-- 		end
+			-- 	end, { "i", "s" }),
+			-- 	["<S-Tab>"] = cmp.mapping(function(fallback)
+			-- 		if cmp.visible() then
+			-- 			cmp.select_prev_item()
+			-- 		elseif luasnip.jumpable(-1) then
+			-- 			luasnip.jump(-1)
+			-- 		else
+			-- 			fallback()
+			-- 		end
+			-- 	end, { "i", "s" }),
+			-- 	["<C-d>"] = cmp.mapping.scroll_docs(-4),
+			-- 	["<C-u>"] = cmp.mapping.scroll_docs(4),
+			-- }),
+			view = {
+				entries = { name = "custom", selection_order = "near_cursor" },
+			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				documentation = {
+					border = { "", "", "", " ", "", "", "", " " },
+					winhighlight = "FloatBorder:NormalFloat",
+				},
 			},
 			formatting = {
 				fields = { "kind", "abbr", "menu" },

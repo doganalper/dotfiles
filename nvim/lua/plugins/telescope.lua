@@ -17,11 +17,8 @@ return {
 						prompt_position = "top",
 						preview_width = 0.6,
 					},
-					center = {
-						prompt_position = "top",
-					},
 				},
-				prompt_prefix = "🔍 ",
+				prompt_prefix = ">  ",
 			},
 			pickers = {
 				colorscheme = commonDropdown,

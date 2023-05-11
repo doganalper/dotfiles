@@ -1,6 +1,8 @@
 local plugins = {
 	{ import = "plugins.advanced-git-search" },
 	{ import = "plugins.catppuccin" },
+	{ import = "plugins.tokyo-night" },
+	{ import = "plugins.barbecue" },
 	{ import = "plugins.cmp" },
 	{ import = "plugins.devicons" },
 	{ import = "plugins.gitsigns" },
