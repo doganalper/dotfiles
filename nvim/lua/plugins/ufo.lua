@@ -37,13 +37,4 @@ return {
 			end,
 		})
 	end,
-	keys = function()
-		require("helpers")
-		local ufo = require("ufo")
-		Bind("n", "zR", ufo.openAllFolds, { desc = "Open All Folds" })
-		Bind("n", "zM", ufo.closeAllFolds, { desc = "Close All Folds" })
-		Bind("n", "K", function()
-			local winid = ufo.peekFoldedLinesUnderCursor()
-		end)
-	end
 }

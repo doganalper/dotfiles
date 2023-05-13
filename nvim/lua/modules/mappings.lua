@@ -1,16 +1,8 @@
 require("helpers")
 
 Bind("i", "jj", "<ESC>", { desc = "Map jj to <Esc>" })
-Bind("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Map space-1 to toggle folder tree" })
+-- Bind("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Map space-1 to toggle folder tree" })
 Bind("n", "<leader>tsp", "<cmd>TSPlaygroundToggle<cr>", { desc = "[T]ree[s]itter [P]layground" })
-
--- background theme
-Bind("n", "<leader>sbd", function()
-	vim.cmd("colorscheme catppuccin")
-end, { desc = "[S]et [B]ackground [D]ark" })
-Bind("n", "<leader>sbl", function()
-	vim.cmd("colorscheme tokyonight-day")
-end, { desc = "[S]et [B]ackground [L]ight" })
 
 -- Buffers
 Bind("n", "gt", function()
@@ -33,3 +25,10 @@ Bind({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlse
 Bind("n", "<leader>whe", "<C-w>|", { desc = "[W]indow [H]orizontally [E]xpand", silent = true })
 Bind("n", "<leader>wve", "<C-w>_", { desc = "[W]indow [V]ertically [E]xpand", silent = true })
 Bind("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
+
+local ufo = require('ufo')
+Bind("n", "zR", ufo.openAllFolds, { desc = "Open All Folds" })
+Bind("n", "zM", ufo.closeAllFolds, { desc = "Close All Folds" })
+Bind("n", "K", function()
+	local winid = ufo.peekFoldedLinesUnderCursor()
+end)

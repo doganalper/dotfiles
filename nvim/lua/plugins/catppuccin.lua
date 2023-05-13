@@ -42,6 +42,35 @@ return {
 					crust = "#151819",
 					prompt = "#FFFFFF",
 				},
+				latte = {
+					rosewater = "#c14a4a",
+					flamingo = "#c14a4a",
+					pink = "#945e80",
+					mauve = "#945e80",
+					red = "#c14a4a",
+					maroon = "#c14a4a",
+					peach = "#c35e0a",
+					yellow = "#a96b2c",
+					green = "#6c782e",
+					teal = "#4c7a5d",
+					sky = "#4c7a5d",
+					sapphire = "#4c7a5d",
+					blue = "#45707a",
+					lavender = "#45707a",
+					text = "#654735",
+					subtext1 = "#7b5d44",
+					subtext0 = "#8f6f56",
+					overlay2 = "#a28368",
+					overlay1 = "#b6977a",
+					overlay0 = "#c9aa8c",
+					surface2 = "#A79C86",
+					surface1 = "#C9C19F",
+					surface0 = "#DFD6B1",
+					base = "#fbf1c7",
+					mantle = "#F3EAC1",
+					crust = "#E7DEB7",
+					prompt = "#000000",
+				},
 			},
 			styles = {
 				comments = { "italic" },
@@ -89,4 +118,13 @@ return {
 
 		vim.cmd("colorscheme catppuccin")
 	end,
+	keys = function()
+		require('helpers')
+		Bind("n", "<leader>sbd", function()
+			vim.cmd("set background=light")
+		end, { desc = "[S]et [B]ackground [D]ark" })
+		Bind("n", "<leader>sbl", function()
+			vim.cmd("set background=light")
+		end, { desc = "[S]et [B]ackground [L]ight" })
+	end
 }

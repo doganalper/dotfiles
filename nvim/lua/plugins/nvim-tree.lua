@@ -26,4 +26,9 @@ return {
 			},
 		})
 	end,
+	event = "VeryLazy", -- this is here because it would not load plugin without this if keys are
+	keys = function()
+		require("helpers")
+		Bind("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Map space-1 to toggle folder tree" })
+	end
 }

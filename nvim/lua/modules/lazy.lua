@@ -1,7 +1,7 @@
 local plugins = {
+	{ import = "plugins.ufo" },
 	{ import = "plugins.advanced-git-search" },
 	{ import = "plugins.catppuccin" },
-	{ import = "plugins.tokyo-night" },
 	{ import = "plugins.barbecue" },
 	{ import = "plugins.cmp" },
 	{ import = "plugins.devicons" },
@@ -15,7 +15,6 @@ local plugins = {
 	{ import = "plugins.telescope" },
 	{ import = "plugins.todo-comments" },
 	{ import = "plugins.treesitter" },
-	{ import = "plugins.ufo" },
 	{ import = "plugins.vim-go" },
 	{ import = "plugins.wilder" },
 	{ import = "plugins.vim-fugitive" },
