@@ -39,10 +39,18 @@ return {
 			},
 		})
 
+		-- see: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#disable-semantic-highlights
+		lsp.set_server_config({
+			on_init = function(client)
+				client.server_capabilities.semanticTokensProvider = nil
+			end,
+		})
+
 		lsp.on_attach(function(client, bufnr)
 			Bind("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
 			Bind("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Space [R]e[n]ame" })
-			Bind("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
+			Bind("n", "<leader>ca", vim.lsp.buf.code_action,
+				{ buffer = bufnr, desc = "Space [C]ode [A]ction" })
 			Bind("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
 			Bind(
 				"n",
@@ -70,9 +78,6 @@ return {
 		})
 
 		lsp_config.tsserver.setup({
-			on_attach = function()
-				print("AA")
-			end,
 			settings = {
 				completions = {
 					completeFunctionCalls = true,
@@ -95,13 +100,7 @@ return {
 
 		lsp_config.lua_ls.setup({
 			on_attach = function()
-				print("LUA LS ATTACHED")
-				vim.api.nvim_create_autocmd("BufWritePost", {
-					group = vim.api.nvim_create_augroup("Lua Format", { clear = true }),
-					callback = function()
-						vim.api.nvim_command("silent !stylua -g '*.lua' -- .")
-					end,
-				})
+				lsp.buffer_autoformat({ name = "lua_ls" })
 			end,
 			capabilities = capabilities,
 		})
@@ -118,7 +117,9 @@ return {
 			capabilities = capabilities,
 		})
 		lsp_config.emmet_ls.setup({
-			filetypes = htmlFileTypes,
+			filetypes = {
+				"astro"
+			},
 			capabilities = capabilities,
 		})
 
@@ -128,4 +129,13 @@ return {
 			virtual_text = true,
 		})
 	end,
+	keys = function()
+		require("helpers")
+
+		-- Vim Related Mappings
+		Bind("n", "<leader>LR", function()
+			vim.cmd("LspRestart")
+			print("Lsp Restarted")
+		end, { desc = "Space [L]sp [R]estart", silent = false })
+	end
 }

@@ -9,32 +9,47 @@ return {
 
 		local function formatForTailwindCSS(entry, vim_item)
 			if vim_item.kind == "Color" and entry.completion_item.documentation then
-				local _, _, r, g, b = string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
+				local _, _, r, g, b = string.find(entry.completion_item.documentation,
+					"^rgb%((%d+), (%d+), (%d+)")
 				if r then
-					local color = string.format("%02x", r) .. string.format("%02x", g) .. string.format("%02x", b)
+					local color = string.format("%02x", r) ..
+					    string.format("%02x", g) .. string.format("%02x", b)
 					local group = "Tw_" .. color
 					if vim.fn.hlID(group) < 1 then
 						vim.api.nvim_set_hl(0, group, { fg = "#" .. color })
 					end
-					vim_item.kind = "●" -- or "■" or anything
+					vim_item.kind = "■" -- or "●" or anything
 					vim_item.kind_hl_group = group
 					return vim_item
 				end
 			end
-			-- vim_item.kind = icons[vim_item.kind] and (icons[vim_item.kind] .. vim_item.kind) or vim_item.kind
-			-- or just show the icon
-			vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
+			vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or
+			    vim_item.kind
 			return vim_item
 		end
 
 		-- see: https://twitter.com/thdxr/status/1623769303819460608?s=20&t=l1K_q3dsJzl0tZ_GS4NHig
 		cmp.setup({
-			mapping = cmp.mapping.preset.insert({
+			enabled = function()
+				-- disable completion in comments
+				local context = require("cmp.config.context")
+				-- keep command mode completion enabled when cursor is in a comment
+				if vim.api.nvim_get_mode().mode == "c" then
+					return true
+				else
+					return not context.in_treesitter_capture("comment") and
+					    not context.in_syntax_group("Comment")
+				end
+			end,
+			-- don't auto select item
+			preselect = cmp.PreselectMode.None,
+			mapping = ConcatTables(lsp.defaults.cmp_mappings(), {
+				['<CR>'] = cmp.mapping.confirm(),
 				["<Tab>"] = cmp.mapping(function(fallback)
-					if luasnip.expand_or_jumpable() then
-						luasnip.expand_or_jump()
-					elseif cmp.visible() then
+					if cmp.visible() then
 						cmp.select_next_item()
+					elseif luasnip.expand_or_jumpable() then
+						luasnip.expand_or_jump()
 					elseif HasWordsBefore() then
 						cmp.complete()
 					else
@@ -42,42 +57,15 @@ return {
 					end
 				end, { "i", "s" }),
 				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if luasnip.jumpable(-1) then
-						luasnip.jump(-1)
-					elseif cmp.visible() then
+					if cmp.visible() then
 						cmp.select_prev_item()
+					elseif luasnip.jumpable(-1) then
+						luasnip.jump(-1)
 					else
 						fallback()
 					end
 				end, { "i", "s" }),
 			}),
-			-- mapping = ConcatTables(lsp.defaults.cmp_mappings(), {
-			-- 	["<Tab>"] = cmp.mapping(function(fallback)
-			-- 		if cmp.visible() then
-			-- 			cmp.select_next_item()
-			-- 		elseif luasnip.expand_or_jumpable() then
-			-- 			luasnip.expand_or_jump()
-			-- 		elseif HasWordsBefore() then
-			-- 			cmp.complete()
-			-- 		else
-			-- 			fallback()
-			-- 		end
-			-- 	end, { "i", "s" }),
-			-- 	["<S-Tab>"] = cmp.mapping(function(fallback)
-			-- 		if cmp.visible() then
-			-- 			cmp.select_prev_item()
-			-- 		elseif luasnip.jumpable(-1) then
-			-- 			luasnip.jump(-1)
-			-- 		else
-			-- 			fallback()
-			-- 		end
-			-- 	end, { "i", "s" }),
-			-- 	["<C-d>"] = cmp.mapping.scroll_docs(-4),
-			-- 	["<C-u>"] = cmp.mapping.scroll_docs(4),
-			-- }),
-			view = {
-				entries = { name = "custom", selection_order = "near_cursor" },
-			},
 			window = {
 				documentation = {
 					border = { "", "", "", " ", "", "", "", " " },
@@ -107,7 +95,6 @@ return {
 			},
 			sources = cmp.config.sources({
 				-- { name = "nvim_lsp" },
-				-- change trigger count because tailwindlsp is very laggy see:https://www.reddit.com/r/neovim/comments/zkj1d8/how_do_you_handle_laggyfreezing_autocompletion/
 				{ name = "nvim_lsp", keyword_length = 3, group_index = 1, max_item_count = 20 },
 				{ name = "luasnip" },
 			}, {

@@ -3,9 +3,9 @@ return {
 	dependencies = {
 		"nvim-treesitter/playground",
 	},
+	build = ":TSUpdate",
 	config = function()
 		local commonDisables = { "help" }
-
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
 				"vim",
