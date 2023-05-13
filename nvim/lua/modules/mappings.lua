@@ -13,7 +13,6 @@ Bind("n", "<leader>sbl", function()
 end, { desc = "[S]et [B]ackground [L]ight" })
 
 -- Buffers
-Bind("n", "<leader>cb", "<cmd>bd<cr>", { desc = "Space [C]lose [B]uffer" })
 Bind("n", "gt", function()
 	vim.cmd(vim.v.count .. "bnext")
 end, { desc = "Space [B]uffer Next" })
