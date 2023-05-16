@@ -18,6 +18,7 @@ local plugins = {
 	{ import = "plugins.vim-go" },
 	{ import = "plugins.wilder" },
 	{ import = "plugins.vim-fugitive" },
+	{ import = "plugins.null-ls" },
 	"nvim-lua/plenary.nvim",
 	"jiangmiao/auto-pairs",
 	"JoosepAlviste/nvim-ts-context-commentstring",

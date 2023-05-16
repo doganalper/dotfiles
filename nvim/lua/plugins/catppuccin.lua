@@ -121,7 +121,7 @@ return {
 	keys = function()
 		require('helpers')
 		Bind("n", "<leader>sbd", function()
-			vim.cmd("set background=light")
+			vim.cmd("set background=dark")
 		end, { desc = "[S]et [B]ackground [D]ark" })
 		Bind("n", "<leader>sbl", function()
 			vim.cmd("set background=light")

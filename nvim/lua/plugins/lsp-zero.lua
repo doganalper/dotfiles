@@ -99,9 +99,6 @@ return {
 		})
 
 		lsp_config.lua_ls.setup({
-			on_attach = function()
-				lsp.buffer_autoformat({ name = "lua_ls" })
-			end,
 			capabilities = capabilities,
 		})
 
@@ -121,6 +118,18 @@ return {
 				"astro"
 			},
 			capabilities = capabilities,
+		})
+
+		lsp.format_on_save({
+			format_opts = {
+				async = false,
+				timeout_ms = 10000,
+			},
+			servers = {
+				['lua_ls'] = { 'lua' },
+				['null-ls'] = { 'javascript', 'typescript', 'vue', 'typescriptreact', 'astro',
+					'javascriptreact' },
+			}
 		})
 
 		lsp.setup()
