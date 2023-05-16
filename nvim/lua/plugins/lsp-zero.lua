@@ -120,7 +120,8 @@ return {
 			capabilities = capabilities,
 		})
 
-		lsp.format_on_save({
+		-- lsp.format_on_save({
+		lsp.format_mapping('gq', {
 			format_opts = {
 				async = false,
 				timeout_ms = 10000,
