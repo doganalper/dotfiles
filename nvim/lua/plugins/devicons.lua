@@ -120,11 +120,6 @@ return {
 					color = colors.red,
 					name = "Rb",
 				},
-				vue = {
-					icon = "﵂",
-					color = colors.green,
-					name = "Vue",
-				},
 				py = {
 					icon = "",
 					color = colors.yellow,
@@ -284,16 +279,6 @@ return {
 					icon = "",
 					color = colors.blue,
 					name = "Reacttypescriptspectest",
-				},
-				Makefile = {
-					icon = "",
-					color = colors.peach,
-					name = "Makefile",
-				},
-				snap = {
-					icon = "",
-					color = colors.text,
-					name = "Snap",
 				},
 				astro = {
 					icon = "",
