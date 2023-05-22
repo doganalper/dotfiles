@@ -9,7 +9,7 @@ alias tmux='tmux -f ~/.config/tmux/.tmux.conf'
 alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
 alias cover="~/Desktop/projects/cover-letter-generator"
-alias kill3000="kill -9 $(lsof -ti:3000)"
+alias kill3000="kill -9 \$(lsof -ti:3000)"
 
 eval $(/opt/homebrew/bin/brew shellenv)
 
