@@ -29,8 +29,19 @@
 	},
 	"JSDOC Return": {
 		"prefix": "jdreturn",
-		"body": "/** @returns {$1} */",
+		"body": "/** @return {$1} */",
 		"description": "Insert function return type with JSDOC"
+	},
+	"JSDOC Typedef": {
+		"prefix": "jdtype",
+		"body": [
+			"/**",
+			" * @typedef $1",
+			" * @type {Object}",
+			" * @property {string} $2",
+			"*/"
+		],
+		"description": "Declare type definition with JSDOC"
 	},
 	"Create Spec Template": {
 	    "prefix": "spec",

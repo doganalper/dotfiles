@@ -30,7 +30,7 @@ return {
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		lsp.set_preferences({
-			set_lsp_keymaps = { omit = { "K", "<F4>", "<F2>", "gr" } },
+			set_lsp_keymaps = { omit = { "K", "<F4>", "<F2>", "gr", 'gi', 'gd' } },
 			sign_icons = {
 				error = "E",
 				warn = "W",
@@ -51,17 +51,17 @@ return {
 			Bind("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Space [R]e[n]ame" })
 			Bind("n", "<leader>ca", vim.lsp.buf.code_action,
 				{ buffer = bufnr, desc = "Space [C]ode [A]ction" })
-			Bind("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
-			Bind(
-				"n",
-				"<leader>gtd",
-				vim.lsp.buf.type_definition,
-				{ buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
-			)
-			Bind("n", "gr", function()
-				vim.api.nvim_command("set switchbuf+=usetab,newtab")
-				vim.lsp.buf.references()
-			end, { buffer = bufnr, desc = "[G]oto [R]eferences" })
+			-- Bind("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
+			-- Bind(
+			-- 	"n",
+			-- 	"<leader>gtd",
+			-- 	vim.lsp.buf.type_definition,
+			-- 	{ buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
+			-- )
+			-- Bind("n", "gr", function()
+			-- 	vim.api.nvim_command("set switchbuf+=usetab,newtab")
+			-- 	vim.lsp.buf.references()
+			-- end, { buffer = bufnr, desc = "[G]oto [R]eferences" })
 		end)
 
 		lsp_config.eslint.setup({

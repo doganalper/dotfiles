@@ -6,7 +6,7 @@ return {
 				theme = "auto",
 				component_separators = "",
 				section_separators = "",
-				disabled_filetypes = { "NvimTree", "fugitiveblame" },
+				disabled_filetypes = { "NvimTree", "fugitiveblame", "neo-tree" },
 			},
 			sections = {
 				lualine_b = {
@@ -22,7 +22,6 @@ return {
 			},
 			inactive_sections = {
 				lualine_c = {
-					"%=",
 					{ "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
 					{
 						"filename",
