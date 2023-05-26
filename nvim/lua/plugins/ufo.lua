@@ -49,4 +49,13 @@ return {
 			end,
 		})
 	end,
+	event = "VeryLazy",
+	keys = function()
+		local ufo = require('ufo')
+		vim.keymap.set("n", "zR", ufo.openAllFolds, { desc = "Open All Folds" })
+		vim.keymap.set("n", "zM", ufo.closeAllFolds, { desc = "Close All Folds" })
+		vim.keymap.set("n", "K", function()
+			local winid = ufo.peekFoldedLinesUnderCursor()
+		end)
+	end
 }

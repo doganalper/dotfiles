@@ -1,7 +1,6 @@
 require("helpers")
 
 vim.keymap.set("i", "jj", "<ESC>", { desc = "Map jj to <Esc>" })
--- vim.keymap.set("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Map space-1 to toggle folder tree" })
 vim.keymap.set("n", "<leader>tsp", "<cmd>TSPlaygroundToggle<cr>", { desc = "[T]ree[s]itter [P]layground" })
 
 -- Buffers
@@ -25,13 +24,6 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 vim.keymap.set("n", "<leader>whe", "<C-w>|", { desc = "[W]indow [H]orizontally [E]xpand", silent = true })
 vim.keymap.set("n", "<leader>wve", "<C-w>_", { desc = "[W]indow [V]ertically [E]xpand", silent = true })
 vim.keymap.set("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
-
-local ufo = require('ufo')
-vim.keymap.set("n", "zR", ufo.openAllFolds, { desc = "Open All Folds" })
-vim.keymap.set("n", "zM", ufo.closeAllFolds, { desc = "Close All Folds" })
-vim.keymap.set("n", "K", function()
-	local winid = ufo.peekFoldedLinesUnderCursor()
-end)
 
 vim.keymap.set("n", "<leader>sbd", function()
 	vim.cmd("set background=dark")
