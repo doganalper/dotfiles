@@ -70,6 +70,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
+-- autocommands
+-- don't auto comment new line
+vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
+
+require('helpers')
 require("modules.lazy")
 require("modules.mappings")
 require("modules.commands")

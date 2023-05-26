@@ -27,5 +27,3 @@ function HasValue(tab, val)
 
 	return false
 end
-
-Bind = vim.keymap.set

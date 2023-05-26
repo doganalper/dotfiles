@@ -47,8 +47,6 @@ return {
 		)
 	end,
 	keys = function()
-		require('helpers')
-
-		Bind('n', '<leader>1', "<cmd>Neotree toggle<cr>")
+		vim.keymap.set('n', '<leader>1', "<cmd>Neotree toggle<cr>")
 	end
 }

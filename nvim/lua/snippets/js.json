@@ -36,8 +36,7 @@
 		"prefix": "jdtype",
 		"body": [
 			"/**",
-			" * @typedef $1",
-			" * @type {Object}",
+			" * @typedef {Object} $1",
 			" * @property {string} $2",
 			"*/"
 		],

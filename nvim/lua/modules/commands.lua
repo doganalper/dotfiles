@@ -24,7 +24,8 @@ local links = {
 	{ "nuxt3", "https://nuxt.com/docs" },
 	{ "tw", "https://tailwindcss.com/docs/customizing-colors" },
 	{ "gh", "https://github.com/" },
-	{ "local", "http://localhost:3000/" },
+	{ "3000", "http://localhost:3000/" },
+	{ "8895", "http://localhost:8895/" },
 	{ "go", "http://google.com" },
 
 	-- JOB SPECIFIC LINKS

@@ -47,18 +47,18 @@ return {
 		})
 
 		lsp.on_attach(function(client, bufnr)
-			Bind("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
-			Bind("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Space [R]e[n]ame" })
-			Bind("n", "<leader>ca", vim.lsp.buf.code_action,
+			vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Space [R]e[n]ame" })
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
 				{ buffer = bufnr, desc = "Space [C]ode [A]ction" })
-			-- Bind("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
-			-- Bind(
+			-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
+			-- vim.keymap.set(
 			-- 	"n",
 			-- 	"<leader>gtd",
 			-- 	vim.lsp.buf.type_definition,
 			-- 	{ buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
 			-- )
-			-- Bind("n", "gr", function()
+			-- vim.keymap.set("n", "gr", function()
 			-- 	vim.api.nvim_command("set switchbuf+=usetab,newtab")
 			-- 	vim.lsp.buf.references()
 			-- end, { buffer = bufnr, desc = "[G]oto [R]eferences" })
@@ -67,7 +67,7 @@ return {
 		lsp_config.eslint.setup({
 			on_attach = function()
 				-- Map space-ef to eslintfix
-				Bind(
+				vim.keymap.set(
 					"n",
 					"<leader>ef",
 					"<cmd>EslintFixAll<cr>",
@@ -115,7 +115,8 @@ return {
 		})
 		lsp_config.emmet_ls.setup({
 			filetypes = {
-				"astro"
+				"astro",
+				"html"
 			},
 			capabilities = capabilities,
 		})
@@ -140,10 +141,8 @@ return {
 		})
 	end,
 	keys = function()
-		require("helpers")
-
 		-- Vim Related Mappings
-		Bind("n", "<leader>LR", function()
+		vim.keymap.set("n", "<leader>LR", function()
 			vim.cmd("LspRestart")
 			print("Lsp Restarted")
 		end, { desc = "Space [L]sp [R]estart", silent = false })
