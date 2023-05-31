@@ -17,6 +17,10 @@ vim.api.nvim_create_user_command("RPL", function(val)
 	vim.cmd("s/" .. val.args:gsub(" ", "/") .. "/g")
 end, { nargs = 1 })
 
+vim.api.nvim_create_user_command('Note', function ()
+	vim.cmd('vnew notes.md')
+end, {})
+
 local links = {
 	{ "vuetify", "https://v2.vuetifyjs.com/en/" },
 	{ "vue2", "https://v2.vuejs.org/" },

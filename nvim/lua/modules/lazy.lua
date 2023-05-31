@@ -2,7 +2,6 @@ local plugins = {
 	{ import = "plugins.ufo" },
 	{ import = "plugins.advanced-git-search" },
 	{ import = "plugins.github-theme" },
-	{ import = "plugins.barbecue" },
 	{ import = "plugins.cmp" },
 	{ import = "plugins.devicons" },
 	{ import = "plugins.gitsigns" },
