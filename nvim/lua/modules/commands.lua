@@ -33,7 +33,6 @@ local links = {
 	{ "go", "http://google.com" },
 
 	-- JOB SPECIFIC LINKS
-	{ "linear", "https://linear.app/storespy/team/DEV/active" },
 }
 
 for i = 1, #links do
