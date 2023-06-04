@@ -2,7 +2,7 @@
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
 # Aliases
-alias ll='ls -l -a'
+alias l='lsd -l -a'
 alias config='cd ~/.config && nvim'
 alias vi="\nvim"
 alias tmux='tmux -f ~/.config/tmux/.tmux.conf'

@@ -9,8 +9,7 @@ return {
 					prefer_local = "node_modules/.bin",
 					extra_filetypes = { "astro" },
 				}),
-				-- null_ls.builtins.formatting.prettier,
-				-- null_ls.builtins.diagnostics.eslint,
+				null_ls.builtins.formatting.phpcsfixer
 			},
 		})
 	end

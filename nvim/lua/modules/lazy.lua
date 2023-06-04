@@ -3,6 +3,7 @@ local plugins = {
 	{ import = "plugins.advanced-git-search" },
 	{ import = "plugins.github-theme" },
 	{ import = "plugins.cmp" },
+	{ import = 'plugins.tokyo-night' },
 	{ import = "plugins.devicons" },
 	{ import = "plugins.gitsigns" },
 	{ import = "plugins.lsp-zero" },

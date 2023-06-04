@@ -48,32 +48,13 @@ return {
 
 		lsp.on_attach(function(client, bufnr)
 			vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Space [R]e[n]ame" })
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename,
+				{ buffer = bufnr, desc = "Space [R]e[n]ame" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
 				{ buffer = bufnr, desc = "Space [C]ode [A]ction" })
-			-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
-			-- vim.keymap.set(
-			-- 	"n",
-			-- 	"<leader>gtd",
-			-- 	vim.lsp.buf.type_definition,
-			-- 	{ buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
-			-- )
-			-- vim.keymap.set("n", "gr", function()
-			-- 	vim.api.nvim_command("set switchbuf+=usetab,newtab")
-			-- 	vim.lsp.buf.references()
-			-- end, { buffer = bufnr, desc = "[G]oto [R]eferences" })
 		end)
 
 		lsp_config.eslint.setup({
-			on_attach = function()
-				-- Map space-ef to eslintfix
-				vim.keymap.set(
-					"n",
-					"<leader>ef",
-					"<cmd>EslintFixAll<cr>",
-					{ noremap = true, silent = false, desc = "Space [E]slint [F]ix" }
-				)
-			end,
 			capabilities = capabilities,
 		})
 
@@ -130,7 +111,7 @@ return {
 			servers = {
 				['lua_ls'] = { 'lua' },
 				['null-ls'] = { 'javascript', 'typescript', 'vue', 'typescriptreact', 'astro',
-					'javascriptreact' },
+					'javascriptreact', 'php' },
 			}
 		})
 

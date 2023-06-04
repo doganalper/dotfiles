@@ -8,6 +8,7 @@ return {
 		local commonDisables = { "help" }
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
+				"astro",
 				"vim",
 				"typescript",
 				"lua",

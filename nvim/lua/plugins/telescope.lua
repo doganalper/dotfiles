@@ -12,6 +12,7 @@ return {
 
 		local filePicker = ConcatTables(commonDropdown, {
 			hidden = true,
+			no_ignore = false
 		})
 
 		telescope.setup({
