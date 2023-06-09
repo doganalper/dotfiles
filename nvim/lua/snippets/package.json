@@ -6,6 +6,8 @@
 				"language": [
 					"typescript",
 					"typescriptreact",
+					"typescript.tsx",
+					"javascript.jsx",
 					"javascriptreact",
 					"javascript",
 					"astro",

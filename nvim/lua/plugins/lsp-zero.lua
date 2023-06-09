@@ -97,7 +97,9 @@ return {
 		lsp_config.emmet_ls.setup({
 			filetypes = {
 				"astro",
-				"html"
+				"html",
+				"typescriptreact",
+				"javascriptreact",
 			},
 			capabilities = capabilities,
 		})

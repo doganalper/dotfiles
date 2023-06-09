@@ -5,7 +5,9 @@ return {
 	config = function()
 		require('glance').setup({
 			border = {
-				enable = true
+				enable = true,
+				top_char = '―',
+				bottom_char = '―',
 			},
 		})
 	end,

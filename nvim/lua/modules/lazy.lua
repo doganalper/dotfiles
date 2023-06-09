@@ -1,10 +1,10 @@
 local plugins = {
+	{ import = "plugins.devicons" },
 	{ import = "plugins.ufo" },
 	{ import = "plugins.advanced-git-search" },
 	{ import = "plugins.github-theme" },
 	{ import = "plugins.cmp" },
 	{ import = 'plugins.tokyo-night' },
-	{ import = "plugins.devicons" },
 	{ import = "plugins.gitsigns" },
 	{ import = "plugins.lsp-zero" },
 	{ import = "plugins.lsp-kind" },
