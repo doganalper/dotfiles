@@ -80,6 +80,13 @@ return {
 		})
 
 		lsp_config.lua_ls.setup({
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" }
+					}
+				}
+			},
 			capabilities = capabilities,
 		})
 

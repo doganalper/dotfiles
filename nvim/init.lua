@@ -74,6 +74,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- don't auto comment new line
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
+-- resize split on terminal split
+vim.api.nvim_command('autocmd VimResized * wincmd =')
+
 require('helpers')
 require("modules.lazy")
 require("modules.mappings")
