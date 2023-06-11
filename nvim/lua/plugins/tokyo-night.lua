@@ -4,9 +4,9 @@ return {
 	priority = 1000,
 	config = function()
 		require('tokyonight').setup({
-			style = "moon",
+			style = "night",
 			light_style = "day",
-			transparent = true,
+			transparent = false,
 			on_highlights = function(hl, colors)
 				-- change active line number color
 				hl.CursorLineNr = {
@@ -18,21 +18,23 @@ return {
 					fg = colors.red
 				}
 
-				hl.GlancePreviewNormal = {
-					bg = colors.bg
-				}
+				-- NOTE: Uncomment these if transparent is back on the table
 
-				hl.GlancePreviewMatch = {
-					bg = colors.bg_dark
-				}
+				-- hl.GlancePreviewNormal = {
+				-- 	bg = colors.bg
+				-- }
 
-				hl.GlanceListNormal = {
-					bg = colors.bg
-				}
+				-- hl.GlancePreviewMatch = {
+				-- 	bg = colors.bg_dark
+				-- }
 
-				hl.GlanceListMatch = {
-					bg = colors.bg_dark
-				}
+				-- hl.GlanceListNormal = {
+				-- 	bg = colors.bg
+				-- }
+
+				-- hl.GlanceListMatch = {
+				-- 	bg = colors.bg_dark
+				-- }
 
 			end
 		})

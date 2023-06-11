@@ -12,10 +12,10 @@ vim.keymap.set("n", "gT", function()
 end, { desc = "Space [B]uffer Prev" })
 
 -- Set size of window
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +4<cr>", { desc = "Increase window height", noremap = true })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -4<cr>", { desc = "Decrease window height", noremap = true })
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
+vim.keymap.set("n", "<C-k>", "<cmd>resize +4<cr>", { desc = "Increase window height", noremap = true })
+vim.keymap.set("n", "<C-j>", "<cmd>resize -4<cr>", { desc = "Decrease window height", noremap = true })
+vim.keymap.set("n", "<C-h>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
+vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
 
 -- Clear search with <esc>
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })

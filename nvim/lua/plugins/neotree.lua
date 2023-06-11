@@ -39,8 +39,9 @@ return {
 				mappings = {
 					["H"] = "toggle_hidden",
 					["W"] = "close_all_nodes",
-					["v"] = "open_split",
-					["h"] = "open_vsplit",
+					["x"] = "open_split",
+					["v"] = "open_vsplit",
+					["X"] = "cut_to_clipboard",
 				}
 			},
 		}
