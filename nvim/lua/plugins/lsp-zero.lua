@@ -120,7 +120,7 @@ return {
 			servers = {
 				['lua_ls'] = { 'lua' },
 				['null-ls'] = { 'javascript', 'typescript', 'vue', 'typescriptreact', 'astro',
-					'javascriptreact', 'php' },
+					'javascriptreact' },
 			}
 		})
 

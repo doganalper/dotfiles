@@ -9,6 +9,10 @@ return {
 				top_char = '―',
 				bottom_char = '―',
 			},
+			folds = {
+				fold_closed = '>',
+				fold_open = 'v',
+			},
 			hooks = {
 				before_open = function(results, open, jump, method)
 					local uri = vim.uri_from_bufnr(0)
