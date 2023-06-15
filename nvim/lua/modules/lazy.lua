@@ -22,6 +22,7 @@ local plugins = {
 	{ import = "plugins.null-ls" },
 	{ import = "plugins.glance" },
 	{ import = "plugins.auto-pairs" },
+	{ import = "plugins.bufferline" },
 	"nvim-lua/plenary.nvim",
 	-- "jiangmiao/auto-pairs",
 	"JoosepAlviste/nvim-ts-context-commentstring",
