@@ -38,3 +38,6 @@ local opts = {
 }
 
 require("lazy").setup(plugins, opts)
+
+-- POSSIBLE PLUGINS (check out later)
+-- https://github.com/sindrets/diffview.nvim

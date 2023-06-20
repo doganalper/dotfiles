@@ -41,39 +41,5 @@
 			"*/"
 		],
 		"description": "Declare type definition with JSDOC"
-	},
-	"Create Spec Template": {
-	    "prefix": "spec",
-	    "body": [
-	      "import {mount} from '@vue/test-utils'",
-	      "import {expect, describe, it} from 'vitest'",
-	      "import $1 from '@/components/$2/$1.vue'",
-	      "",
-	      "const factory = () => mount($1, {$3})",
-	      "",
-	      "describe('$1', () => {",
-	      "$4",
-	      "})"
-	    ]
-	  },
-	"Create It": {
-	    "prefix": "itspec",
-	    "body": ["it('should $1', () => {", "$2", "})"]
-	},
-	"Snapshot": {
-	    "prefix": "snap",
-	    "body": ["expect(wrapper.html()).toMatchSnapshot()"]
-	},
-	"Inline Snapshot": {
-	    "prefix": "inlinesnap",
-	    "body": ["expect(wrapper.html()).toMatchInlineSnapshot()"]
-	},
-	"Create Wrapper": {
-	    "prefix": "cwrapper",
-	    "body": ["const wrapper = factory($1)", "$2"]
-	},
-	"Match Text": {
-	    "prefix": "etext",
-	    "body": "expect(wrapper.text()).toContain($1)"
 	}
 }
