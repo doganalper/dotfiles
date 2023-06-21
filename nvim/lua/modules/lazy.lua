@@ -1,6 +1,5 @@
 local plugins = {
 	{ import = "plugins.devicons" },
-	{ import = "plugins.ufo" },
 	{ import = "plugins.advanced-git-search" },
 	{ import = "plugins.github-theme" },
 	{ import = "plugins.cmp" },

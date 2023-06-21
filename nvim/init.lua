@@ -35,13 +35,6 @@ vim.opt.splitbelow = true -- Split windows below to the current windows
 
 vim.opt.pumheight = 0 -- this sets height of the popup menu
 
--- folding
-vim.opt.foldcolumn = "1"
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
-vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
 local general_sets = {
 	"syntax on",
 }

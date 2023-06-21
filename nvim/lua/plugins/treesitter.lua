@@ -10,6 +10,7 @@ return {
 			ensure_installed = {
 				"astro",
 				"vim",
+				"javascript",
 				"typescript",
 				"lua",
 				"vimdoc",

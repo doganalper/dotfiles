@@ -64,6 +64,12 @@ return {
 					completeFunctionCalls = true,
 				},
 			},
+			filetypes = {
+				"javascript",
+				"typescript",
+				"typescriptreact",
+				"javascriptreact"
+			},
 			capabilities = capabilities,
 		})
 
