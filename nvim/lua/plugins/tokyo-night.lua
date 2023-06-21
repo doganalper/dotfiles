@@ -6,7 +6,7 @@ return {
 		local setup = {
 			style = "moon",
 			light_style = "day",
-			transparent = true,
+			transparent = false,
 			on_highlights = function(hl, colors)
 				On_higlights(hl, colors)
 			end
@@ -21,6 +21,10 @@ return {
 			-- change inactive line number color
 			hl.LineNr = {
 				fg = colors.red
+			}
+
+			hl.NeoTreeWinSeparator = {
+				fg = colors.blue
 			}
 
 			if setup.transparent then
