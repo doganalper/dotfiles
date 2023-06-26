@@ -2,9 +2,7 @@ return {
 	"danymat/neogen",
 	dependencies = "nvim-treesitter/nvim-treesitter",
 	config = function()
-		require('neogen').setup({
-
-		})
+		require('neogen').setup({})
 	end,
 	event = "VeryLazy",
 	keys = function()
