@@ -33,6 +33,12 @@ vim.o.updatetime = 100
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 
+-- fold
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = true
+
+
 vim.opt.pumheight = 0 -- this sets height of the popup menu
 
 local general_sets = {
