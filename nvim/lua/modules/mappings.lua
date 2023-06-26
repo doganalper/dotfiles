@@ -31,3 +31,5 @@ end, { desc = "[S]et [B]ackground [D]ark" })
 vim.keymap.set("n", "<leader>sbl", function()
 	vim.cmd("set background=light")
 end, { desc = "[S]et [B]ackground [L]ight" })
+
+vim.keymap.set('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {desc = "[S]ignature"})
