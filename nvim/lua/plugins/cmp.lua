@@ -94,7 +94,19 @@ return {
 				end,
 			},
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
+				{
+					name = "nvim_lsp",
+					-- this is for filterin emmet outside of html tags
+					-- TODO: this may be broken, check if anything goes wrong
+					entry_filter = function(entry)
+						if
+						    entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet
+						then
+							return false
+						end
+						return true
+					end,
+				},
 				{ name = "luasnip" },
 			}, {
 				{ name = "buffer" },

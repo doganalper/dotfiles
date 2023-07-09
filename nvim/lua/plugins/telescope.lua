@@ -4,8 +4,8 @@ return {
 	config = function()
 		require('helpers')
 		local commonDropdown = {
-			previewer = false,
-			theme = "dropdown",
+			-- previewer = false,
+			-- theme = "dropdown",
 		}
 
 		local telescope = require("telescope")

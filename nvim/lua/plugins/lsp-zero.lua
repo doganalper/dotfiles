@@ -111,6 +111,7 @@ return {
 			filetypes = {
 				"astro",
 				"html",
+				"vue"
 				-- "typescriptreact",
 				-- "javascriptreact",
 			},
