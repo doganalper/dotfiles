@@ -13,6 +13,7 @@ return {
 				return {
 					CursorLineNr = { fg = colors.green },
 					LineNr = { fg = colors.red },
+					NormalFloat = { bg = colors.base }
 				}
 			end,
 			color_overrides = {
