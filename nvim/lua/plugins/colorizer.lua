@@ -4,9 +4,11 @@ return {
 		require("colorizer").setup({
 			"typescript",
 			"javascript",
+			"typescriptreact",
 			"css",
 			"html",
-			"astro"
+			"astro",
+			"lua"
 		})
 	end
 }

@@ -48,7 +48,9 @@ return {
 
 		lsp.on_attach(function(client, bufnr)
 			vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename,
+			vim.keymap.set("n", "<leader>rn", function()
+					vim.lsp.buf.rename()
+				end,
 				{ buffer = bufnr, desc = "Space [R]e[n]ame" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
 				{ buffer = bufnr, desc = "Space [C]ode [A]ction" })

@@ -99,6 +99,10 @@ return {
 					-- this is for filterin emmet outside of html tags
 					-- TODO: this may be broken, check if anything goes wrong
 					entry_filter = function(entry)
+						if vim.bo.filetype == 'html' then
+							return true
+						end
+
 						if
 						    entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet
 						then

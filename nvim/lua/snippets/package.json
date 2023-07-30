@@ -18,6 +18,10 @@
 			{
 				"language": ["vue"],
 				"path": "./vue.json"
+			},
+			{
+				"language": ["javascriptreact", "typescriptreact", "typescript.tsx", "javascript.jsx"],
+				"path": "./tsx.json"
 			}
 		]
 	}

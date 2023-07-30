@@ -19,6 +19,8 @@ local plugins = {
 	{ import = "plugins.auto-pairs" },
 	{ import = "plugins.catppuccin" },
 	{ import = "plugins.colorizer" },
+	{ import = "plugins.treesitter-context" },
+	{ import = "plugins.flash" },
 	"nvim-lua/plenary.nvim",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"windwp/nvim-ts-autotag",

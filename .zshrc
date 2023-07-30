@@ -1,8 +1,9 @@
 #Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
+
 # Aliases
-alias l='lsd -l -a'
+alias l='ls -l -a'
 alias config='cd ~/.config && nvim'
 alias vi="\nvim"
 alias tmux='tmux -f ~/.config/tmux/.tmux.conf'
@@ -33,3 +34,7 @@ export PATH="$PATH":~/.node/bin
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

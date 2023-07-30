@@ -15,6 +15,17 @@
 		"body": "import $1 from '@/components/$2/$1.vue'",
 		"description": "Import vue file"
 	},
+	"Vue 3 Temlate": {
+		"prefix": "vue3",
+		"body" : [
+			"<script setup lang=\"ts\">",
+			"$1",
+			"</script>",
+			"",
+			"<template>$2</template>",
+			""
+		]
+	},
 	"Create Spec Template": {
 	    "prefix": "spec",
 	    "body": [
