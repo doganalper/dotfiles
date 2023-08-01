@@ -9,8 +9,11 @@ alias vi="\nvim"
 alias tmux='tmux -f ~/.config/tmux/.tmux.conf'
 alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
-alias cover="node ~/Desktop/projects/cover-letter-generator/index.js"
 alias kill3000="kill -9 \$(lsof -ti:3000)"
+
+# Helpful cli tools for myself
+alias cover="node ~/Desktop/projects/cover-letter-generator/index.js"
+alias accounts="~/Desktop/projects/social-account-copy/account-copy"
 
 eval $(/opt/homebrew/bin/brew shellenv)
 
