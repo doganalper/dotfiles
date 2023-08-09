@@ -31,6 +31,10 @@ return {
 		-- see: https://twitter.com/thdxr/status/1623769303819460608?s=20&t=l1K_q3dsJzl0tZ_GS4NHig
 		cmp.setup({
 			enabled = function()
+				-- disable completion in telescope buffer
+				local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+				if buftype == "prompt" then return false end
+
 				-- disable completion in comments
 				local context = require("cmp.config.context")
 				-- keep command mode completion enabled when cursor is in a comment

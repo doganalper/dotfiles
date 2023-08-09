@@ -120,6 +120,11 @@ return {
 			capabilities = capabilities,
 		})
 
+		lsp_config.pyright.setup({
+			capabilities = capabilities,
+			filetypes = {"python"}
+		})
+
 		-- lsp.format_on_save({
 		lsp.format_mapping('gq', {
 			format_opts = {
@@ -129,7 +134,7 @@ return {
 			servers = {
 				['lua_ls'] = { 'lua' },
 				['null-ls'] = { 'javascript', 'typescript', 'vue', 'typescriptreact', 'astro',
-					'javascriptreact' },
+					'javascriptreact', 'python' },
 			}
 		})
 

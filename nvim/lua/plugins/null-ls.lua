@@ -9,6 +9,9 @@ return {
 					-- prefer_local = "node_modules/.bin",
 					extra_filetypes = { "astro" },
 				}),
+				-- python
+				null_ls.builtins.diagnostics.ruff,
+				null_ls.builtins.formatting.black
 			},
 		})
 	end
