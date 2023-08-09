@@ -2347,6 +2347,6 @@ background_tint 0.97
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Catppuccin-Macchiato
 include current-theme.conf
 # END_KITTY_THEME

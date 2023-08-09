@@ -22,6 +22,15 @@ local plugins = {
 	{ import = "plugins.treesitter-context" },
 	{ import = "plugins.flash" },
 	{ import = "plugins.friendly-snippets" },
+	-- {
+	-- 	dir = "~/Desktop/projects/template-plugin",
+	-- 	config = true,
+	-- 	dev = true,
+	-- },
+	{
+		"doganalper/template.nvim",
+		config = true
+	},
 	"nvim-lua/plenary.nvim",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"windwp/nvim-ts-autotag",
