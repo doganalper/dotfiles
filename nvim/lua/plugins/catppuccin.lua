@@ -5,10 +5,10 @@ return {
 	config = function()
 		require('catppuccin').setup({
 			transparent_background = true,
-			flavour = 'mocha',
+			flavour = 'macchiato',
 			background = { -- :h background
 				light = "latte",
-				dark = "mocha",
+				dark = "macchiato",
 			},
 			custom_highlights = function(colors)
 				return {
