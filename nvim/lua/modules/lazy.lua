@@ -23,6 +23,7 @@ local plugins = {
 	{ import = "plugins.flash" },
 	{ import = "plugins.friendly-snippets" },
 	{ import = "plugins.fugitive" },
+	{ import = "plugins.cody" },
 	{
 		dir = "~/Desktop/projects/template-plugin",
 		config = true,
