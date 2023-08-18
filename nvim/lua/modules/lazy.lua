@@ -22,6 +22,7 @@ local plugins = {
 	{ import = "plugins.treesitter-context" },
 	{ import = "plugins.flash" },
 	{ import = "plugins.friendly-snippets" },
+	{ import = "plugins.fugitive" },
 	{
 		dir = "~/Desktop/projects/template-plugin",
 		config = true,
@@ -35,7 +36,6 @@ local plugins = {
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"windwp/nvim-ts-autotag",
 	"lukas-reineke/indent-blankline.nvim",
-	"tpope/vim-fugitive"
 }
 
 local opts = {

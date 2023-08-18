@@ -31,6 +31,7 @@ COLOR_GIT=$'\e[38;5;39m'
 NEW_LINE=$'\n'
 setopt PROMPT_SUBST
 export PROMPT='${COLOR_DIR}%2~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEW_LINE}'
+export DENO_INSTALL="/Users/alperdogan/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH":~/.node/bin
@@ -41,3 +42,11 @@ export PATH="$PATH":~/.node/bin
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/Users/alperdogan/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

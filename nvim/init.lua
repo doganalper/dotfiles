@@ -29,7 +29,7 @@ vim.o.signcolumn = "yes"
 vim.o.autoread = true
 vim.o.encoding = "utf-8"
 vim.o.updatetime = 100
--- vim.o.cursorline = true
+vim.o.cursorline = true
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 

@@ -21,9 +21,10 @@ return {
 				layout_config = {
 					horizontal = {
 						prompt_position = "top",
-						preview_width = 0.6,
+						preview_width = 0.4,
 					},
 				},
+				-- file_ignore_patterns = { "node_modules", ".nuxt" },
 				prompt_prefix = " > ",
 			},
 			pickers = {

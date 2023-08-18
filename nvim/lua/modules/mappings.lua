@@ -32,5 +32,5 @@ vim.keymap.set("n", "<leader>sbl", function()
 	vim.cmd("set background=light")
 end, { desc = "[S]et [B]ackground [L]ight" })
 
-vim.keymap.set({'i', 'n'}, '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { desc = "[S]ignature" })
+vim.keymap.set({ 'i', 'n' }, '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { desc = "[S]ignature" })
 vim.keymap.set('n', '<CR>', 'ciw', {})
