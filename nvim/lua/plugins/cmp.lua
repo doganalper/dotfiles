@@ -71,15 +71,12 @@ return {
 				end, { "i", "s" }),
 			}),
 			window = {
-				completion = cmp.config.window.bordered {},
+				-- documentation = {
+				-- 	border = { "", "", "", " ", "", "", "", " " },
+				-- 	winhighlight = "FloatBorder:NormalFloat",
+				-- },
 				documentation = cmp.config.window.bordered {},
 			},
-			-- window = {
-			-- 	documentation = {
-			-- 		border = { "", "", "", " ", "", "", "", " " },
-			-- 		winhighlight = "FloatBorder:NormalFloat",
-			-- 	},
-			-- },
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
 				format = lspkind.cmp_format({

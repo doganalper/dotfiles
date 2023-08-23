@@ -4,8 +4,8 @@ return {
 	config = function()
 		require('helpers')
 		local commonDropdown = {
-			-- previewer = false,
-			-- theme = "dropdown",
+			previewer = false,
+			theme = "dropdown",
 		}
 
 		local telescope = require("telescope")
@@ -17,13 +17,17 @@ return {
 
 		telescope.setup({
 			defaults = {
-				layout_strategy = "horizontal",
+				layout_strategy = "vertical",
 				layout_config = {
-					horizontal = {
-						prompt_position = "top",
-						preview_width = 0.4,
-					},
+					width = 0.9
 				},
+				-- layout_strategy = "horizontal",
+				-- layout_config = {
+				-- 	horizontal = {
+				-- 		prompt_position = "top",
+				-- 		preview_width = 0.4,
+				-- 	},
+				-- },
 				-- file_ignore_patterns = { "node_modules", ".nuxt" },
 				prompt_prefix = " > ",
 			},
@@ -32,6 +36,7 @@ return {
 				oldfiles = filePicker,
 				find_files = filePicker,
 				buffers = commonDropdown,
+				builtin = commonDropdown
 			},
 			extensions = {
 				advanced_git_search = {

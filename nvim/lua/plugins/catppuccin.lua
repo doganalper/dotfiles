@@ -4,11 +4,11 @@ return {
 	priority = 1000,
 	config = function()
 		require('catppuccin').setup({
-			transparent_background = true,
-			flavour = 'macchiato',
+			-- transparent_background = true,
+			flavour = 'frappe',
 			background = { -- :h background
 				light = "latte",
-				dark = "macchiato",
+				dark = "frappe",
 			},
 			custom_highlights = function(colors)
 				return {
