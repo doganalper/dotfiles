@@ -28,7 +28,7 @@ vim.api.nvim_create_user_command('Editorconfig', function()
 root = true
 
 [*]
-indent_size = 4
+indent_size = 3
 indent_style = tab
 end_of_line = lf
 charset = utf-8

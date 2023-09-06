@@ -113,14 +113,13 @@ return {
 			filetypes = {
 				"astro",
 				"html",
-				"vue"
-				-- "typescriptreact",
-				-- "javascriptreact",
+				"vue",
+				"typescriptreact",
+				"javascriptreact",
 			},
 			capabilities = capabilities,
 		})
 
-		-- lsp.format_on_save({
 		lsp.format_mapping('gq', {
 			format_opts = {
 				async = false,

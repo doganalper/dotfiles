@@ -10,24 +10,27 @@ return {
 			},
 			sections = {
 				lualine_b = {
-					{ "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
 					{
 						"filename",
 						path = 1,
 					},
 				},
 				lualine_c = {},
-				lualine_x = {},
+				lualine_x = {
+					{ "filetype", separator = "", padding = { right = 1 } },
+				},
 				lualine_y = { "branch", "diff", "diagnostics" },
 			},
 			inactive_sections = {
 				lualine_c = {
-					{ "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
 					{
 						"filename",
 						path = 1,
 					},
 				},
+				lualine_y = {
+					{ "filetype", separator = "", padding = { right = 0 } },
+				}
 			},
 		})
 	end,

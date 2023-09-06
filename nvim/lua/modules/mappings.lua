@@ -26,10 +26,10 @@ vim.keymap.set("n", "<leader>wve", "<C-w>_", { desc = "[W]indow [V]ertically [E]
 vim.keymap.set("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
 
 vim.keymap.set("n", "<leader>sbd", function()
-	vim.cmd("set background=dark")
+	vim.api.nvim_set_option("background", "dark")
 end, { desc = "[S]et [B]ackground [D]ark" })
 vim.keymap.set("n", "<leader>sbl", function()
-	vim.cmd("set background=light")
+	vim.api.nvim_set_option("background", "light")
 end, { desc = "[S]et [B]ackground [L]ight" })
 
 vim.keymap.set({ 'i', 'n' }, '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { desc = "[S]ignature" })

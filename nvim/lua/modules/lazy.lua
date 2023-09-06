@@ -23,16 +23,18 @@ local plugins = {
 	{ import = "plugins.flash" },
 	{ import = "plugins.friendly-snippets" },
 	{ import = "plugins.fugitive" },
-	{ import = "plugins.cody" },
-	{
-		dir = "~/Desktop/projects/template-plugin",
-		config = true,
-		dev = true,
-	},
+	{import = "plugins.auto-theme"},
+	-- { import = "plugins.cody" },
+	{ import = "plugins.bufferline" },
 	-- {
-	-- 	"doganalper/template.nvim",
-	-- 	config = true
+	-- 	dir = "~/Desktop/projects/template-plugin",
+	-- 	config = true,
+	-- 	dev = true,
 	-- },
+	{
+		"doganalper/template.nvim",
+		config = true
+	},
 	"nvim-lua/plenary.nvim",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"windwp/nvim-ts-autotag",

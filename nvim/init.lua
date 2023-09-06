@@ -24,7 +24,7 @@ vim.o.clipboard = "unnamedplus"
 vim.o.hidden = true
 vim.o.t_Co = 256
 vim.o.mouse = "a"
-vim.opt.pumheight = 10
+vim.opt.pumheight = 30 -- this sets height of the popup menu
 vim.o.signcolumn = "yes"
 vim.o.autoread = true
 vim.o.encoding = "utf-8"
@@ -39,7 +39,6 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldenable = true
 
 
-vim.opt.pumheight = 0 -- this sets height of the popup menu
 
 local general_sets = {
 	"syntax on",
@@ -57,6 +56,7 @@ local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts = opts or {}
 	opts.max_width = opts.max_width or 100
+	opts.max_height = opts.max_height or 100
 	opts.focusable = false
 	opts.focus = false
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)

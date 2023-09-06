@@ -76,6 +76,7 @@ return {
 				-- 	winhighlight = "FloatBorder:NormalFloat",
 				-- },
 				documentation = cmp.config.window.bordered {},
+				completion = cmp.config.window.bordered {},
 			},
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
@@ -104,22 +105,31 @@ return {
 					-- this is for filterin emmet outside of html tags
 					-- TODO: this may be broken, check if anything goes wrong
 					entry_filter = function(entry)
-						if vim.bo.filetype == 'html' then
-							return true
-						end
+						-- if vim.bo.filetype == 'html' then
+						-- 	return true
+						-- end
 
 						if
 						    entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet
 						then
 							return false
 						end
+
+						-- local context = require("cmp.config.context")
+						-- return not context.in_treesitter_capture("string") and
+						-- not context.in_syntax_group("String")
 						return true
 					end,
 				},
-				{ name = "luasnip" },
-			}, {
-				{ name = "buffer" },
-			}),
+				{
+					name = "luasnip",
+
+				},
+			}
+			-- 	{
+			-- 	{ name = "buffer" },
+			-- }
+			),
 		})
 	end,
 }
