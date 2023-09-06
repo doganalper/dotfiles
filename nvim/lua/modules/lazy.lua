@@ -1,5 +1,4 @@
 local plugins = {
-	{ import = "plugins.devicons" },
 	{ import = "plugins.advanced-git-search" },
 	{ import = "plugins.cmp" },
 	{ import = "plugins.gitsigns" },
@@ -23,7 +22,7 @@ local plugins = {
 	{ import = "plugins.flash" },
 	{ import = "plugins.friendly-snippets" },
 	{ import = "plugins.fugitive" },
-	{import = "plugins.auto-theme"},
+	{ import = "plugins.auto-theme" },
 	-- { import = "plugins.cody" },
 	{ import = "plugins.bufferline" },
 	-- {
