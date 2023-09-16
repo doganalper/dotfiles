@@ -13,7 +13,7 @@ local plugins = {
 	{ import = "plugins.treesitter" },
 	{ import = "plugins.vim-go" },
 	{ import = "plugins.wilder" },
-	{ import = "plugins.null-ls" },
+	-- { import = "plugins.null-ls" },
 	{ import = "plugins.glance" },
 	{ import = "plugins.auto-pairs" },
 	{ import = "plugins.catppuccin" },
@@ -25,6 +25,7 @@ local plugins = {
 	{ import = "plugins.auto-theme" },
 	{ import = "plugins.cody" },
 	{ import = "plugins.bufferline" },
+	{ import = "plugins.conform" },
 	-- {
 	-- 	dir = "~/Desktop/projects/template-plugin",
 	-- 	config = true,

@@ -30,7 +30,7 @@ return {
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		lsp.set_preferences({
-			set_lsp_keymaps = { omit = { "K", "<F4>", "<F2>", "gr", 'gi', 'gd' } },
+			set_lsp_keymaps = { omit = { "K", "<F4>", "<F2>", "gr", "gi", "gd" } },
 			sign_icons = {
 				error = "E",
 				warn = "W",
@@ -49,11 +49,14 @@ return {
 		lsp.on_attach(function(client, bufnr)
 			vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
 			vim.keymap.set("n", "<leader>rn", function()
-					vim.lsp.buf.rename()
-				end,
-				{ buffer = bufnr, desc = "Space [R]e[n]ame" })
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
-				{ buffer = bufnr, desc = "Space [C]ode [A]ction" })
+				vim.lsp.buf.rename()
+			end, { buffer = bufnr, desc = "Space [R]e[n]ame" })
+			vim.keymap.set(
+				"n",
+				"<leader>ca",
+				vim.lsp.buf.code_action,
+				{ buffer = bufnr, desc = "Space [C]ode [A]ction" }
+			)
 		end)
 
 		lsp_config.eslint.setup({
@@ -70,7 +73,7 @@ return {
 				"javascript",
 				"typescript",
 				"typescriptreact",
-				"javascriptreact"
+				"javascriptreact",
 			},
 			capabilities = capabilities,
 		})
@@ -91,9 +94,9 @@ return {
 			settings = {
 				Lua = {
 					diagnostics = {
-						globals = { "vim" }
-					}
-				}
+						globals = { "vim" },
+					},
+				},
 			},
 			capabilities = capabilities,
 		})
@@ -114,17 +117,17 @@ return {
 			capabilities = capabilities,
 		})
 
-		lsp.format_mapping('gq', {
-			format_opts = {
-				async = false,
-				timeout_ms = 10000,
-			},
-			servers = {
-				['lua_ls'] = { 'lua' },
-				['null-ls'] = { 'javascript', 'typescript', 'vue', 'typescriptreact', 'astro',
-					'javascriptreact' },
-			}
-		})
+		-- lsp.format_mapping('gq', {
+		-- 	format_opts = {
+		-- 		async = false,
+		-- 		timeout_ms = 10000,
+		-- 	},
+		-- 	servers = {
+		-- 		-- ['lua_ls'] = { "lua" },
+		-- 		-- ['conform'] = { 'javascript', 'typescript', 'vue', 'typescriptreact', 'astro',
+		-- 		-- 	'javascriptreact' },
+		-- 	}
+		-- })
 
 		lsp.setup()
 
@@ -138,5 +141,5 @@ return {
 			vim.cmd("LspRestart")
 			print("Lsp Restarted")
 		end, { desc = "Space [L]sp [R]estart", silent = false })
-	end
+	end,
 }
