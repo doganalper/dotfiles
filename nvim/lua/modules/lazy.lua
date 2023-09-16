@@ -23,7 +23,7 @@ local plugins = {
 	{ import = "plugins.friendly-snippets" },
 	{ import = "plugins.fugitive" },
 	{ import = "plugins.auto-theme" },
-	-- { import = "plugins.cody" },
+	{ import = "plugins.cody" },
 	{ import = "plugins.bufferline" },
 	-- {
 	-- 	dir = "~/Desktop/projects/template-plugin",

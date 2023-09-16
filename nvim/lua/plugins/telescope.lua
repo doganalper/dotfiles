@@ -28,7 +28,7 @@ return {
 				-- 		preview_width = 0.4,
 				-- 	},
 				-- },
-				-- file_ignore_patterns = { "node_modules", ".nuxt" },
+				file_ignore_patterns = { "node_modules", ".git" },
 				prompt_prefix = " > ",
 			},
 			pickers = {
@@ -36,7 +36,8 @@ return {
 				oldfiles = filePicker,
 				find_files = filePicker,
 				buffers = commonDropdown,
-				builtin = commonDropdown
+				builtin = commonDropdown,
+				current_buffer_fuzzy_find = commonDropdown
 			},
 			extensions = {
 				advanced_git_search = {
@@ -71,5 +72,6 @@ return {
 			{ desc = "Space [G]it [F]ile [C]ommits" }
 		)
 		vim.keymap.set("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "[B]uffers [L]ist" })
+		vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 	end
 }

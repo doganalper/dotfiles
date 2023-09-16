@@ -34,11 +34,8 @@ return {
 			},
 			filesystem = {
 				filtered_items = {
-					hide_gitignored = true,
+					hide_gitignored = false,
 					hide_dotfiles = false,
-					never_show = { -- uses glob style patterns
-						"node_modules"
-					},
 				},
 				follow_current_file = {
 					enabled = true
@@ -64,7 +61,6 @@ return {
 					["x"] = "open_split",
 					["v"] = "open_vsplit",
 					["X"] = "cut_to_clipboard",
-					-- ["/"] = ""
 				}
 			},
 		}

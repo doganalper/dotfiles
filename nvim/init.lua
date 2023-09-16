@@ -38,8 +38,6 @@ vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = true
 
-
-
 local general_sets = {
 	"syntax on",
 }
