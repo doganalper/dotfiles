@@ -3,9 +3,9 @@ return {
 	name = "catppuccin",
 	priority = 1000,
 	config = function()
-		require('catppuccin').setup({
+		require("catppuccin").setup({
 			-- transparent_background = true,
-			flavour = 'mocha',
+			flavour = "mocha",
 			background = { -- :h background
 				light = "latte",
 				dark = "mocha",
@@ -105,13 +105,13 @@ return {
 					base = "#fbf1c7",
 					mantle = "#F3EAC1",
 					crust = "#E7DEB7",
-				}
+				},
 			},
 			styles = {
-				comments = { "italic" }
-			}
+				comments = { "italic" },
+			},
 		})
 
-		vim.cmd('colorscheme catppuccin')
-	end
+		vim.cmd("colorscheme catppuccin")
+	end,
 }

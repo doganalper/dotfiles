@@ -8,7 +8,7 @@ return {
 				vim.keymap.set("n", "<leader>glc", gs.preview_hunk)
 
 				vim.keymap.set("n", "<leader>gb", function()
-					gs.blame_line { full = true }
+					gs.blame_line({ full = true })
 				end, { desc = "[G]it [B]lame" })
 			end,
 		})

@@ -31,7 +31,7 @@ return {
 				},
 				lualine_y = {
 					{ "filetype", separator = "", padding = { right = 0 } },
-				}
+				},
 			},
 		})
 	end,

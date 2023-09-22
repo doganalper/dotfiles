@@ -7,7 +7,7 @@ local plugins = {
 	{ import = "plugins.lua-snip" },
 	{ import = "plugins.lualine" },
 	{ import = "plugins.nvim-comment" },
-	{ import = 'plugins.neotree' },
+	{ import = "plugins.neotree" },
 	{ import = "plugins.telescope" },
 	{ import = "plugins.todo-comments" },
 	{ import = "plugins.treesitter" },
@@ -33,7 +33,7 @@ local plugins = {
 	-- },
 	{
 		"doganalper/template.nvim",
-		config = true
+		config = true,
 	},
 	"nvim-lua/plenary.nvim",
 	"JoosepAlviste/nvim-ts-context-commentstring",

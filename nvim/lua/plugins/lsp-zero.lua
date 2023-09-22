@@ -107,7 +107,7 @@ return {
 			"astro",
 			"typescriptreact",
 			"javascriptreact",
-			"jinja"
+			"jinja",
 		}
 		lsp_config.html.setup({
 			filetypes = htmlFileTypes,

@@ -7,23 +7,23 @@ return {
 	},
 	event = "VeryLazy",
 	config = function()
-		require('neo-tree').setup({
+		require("neo-tree").setup({
 			default_component_configs = {
 				git_status = {
 					symbols = {
 						-- Change type
-						added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-						modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-						deleted   = "✖", -- this can only be used in the git_status source
-						renamed   = "", -- this can only be used in the git_status source
+						added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+						modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+						deleted = "✖", -- this can only be used in the git_status source
+						renamed = "", -- this can only be used in the git_status source
 						-- Status type
 						untracked = "U",
-						ignored   = "",
+						ignored = "",
 						-- unstaged  = "",
-						unstaged  = "M",
-						staged    = "S",
-						conflict  = "",
-					}
+						unstaged = "M",
+						staged = "S",
+						conflict = "",
+					},
 				},
 				highlights = {
 					hint = "",
@@ -38,20 +38,19 @@ return {
 					hide_dotfiles = false,
 				},
 				follow_current_file = {
-					enabled = true
+					enabled = true,
 				},
 				components = {
 					icon = function(config, node, state)
-						if node.type == 'file' then
+						if node.type == "file" then
 							return {
 								text = "",
 								highlight = config.highlight,
 							}
 						end
-						return require('neo-tree.sources.common.components').icon(config, node,
-							state)
+						return require("neo-tree.sources.common.components").icon(config, node, state)
 					end,
-				}
+				},
 			},
 			use_popups_for_input = false,
 			window = {
@@ -61,12 +60,11 @@ return {
 					["x"] = "open_split",
 					["v"] = "open_vsplit",
 					["X"] = "cut_to_clipboard",
-				}
+				},
 			},
-		}
-		)
+		})
 	end,
 	keys = function()
-		vim.keymap.set('n', '<leader>1', "<cmd>Neotree toggle<cr>")
-	end
+		vim.keymap.set("n", "<leader>1", "<cmd>Neotree toggle<cr>")
+	end,
 }

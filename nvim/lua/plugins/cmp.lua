@@ -9,11 +9,9 @@ return {
 
 		local function formatForTailwindCSS(entry, vim_item)
 			if vim_item.kind == "Color" and entry.completion_item.documentation then
-				local _, _, r, g, b = string.find(entry.completion_item.documentation,
-					"^rgb%((%d+), (%d+), (%d+)")
+				local _, _, r, g, b = string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
 				if r then
-					local color = string.format("%02x", r) ..
-					    string.format("%02x", g) .. string.format("%02x", b)
+					local color = string.format("%02x", r) .. string.format("%02x", g) .. string.format("%02x", b)
 					local group = "Tw_" .. color
 					if vim.fn.hlID(group) < 1 then
 						vim.api.nvim_set_hl(0, group, { fg = "#" .. color })
@@ -23,8 +21,7 @@ return {
 					return vim_item
 				end
 			end
-			vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or
-			    vim_item.kind
+			vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
 			return vim_item
 		end
 
@@ -33,7 +30,9 @@ return {
 			enabled = function()
 				-- disable completion in telescope buffer
 				local buftype = vim.api.nvim_buf_get_option(0, "buftype")
-				if buftype == "prompt" then return false end
+				if buftype == "prompt" then
+					return false
+				end
 
 				-- disable completion in comments
 				local context = require("cmp.config.context")
@@ -41,14 +40,13 @@ return {
 				if vim.api.nvim_get_mode().mode == "c" then
 					return true
 				else
-					return not context.in_treesitter_capture("comment") and
-					    not context.in_syntax_group("Comment")
+					return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
 				end
 			end,
 			-- don't auto select item
 			preselect = cmp.PreselectMode.None,
 			mapping = ConcatTables(lsp.defaults.cmp_mappings(), {
-				['<CR>'] = cmp.mapping.confirm(),
+				["<CR>"] = cmp.mapping.confirm(),
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
@@ -99,36 +97,34 @@ return {
 					require("luasnip").lsp_expand(args.body)
 				end,
 			},
-			sources = cmp.config.sources({
+			sources = cmp.config.sources(
 				{
-					name = "nvim_lsp",
-					-- this is for filterin emmet outside of html tags
-					-- TODO: this may be broken, check if anything goes wrong
-					entry_filter = function(entry)
-						-- if vim.bo.filetype == 'html' then
-						-- 	return true
-						-- end
+					{
+						name = "nvim_lsp",
+						-- this is for filterin emmet outside of html tags
+						-- TODO: this may be broken, check if anything goes wrong
+						entry_filter = function(entry)
+							-- if vim.bo.filetype == 'html' then
+							-- 	return true
+							-- end
 
-						if
-						    entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet
-						then
-							return false
-						end
+							if entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet then
+								return false
+							end
 
-						-- local context = require("cmp.config.context")
-						-- return not context.in_treesitter_capture("string") and
-						-- not context.in_syntax_group("String")
-						return true
-					end,
-				},
-				{
-					name = "luasnip",
-
-				},
-			}
-			-- 	{
-			-- 	{ name = "buffer" },
-			-- }
+							-- local context = require("cmp.config.context")
+							-- return not context.in_treesitter_capture("string") and
+							-- not context.in_syntax_group("String")
+							return true
+						end,
+					},
+					{
+						name = "luasnip",
+					},
+				}
+				-- 	{
+				-- 	{ name = "buffer" },
+				-- }
 			),
 		})
 	end,

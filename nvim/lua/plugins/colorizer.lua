@@ -8,7 +8,7 @@ return {
 			"css",
 			"html",
 			"astro",
-			"lua"
+			"lua",
 		})
-	end
+	end,
 }
