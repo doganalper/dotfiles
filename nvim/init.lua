@@ -69,14 +69,24 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
+-- set jinja as file type
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = { "*.jinja*" },
+	group = vim.api.nvim_create_augroup("Jinja Set Filetype", { clear = true }),
+	callback = function()
+		vim.treesitter.language.register("html", "jinja")
+		vim.cmd("setfiletype jinja")
+	end,
+})
+
 -- autocommands
 -- don't auto comment new line
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
 -- resize split on terminal split
-vim.api.nvim_command('autocmd VimResized * wincmd =')
+vim.api.nvim_command("autocmd VimResized * wincmd =")
 
-require('helpers')
+require("helpers")
 require("modules.lazy")
 require("modules.mappings")
 require("modules.commands")
