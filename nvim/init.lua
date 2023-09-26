@@ -38,17 +38,6 @@ vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = true
 
-local general_sets = {
-	"syntax on",
-}
-
-local function setGeneralCommands()
-	for _, command in pairs(general_sets) do
-		vim.cmd(command)
-	end
-end
-setGeneralCommands()
-
 -- hover width
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
