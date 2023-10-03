@@ -69,12 +69,12 @@ return {
 				end, { "i", "s" }),
 			}),
 			window = {
-				documentation = {
-					border = { "", "", "", " ", "", "", "", " " },
-					winhighlight = "FloatBorder:NormalFloat",
-				},
-				-- documentation = cmp.config.window.bordered {},
-				-- completion = cmp.config.window.bordered {},
+				-- documentation = {
+				-- 	border = { "", "", "", " ", "", "", "", " " },
+				-- 	winhighlight = "FloatBorder:NormalFloat",
+				-- },
+				documentation = cmp.config.window.bordered {},
+				completion = cmp.config.window.bordered {},
 			},
 			formatting = {
 				fields = { "kind", "abbr", "menu" },

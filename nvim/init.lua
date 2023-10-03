@@ -30,6 +30,7 @@ vim.o.autoread = true
 vim.o.encoding = "utf-8"
 vim.o.updatetime = 100
 vim.o.cursorline = true
+-- vim.o.cursorcolumn = true
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 
@@ -42,7 +43,7 @@ vim.opt.foldenable = true
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts = opts or {}
-	opts.max_width = opts.max_width or 100
+	opts.max_width = opts.max_width or 150
 	opts.max_height = opts.max_height or 100
 	opts.focusable = false
 	opts.focus = false

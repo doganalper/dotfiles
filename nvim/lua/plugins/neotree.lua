@@ -65,6 +65,6 @@ return {
 		})
 	end,
 	keys = function()
-		vim.keymap.set("n", "<leader>1", "<cmd>Neotree toggle position=right reveal<cr>")
+		vim.keymap.set("n", "<leader>1", "<cmd>Neotree toggle reveal<cr>")
 	end,
 }

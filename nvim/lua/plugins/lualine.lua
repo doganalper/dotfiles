@@ -4,9 +4,10 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = false,
-				theme = "auto",
-				component_separators = "",
-				section_separators = "",
+				global_status = true,
+				theme = "catppuccin",
+				-- component_separators = "",
+				-- section_separators = "",
 				disabled_filetypes = { "NvimTree", "fugitiveblame", "neo-tree" },
 			},
 			sections = {

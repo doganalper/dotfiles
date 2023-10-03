@@ -26,6 +26,7 @@ local plugins = {
 	{ import = "plugins.cody" },
 	{ import = "plugins.bufferline" },
 	{ import = "plugins.conform" },
+	{ import = "plugins.indent" },
 	-- {
 	-- 	dir = "~/Desktop/projects/template-plugin",
 	-- 	config = true,
@@ -38,7 +39,6 @@ local plugins = {
 	"nvim-lua/plenary.nvim",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"windwp/nvim-ts-autotag",
-	"lukas-reineke/indent-blankline.nvim",
 }
 
 local opts = {
