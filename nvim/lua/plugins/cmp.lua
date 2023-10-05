@@ -6,6 +6,7 @@ return {
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
+		-- vim.api.nvim_set_hl(0, "Pmenu", { bg = "#FF0000" })
 
 		local function formatForTailwindCSS(entry, vim_item)
 			if vim_item.kind == "Color" and entry.completion_item.documentation then
@@ -69,12 +70,11 @@ return {
 				end, { "i", "s" }),
 			}),
 			window = {
-				-- documentation = {
-				-- 	border = { "", "", "", " ", "", "", "", " " },
-				-- 	winhighlight = "FloatBorder:NormalFloat",
-				-- },
-				documentation = cmp.config.window.bordered {},
-				completion = cmp.config.window.bordered {},
+				-- documentation = cmp.config.window.bordered {},
+				-- completion = cmp.config.window.bordered {},
+				completion = {
+					winhighlight = "Normal:NormalFloat"
+				}
 			},
 			formatting = {
 				fields = { "kind", "abbr", "menu" },

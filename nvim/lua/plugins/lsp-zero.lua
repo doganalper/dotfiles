@@ -108,6 +108,7 @@ return {
 			"typescriptreact",
 			"javascriptreact",
 			"jinja",
+			"htmldjango"
 		}
 		lsp_config.html.setup({
 			filetypes = htmlFileTypes,

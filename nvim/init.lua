@@ -33,6 +33,7 @@ vim.o.cursorline = true
 -- vim.o.cursorcolumn = true
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
+-- vim.opt.cmdheight = 0
 
 -- fold
 vim.opt.foldlevel = 99
@@ -43,9 +44,11 @@ vim.opt.foldenable = true
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts = opts or {}
-	opts.max_width = opts.max_width or 150
-	opts.max_height = opts.max_height or 100
-	opts.focusable = false
+	opts.max_width = opts.max_width or 100
+	opts.max_height = opts.max_height or 30
+	opts.pad_top = 0
+	opts.pad_bottom = 0
+	-- opts.focusable = false
 	opts.focus = false
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
@@ -60,14 +63,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- set jinja as file type
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = { "*.jinja*" },
-	group = vim.api.nvim_create_augroup("Jinja Set Filetype", { clear = true }),
-	callback = function()
-		vim.treesitter.language.register("html", "jinja")
-		vim.cmd("setfiletype jinja")
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	pattern = { "*.jinja*" },
+-- 	group = vim.api.nvim_create_augroup("Jinja Set Filetype", { clear = true }),
+-- 	callback = function()
+-- 		vim.treesitter.language.register("html", "jinja")
+-- 		vim.cmd("setfiletype jinja")
+-- 	end,
+-- })
 
 -- autocommands
 -- don't auto comment new line

@@ -10,6 +10,8 @@ return {
 			typescriptreact = { "prettier" },
 			astro = { "prettier" },
 			javascriptreact = { "prettier" },
+			html = { "prettier" },
+			htmldjango = { "prettier" },
 		},
 	},
 	event = "VeryLazy",

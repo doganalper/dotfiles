@@ -2,7 +2,7 @@ return {
 	"nvim-treesitter/nvim-treesitter-context",
 	opts = {
 		enable = true,
-		separator = "_",
+		-- separator = "_",
 		-- mode = 'topline'
 	},
 	event = "VeryLazy",

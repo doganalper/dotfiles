@@ -37,7 +37,6 @@ return {
 				find_files = filePicker,
 				buffers = commonDropdown,
 				builtin = commonDropdown,
-				current_buffer_fuzzy_find = commonDropdown,
 			},
 			extensions = {
 				advanced_git_search = {
@@ -80,6 +79,6 @@ return {
 			{ desc = "Space [G]it [F]ile [C]ommits" }
 		)
 		vim.keymap.set("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "[B]uffers [L]ist" })
-		vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+		-- vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 	end,
 }
