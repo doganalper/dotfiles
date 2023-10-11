@@ -26,6 +26,7 @@ local plugins = {
 	{ import = "plugins.cody" },
 	{ import = "plugins.conform" },
 	{ import = "plugins.indent" },
+	{ import = "plugins.maximizer" },
 	-- {
 	-- 	dir = "~/Desktop/projects/template-plugin",
 	-- 	config = true,
