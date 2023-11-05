@@ -4,26 +4,26 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			transparent_background = true,
+			transparent_background = false,
 			flavour = "mocha",
 			background = { -- :h background
 				light = "latte",
 				dark = "mocha",
 			},
 			custom_highlights = function(colors)
-				local transparent_background = { bg = colors.base }
+				-- local transparent_background = { bg = colors.base }
 				return {
 					CursorLineNr = { fg = colors.green },
 					LineNr = { fg = colors.red },
 					-- TreesitterContext = { bg = colors.base },
-					NormalFloat = transparent_background,
+					-- NormalFloat = transparent_background,
 
 					-- Glance
-					GlancePreviewNormal = transparent_background,
-					GlanceListNormal = transparent_background,
-					GlanceListBorderBottom = transparent_background,
-					GlancePreviewBorderBottom = transparent_background,
-					GlanceBorderTop = transparent_background,
+					-- GlancePreviewNormal = transparent_background,
+					-- GlanceListNormal = transparent_background,
+					-- GlanceListBorderBottom = transparent_background,
+					-- GlancePreviewBorderBottom = transparent_background,
+					-- GlanceBorderTop = transparent_background,
 
 					-- NeoTree Related
 					NeoTreeGitAdded = { fg = colors.text },
@@ -32,7 +32,7 @@ return {
 					NeoTreeGitTracked = { fg = colors.text },
 
 					-- Telescope Related
-					TelescopeNormal = transparent_background,
+					-- TelescopeNormal = transparent_background,
 					TelescopePreviewNormal = { default = true, link = "TelescopeNormal" },
 					TelescopePromptNormal = { default = true, link = "TelescopeNormal" },
 					TelescopeResultsNormal = { default = true, link = "TelescopeNormal" },

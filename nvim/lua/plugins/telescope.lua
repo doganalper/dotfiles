@@ -48,6 +48,7 @@ return {
 		})
 
 		telescope.load_extension("advanced_git_search")
+		telescope.load_extension("dir")
 	end,
 	keys = function()
 		vim.keymap.set("n", "<leader>o", "<cmd>Telescope find_files<cr>", { desc = "Space [O]pen" })
@@ -80,5 +81,6 @@ return {
 		)
 		vim.keymap.set("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "[B]uffers [L]ist" })
 		-- vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+		vim.keymap.set("n", "<leader>df", "<cmd>Telescope dir live_grep<cr>", { desc = "[D]irectory [F]ind" })
 	end,
 }

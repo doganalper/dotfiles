@@ -1,5 +1,6 @@
 local plugins = {
 	{ import = "plugins.advanced-git-search" },
+	{ import = "plugins.dir-telescope" },
 	{ import = "plugins.cmp" },
 	{ import = "plugins.gitsigns" },
 	{ import = "plugins.lsp-zero" },

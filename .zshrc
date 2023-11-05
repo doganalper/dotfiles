@@ -7,6 +7,12 @@ alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
 alias kill3000="kill -9 \$(lsof -ti:3000)"
 
+# Git aliases
+alias gf='git fetch'
+alias gpo='git push origin'
+alias gs='git status'
+alias gb='git branch'
+
 # Helpful cli tools for myself
 alias cover="node ~/Desktop/projects/cover-letter-generator/index.js"
 alias accounts="~/Desktop/projects/social-account-copy/account-copy"
