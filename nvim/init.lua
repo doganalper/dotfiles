@@ -1,14 +1,14 @@
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -34,6 +34,8 @@ vim.o.cursorline = true
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 -- vim.opt.cmdheight = 0
+vim.opt.list = true
+vim.opt.listchars = { leadmultispace = "| " }
 
 -- fold
 vim.opt.foldlevel = 99
@@ -43,34 +45,24 @@ vim.opt.foldenable = true
 -- hover width
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-	opts = opts or {}
-	opts.max_width = opts.max_width or 100
-	opts.max_height = opts.max_height or 30
-	opts.pad_top = 0
-	opts.pad_bottom = 0
-	-- opts.focusable = false
-	opts.focus = false
-	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.max_width = opts.max_width or 100
+  opts.max_height = opts.max_height or 30
+  opts.pad_top = 0
+  opts.pad_bottom = 0
+  -- opts.focusable = false
+  opts.focus = false
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 -- set mdx file to markdown
 vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = { "*.mdx" },
-	group = vim.api.nvim_create_augroup("Markdown Set Filetype", { clear = true }),
-	callback = function()
-		vim.cmd("setfiletype markdown")
-	end,
+  pattern = { "*.mdx" },
+  group = vim.api.nvim_create_augroup("Markdown Set Filetype", { clear = true }),
+  callback = function()
+    vim.cmd("setfiletype markdown")
+  end,
 })
-
--- set jinja as file type
--- vim.api.nvim_create_autocmd("BufEnter", {
--- 	pattern = { "*.jinja*" },
--- 	group = vim.api.nvim_create_augroup("Jinja Set Filetype", { clear = true }),
--- 	callback = function()
--- 		vim.treesitter.language.register("html", "jinja")
--- 		vim.cmd("setfiletype jinja")
--- 	end,
--- })
 
 -- autocommands
 -- don't auto comment new line

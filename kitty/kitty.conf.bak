@@ -4,15 +4,21 @@
 map alt+left send_text all \x1b\x62
 map alt+right send_text all \x1b\x66
 
+# header bar
+# hide_window_decorations yes
+hide_window_decorations no
+
 #: Fonts {{{
 
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family        SFMono Nerd Font
-# bold_font        auto
-# italic_font        SFMono Nerd Font
+# font_family    SFMono Nerd Font
+font_family JetBrainsMono Nerd Font Mono
+italic_font JetBrainsMono Nerd Font Mono
+# font_family Publica Play
+# bold_font      auto 
 # bold_italic_font auto
 
 #: You can specify different fonts for the bold/italic/bold-italic
@@ -28,7 +34,7 @@ font_family        SFMono Nerd Font
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 14
+font_size 12.5
 
 #: Font size (in pts)
 
@@ -163,16 +169,17 @@ font_size 14
 #: suffix px for pixels or % for percentage of original value. No
 #: suffix means use pts. For example::
 
-#:     modify_font underline_position -2
-#:     modify_font underline_thickness 150%
-#:     modify_font strikethrough_position 2px
+    modify_font underline_position 2
+    # modify_font underline_thickness 100%
+    modify_font underline_thickness 5%
+    modify_font strikethrough_position 2px
 
 #: Additionally, you can modify the size of the cell in which each
 #: font glyph is rendered and the baseline at which the glyph is
 #: placed in the cell. For example::
 
 #:     modify_font cell_width 80%
-modify_font cell_height 5px
+modify_font cell_height 1px
 #:     modify_font baseline 3
 
 #: Note that modifying the baseline will automatically adjust the
@@ -821,7 +828,6 @@ enable_audio_bell no
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations yes
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only can be used to only hide the titlebar.
@@ -1089,6 +1095,7 @@ background_opacity 1
 #: this option when reloading the config will only work if
 #: dynamic_background_opacity was enabled in the original config.
 
+# background_image ~/.config/kitty/fallout-bg.png
 background_image ~/.config/kitty/fma-bg.png
 
 #: Path to a background image. Must be in PNG format.
@@ -1110,7 +1117,7 @@ background_image_layout scaled
 #: decrease_background_opacity) or the remote control facility.
 #: Changing this option by reloading the config is not supported.
 
-background_tint 0.97
+background_tint 0.98
 # background_tint 1
 
 #: How much to tint the background image by the background color. This
@@ -1544,7 +1551,7 @@ background_tint 0.97
 #: resizable on macOS. Changing this option by reloading the config
 #: will only affect newly created OS windows.
 
-# macos_thicken_font 0
+macos_thicken_font 0.3
 
 #: Draw an extra border around the font with the given width, to
 #: increase legibility at small font sizes on macOS. For example, a
@@ -2347,6 +2354,6 @@ background_tint 0.97
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Macchiato
+# Doom Vibrant
 include current-theme.conf
 # END_KITTY_THEME

@@ -28,12 +28,13 @@ vim.api.nvim_create_user_command("Editorconfig", function()
 root = true
 
 [*]
-indent_size = 3
-indent_style = tab
+indent_size = 2
+indent_style = space
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
+quote_type=double
 
 [*.md]
 trim_trailing_whitespace = false

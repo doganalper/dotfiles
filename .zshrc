@@ -6,6 +6,7 @@ alias tmux='tmux -f ~/.config/tmux/.tmux.conf'
 alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
 alias kill3000="kill -9 \$(lsof -ti:3000)"
+alias weather="curl https://tr.wttr.in/istanbul"
 
 # Git aliases
 alias gf='git fetch'

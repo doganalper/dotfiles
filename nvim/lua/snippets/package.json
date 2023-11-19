@@ -22,10 +22,6 @@
 			{
 				"language": ["javascriptreact", "typescriptreact", "typescript.tsx", "javascript.jsx"],
 				"path": "./tsx.json"
-			},
-			{
-				"language": ["jinja"],
-				"path": "./jinja.json"
 			}
 		]
 	}
