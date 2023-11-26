@@ -10,6 +10,10 @@ return {
         -- section_separators = "",
         disabled_filetypes = { "NvimTree", "fugitiveblame", "neo-tree" },
       },
+      tabline = {
+        lualine_a = { { "buffers", show_filename_only = false, color = "lualine_a_normal" } },
+        lualine_z = { { "branch", color = "lualine_a_normal" } },
+      },
       sections = {
         lualine_b = {
           {
@@ -21,7 +25,7 @@ return {
         lualine_x = {
           { "filetype", separator = "", padding = { right = 1 } },
         },
-        lualine_y = { "branch", "diff", "diagnostics" },
+        lualine_y = { "diff", "diagnostics" },
       },
       inactive_sections = {
         lualine_c = {

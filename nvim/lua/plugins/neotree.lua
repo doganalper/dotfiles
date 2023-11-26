@@ -51,7 +51,7 @@ return {
 
             if node.type == "directory" then
               return {
-                text = ">",
+                text = "• ",
                 highlight = config.highlight,
               }
             end

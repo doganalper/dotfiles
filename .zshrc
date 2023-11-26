@@ -1,3 +1,5 @@
+# https://www.reddit.com/r/MacOS/comments/sqwsh5/comment/k9nuaxq/?utm_source=share&utm_medium=web2x&context=3 screen scaling issue fix
+
 # Aliases
 alias l='ls -l -a'
 alias config='cd ~/.config && nvim'
@@ -10,7 +12,7 @@ alias weather="curl https://tr.wttr.in/istanbul"
 
 # Git aliases
 alias gf='git fetch'
-alias gpo='git push origin'
+alias gpo='git push origin HEAD'
 alias gs='git status'
 alias gb='git branch'
 
@@ -54,4 +56,13 @@ esac
 # zsh auto suggest plugin
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Bob https://github.com/MordechaiHadad/bob
+export PATH="/Users/alperdogan/.local/share/bob/nvim-bin:$PATH"
 
+
+# bun completions
+[ -s "/Users/alperdogan/.bun/_bun" ] && source "/Users/alperdogan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -5,10 +5,10 @@ vim.keymap.set("n", "<leader>tsp", "<cmd>TSPlaygroundToggle<cr>", { desc = "[T]r
 
 -- Buffers
 vim.keymap.set("n", "gt", function()
-	vim.cmd(vim.v.count .. "bnext")
+  vim.cmd(vim.v.count .. "bnext")
 end, { desc = "Space [B]uffer Next" })
 vim.keymap.set("n", "gT", function()
-	vim.cmd(vim.v.count .. "bprev")
+  vim.cmd(vim.v.count .. "bprev")
 end, { desc = "Space [B]uffer Prev" })
 
 -- Set size of window
@@ -26,11 +26,19 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 -- vim.keymap.set("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
 
 vim.keymap.set("n", "<leader>sbd", function()
-	vim.api.nvim_set_option("background", "dark")
+  vim.api.nvim_set_option("background", "dark")
 end, { desc = "[S]et [B]ackground [D]ark" })
 vim.keymap.set("n", "<leader>sbl", function()
-	vim.api.nvim_set_option("background", "light")
+  vim.api.nvim_set_option("background", "light")
 end, { desc = "[S]et [B]ackground [L]ight" })
 
 vim.keymap.set({ "i", "n" }, "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "[S]ignature" })
-vim.keymap.set("n", "<CR>", "ciw", {})
+vim.keymap.set("n", "<CR>", function()
+  if vim.bo.filetype ~= "qf" then
+    vim.cmd.normal("ciw")
+    vim.cmd.normal("l")
+    vim.cmd("startinsert")
+  else
+    vim.cmd(".cc")
+  end
+end, {})

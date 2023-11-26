@@ -97,35 +97,30 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
-      sources = cmp.config.sources(
+      sources = cmp.config.sources({
         {
-          {
-            name = "nvim_lsp",
-            -- this is for filterin emmet outside of html tags
-            -- TODO: this may be broken, check if anything goes wrong
-            entry_filter = function(entry)
-              -- if vim.bo.filetype == 'html' then
-              -- 	return true
-              -- end
+          name = "nvim_lsp",
+          -- this is for filterin emmet outside of html tags
+          -- TODO: this may be broken, check if anything goes wrong
+          entry_filter = function(entry)
+            -- if vim.bo.filetype == 'html' then
+            -- 	return true
+            -- end
 
-              if entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet then
-                return false
-              end
+            if entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet then
+              return false
+            end
 
-              -- local context = require("cmp.config.context")
-              -- return not context.in_treesitter_capture("string") and
-              -- not context.in_syntax_group("String")
-              return true
-            end,
-          },
-          {
-            name = "luasnip",
-          },
-        }
-        -- 	{
-        -- 	{ name = "buffer" },
-        -- }
-      ),
+            -- local context = require("cmp.config.context")
+            -- return not context.in_treesitter_capture("string") and
+            -- not context.in_syntax_group("String")
+            return true
+          end,
+        },
+        {
+          name = "luasnip",
+        },
+      }),
     })
   end,
 }

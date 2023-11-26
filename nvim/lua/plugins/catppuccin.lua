@@ -3,7 +3,7 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
-    local is_transparent = true
+    local is_transparent = false
     local dark_theme = "frappe"
     require("catppuccin").setup({
       transparent_background = is_transparent,
@@ -18,6 +18,7 @@ return {
           CursorLineNr = { fg = colors.green },
           LineNr = { fg = colors.red },
           TreesitterContext = transparent_background,
+          LspInlayHint = { bg = colors.base },
           -- NormalFloat = transparent_background,
 
           -- Glance

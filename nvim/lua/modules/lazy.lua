@@ -14,7 +14,6 @@ local plugins = {
   { import = "plugins.treesitter" },
   { import = "plugins.vim-go" },
   { import = "plugins.wilder" },
-  -- { import = "plugins.null-ls" },
   { import = "plugins.glance" },
   { import = "plugins.auto-pairs" },
   { import = "plugins.catppuccin" },
@@ -24,13 +23,7 @@ local plugins = {
   { import = "plugins.fugitive" },
   -- { import = "plugins.auto-theme" },
   { import = "plugins.conform" },
-  -- { import = "plugins.indent" },
   { import = "plugins.maximizer" },
-  -- {
-  -- 	dir = "~/Desktop/projects/template-plugin",
-  -- 	config = true,
-  -- 	dev = true,
-  -- },
   { import = "plugins.harpoon" },
   {
     "doganalper/template.nvim",
@@ -39,6 +32,10 @@ local plugins = {
   "nvim-lua/plenary.nvim",
   "JoosepAlviste/nvim-ts-context-commentstring",
   "windwp/nvim-ts-autotag",
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+  },
 }
 
 local opts = {

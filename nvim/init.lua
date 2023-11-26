@@ -22,7 +22,7 @@ vim.o.ignorecase = true
 vim.o.incsearch = true
 vim.o.clipboard = "unnamedplus"
 vim.o.hidden = true
-vim.o.t_Co = 256
+-- vim.o.t_Co = 256
 vim.o.mouse = "a"
 vim.opt.pumheight = 30 -- this sets height of the popup menu
 vim.o.signcolumn = "yes"
@@ -35,7 +35,7 @@ vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 -- vim.opt.cmdheight = 0
 vim.opt.list = true
-vim.opt.listchars = { leadmultispace = "| " }
+vim.opt.listchars = { leadmultispace = "• " }
 
 -- fold
 vim.opt.foldlevel = 99
@@ -70,6 +70,31 @@ vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] }
 
 -- resize split on terminal split
 vim.api.nvim_command("autocmd VimResized * wincmd =")
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(args)
+    if vim.bo.filetype == "rust" then
+      return
+    end
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.server_capabilities.inlayHintProvider then
+      vim.lsp.inlay_hint.enable()
+
+      vim.keymap.set("n", "<leader>tih", function()
+        if vim.lsp.inlay_hint.is_enabled() then
+          print("Disabled Inlay Hints")
+          vim.lsp.inlay_hint.enable(0, false)
+        else
+          print("Enabled Inlay Hints")
+          vim.lsp.inlay_hint.enable(0, true)
+        end
+      end, {
+        desc = "[T]oggle [I]nline [H]ints",
+      })
+    end
+  end,
+})
 
 require("helpers")
 require("modules.lazy")

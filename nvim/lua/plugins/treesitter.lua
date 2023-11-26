@@ -19,6 +19,7 @@ return {
         "jsdoc",
         "html",
         "css",
+        "rust",
       },
       highlight = {
         enable = true,

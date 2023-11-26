@@ -12,6 +12,7 @@ return {
       javascriptreact = { "prettier" },
       html = { "prettier" },
       htmldjango = { "prettier" },
+      rust = { "rustfmt" },
     },
   },
   event = "VeryLazy",
