@@ -21,10 +21,11 @@ local plugins = {
   { import = "plugins.flash" },
   { import = "plugins.friendly-snippets" },
   { import = "plugins.fugitive" },
-  -- { import = "plugins.auto-theme" },
+  { import = "plugins.auto-theme" },
   { import = "plugins.conform" },
   { import = "plugins.maximizer" },
   { import = "plugins.harpoon" },
+  { import = "plugins.crates" },
   {
     "doganalper/template.nvim",
     config = true,

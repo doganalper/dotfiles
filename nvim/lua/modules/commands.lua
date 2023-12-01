@@ -3,6 +3,10 @@ vim.api.nvim_create_user_command("GF", "Git checkout -b feature/<q-args>", { nar
 vim.api.nvim_create_user_command("GA", "Git add .", {})
 vim.api.nvim_create_user_command("GC", "Git commit -m <q-args>", { nargs = 1 })
 vim.api.nvim_create_user_command("GP", "Git push", {})
+vim.api.nvim_create_user_command("GPO", "Git push origin HEAD", {})
+vim.api.nvim_create_user_command("TSI", function()
+  vim.cmd("norm O // @ts-ignore")
+end, {})
 
 -- Turn pixel to rem
 vim.api.nvim_create_user_command("TPR", "echo (0.0625 * <q-args>)", { nargs = 1 })

@@ -12,12 +12,20 @@ return {
         light = "latte",
         dark = dark_theme,
       },
+      integrations = {
+        neotree = true,
+        telescope = true,
+        treesitter_context = true,
+        harpoon = true,
+        mason = true,
+        -- flash = false,
+      },
       custom_highlights = function(colors)
         local transparent_background = { bg = colors.base }
         return {
           CursorLineNr = { fg = colors.green },
           LineNr = { fg = colors.red },
-          TreesitterContext = transparent_background,
+          -- TreesitterContext = transparent_background,
           LspInlayHint = { bg = colors.base },
           -- NormalFloat = transparent_background,
 
@@ -29,6 +37,8 @@ return {
           -- GlanceBorderTop = transparent_background,
 
           -- NeoTree Related
+
+          -- NeoTreeNormal = { bg = colors.text },
           NeoTreeGitAdded = { fg = colors.text },
           NeoTreeGitModified = { fg = colors.text },
           NeoTreeGitUntracked = { fg = colors.text },

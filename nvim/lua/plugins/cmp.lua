@@ -22,6 +22,7 @@ return {
           return vim_item
         end
       end
+
       vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
       return vim_item
     end
@@ -70,8 +71,8 @@ return {
         end, { "i", "s" }),
       }),
       window = {
-        documentation = cmp.config.window.bordered({}),
-        completion = cmp.config.window.bordered({}),
+        -- documentation = cmp.config.window.bordered({}),
+        -- completion = cmp.config.window.bordered({}),
         -- completion = {
         -- 	winhighlight = "Normal:NormalFloat"
         -- }
@@ -120,6 +121,7 @@ return {
         {
           name = "luasnip",
         },
+        { name = "crates" } -- TODO: load this lazily. see: https://github.com/Saecki/crates.nvim/wiki/Stable-documentation
       }),
     })
   end,

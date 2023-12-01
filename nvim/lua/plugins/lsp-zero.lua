@@ -32,6 +32,7 @@ return {
         "volar",
         "vuels",
         "cssls",
+        "tailwindcss",
         "html"
       },
       automatic_installation = true,

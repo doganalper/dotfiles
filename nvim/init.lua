@@ -71,6 +71,7 @@ vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] }
 -- resize split on terminal split
 vim.api.nvim_command("autocmd VimResized * wincmd =")
 
+-- inlay hints
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(args)

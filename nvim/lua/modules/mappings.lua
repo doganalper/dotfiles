@@ -26,10 +26,10 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 -- vim.keymap.set("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
 
 vim.keymap.set("n", "<leader>sbd", function()
-  vim.api.nvim_set_option("background", "dark")
+  SetBackground("dark")
 end, { desc = "[S]et [B]ackground [D]ark" })
 vim.keymap.set("n", "<leader>sbl", function()
-  vim.api.nvim_set_option("background", "light")
+  SetBackground("light")
 end, { desc = "[S]et [B]ackground [L]ight" })
 
 vim.keymap.set({ "i", "n" }, "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "[S]ignature" })

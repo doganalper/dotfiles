@@ -20,6 +20,7 @@ return {
         "html",
         "css",
         "rust",
+        "bash"
       },
       highlight = {
         enable = true,
