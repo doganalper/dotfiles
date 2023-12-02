@@ -36,6 +36,7 @@ function SetBackground(type)
     -- Set cursor color
     vim.cmd("hi Cursor guibg=lightgrey guifg=lightgrey")
     vim.cmd("hi Cursor2 guibg=black guifg=black")
+    vim.cmd("hi NeoTreeCursorLine guibg=#bdc0cc")
     vim.cmd("set guicursor=n-v-c-i:block-Cursor,i-ci-ve:ver25-Cursor2,r-cr:hor20,o:hor50")
   end
 end

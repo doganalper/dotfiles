@@ -1,6 +1,5 @@
 local plugins = {
   { import = "plugins.advanced-git-search" },
-  { import = "plugins.dir-telescope" },
   { import = "plugins.cmp" },
   { import = "plugins.gitsigns" },
   { import = "plugins.lsp-zero" },
@@ -21,22 +20,18 @@ local plugins = {
   { import = "plugins.flash" },
   { import = "plugins.friendly-snippets" },
   { import = "plugins.fugitive" },
-  { import = "plugins.auto-theme" },
   { import = "plugins.conform" },
-  { import = "plugins.maximizer" },
   { import = "plugins.harpoon" },
   { import = "plugins.crates" },
+  { import = "plugins.rust-tools" },
   {
     "doganalper/template.nvim",
     config = true,
   },
+  "princejoogie/dir-telescope.nvim",
   "nvim-lua/plenary.nvim",
   "JoosepAlviste/nvim-ts-context-commentstring",
   "windwp/nvim-ts-autotag",
-  {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-  },
 }
 
 local opts = {

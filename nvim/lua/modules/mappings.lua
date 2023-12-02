@@ -1,7 +1,6 @@
 require("helpers")
 
 vim.keymap.set("i", "jj", "<ESC>", { desc = "Map jj to <Esc>" })
-vim.keymap.set("n", "<leader>tsp", "<cmd>TSPlaygroundToggle<cr>", { desc = "[T]ree[s]itter [P]layground" })
 
 -- Buffers
 vim.keymap.set("n", "gt", function()

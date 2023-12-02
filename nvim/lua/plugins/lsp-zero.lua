@@ -33,7 +33,7 @@ return {
         "vuels",
         "cssls",
         "tailwindcss",
-        "html"
+        "html",
       },
       automatic_installation = true,
     })
@@ -145,16 +145,6 @@ return {
     })
 
     lsp_zero.skip_server_setup({ "rust_analyzer" })
-
-    local rust_tools = require("rust-tools")
-
-    rust_tools.setup({
-      server = {
-        on_attach = function(_, bufnr)
-          -- vim.keymap.set("n", "<leader>ca", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
-        end,
-      },
-    })
 
     lsp_zero.setup()
 

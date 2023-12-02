@@ -121,7 +121,7 @@ return {
         {
           name = "luasnip",
         },
-        { name = "crates" } -- TODO: load this lazily. see: https://github.com/Saecki/crates.nvim/wiki/Stable-documentation
+        { name = "crates" }, -- TODO: load this lazily. see: https://github.com/Saecki/crates.nvim/wiki/Stable-documentation
       }),
     })
   end,
