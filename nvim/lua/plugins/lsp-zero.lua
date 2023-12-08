@@ -76,11 +76,21 @@ return {
     })
 
     lsp_zero.on_attach(function(client, bufnr)
+      -- lsp actions
       vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
       vim.keymap.set("n", "<leader>rn", function()
         vim.lsp.buf.rename()
       end, { buffer = bufnr, desc = "Space [R]e[n]ame" })
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
+      vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "[G]oto [R]eferences" })
+      vim.keymap.set(
+        "n",
+        "<leader>gtd",
+        vim.lsp.buf.type_definition,
+        { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
+      )
+      vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[G]oto [I]mplementation" })
     end)
 
     lsp_config.eslint.setup({
