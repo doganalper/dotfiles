@@ -10,6 +10,10 @@ alias projects='cd ~/Desktop/projects'
 alias kill3000="kill -9 \$(lsof -ti:3000)"
 alias weather="curl https://tr.wttr.in/istanbul"
 
+function video_to_gif () {
+  ffmpeg -i $1  -r 15 -vf scale=1024:-1 $2
+}
+
 # Git aliases
 alias gf='git fetch'
 alias gpo='git push origin HEAD'
