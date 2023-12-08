@@ -22,7 +22,16 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
     local lsp_zero = require("lsp-zero")
 
-    mason.setup()
+    mason.setup({
+      ui = {
+        border = "rounded",
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
 
     mason_lspconfig.setup({
       ensure_installed = {

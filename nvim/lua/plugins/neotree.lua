@@ -59,7 +59,7 @@ return {
           end,
         },
       },
-      use_popups_for_input = false,
+      use_popups_for_input = true,
       window = {
         mappings = {
           ["H"] = "toggle_hidden",

@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.4",
+  event = "VeryLazy",
   config = function()
     require("helpers")
     local commonDropdown = {
@@ -18,15 +19,16 @@ return {
     telescope.setup({
       defaults = {
         -- layout_strategy = "vertical",
-        -- layout_config = {
-        --   width = 0.9,
-        -- },
         layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
             prompt_position = "top",
-            preview_width = 0.6,
+            preview_width = 0.5,
           },
+          vertical = {
+            -- mirror = true
+            -- prompt_position = "top",
+          }
         },
         file_ignore_patterns = { "node_modules", ".git" },
         prompt_prefix = " > ",

@@ -24,10 +24,7 @@ local plugins = {
   { import = "plugins.harpoon" },
   { import = "plugins.crates" },
   { import = "plugins.rust-tools" },
-  {
-    "doganalper/template.nvim",
-    config = true,
-  },
+  { import = "plugins.templates" },
   "princejoogie/dir-telescope.nvim",
   "nvim-lua/plenary.nvim",
   "JoosepAlviste/nvim-ts-context-commentstring",
@@ -38,6 +35,26 @@ local opts = {
   change_detection = {
     enabled = true,
     notify = false,
+  },
+  ui = {
+    border = "rounded",
+    title = "Plugins",
+    title_pos = "left",
+    icons = {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      require = "🌙",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
+    },
   },
 }
 

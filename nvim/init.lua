@@ -24,7 +24,7 @@ vim.o.clipboard = "unnamedplus"
 vim.o.hidden = true
 -- vim.o.t_Co = 256
 vim.o.mouse = "a"
-vim.opt.pumheight = 30 -- this sets height of the popup menu
+-- vim.opt.pumheight = 30 -- this sets height of the popup menu
 vim.o.signcolumn = "yes"
 vim.o.autoread = true
 vim.o.encoding = "utf-8"
@@ -41,6 +41,9 @@ vim.opt.listchars = { leadmultispace = "• " }
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = true
+
+-- tmux color problem
+vim.o.termguicolors = true
 
 -- hover width
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview

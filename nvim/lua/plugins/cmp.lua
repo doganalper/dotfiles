@@ -1,12 +1,12 @@
 return {
   "hrsh7th/nvim-cmp",
+  event = "VeryLazy",
   config = function()
     require("helpers")
     local lsp = require("lsp-zero")
     local luasnip = require("luasnip")
     local cmp = require("cmp")
     local lspkind = require("lspkind")
-    -- vim.api.nvim_set_hl(0, "Pmenu", { bg = "#FF0000" })
 
     local function formatForTailwindCSS(entry, vim_item)
       if vim_item.kind == "Color" and entry.completion_item.documentation then
@@ -71,8 +71,8 @@ return {
         end, { "i", "s" }),
       }),
       window = {
-        -- documentation = cmp.config.window.bordered({}),
-        -- completion = cmp.config.window.bordered({}),
+        documentation = cmp.config.window.bordered({}),
+        completion = cmp.config.window.bordered({}),
         -- completion = {
         -- 	winhighlight = "Normal:NormalFloat"
         -- }
@@ -80,8 +80,9 @@ return {
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = lspkind.cmp_format({
-          mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+          mode = "text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
           maxwidth = 70, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
           before = function(entry, vim_item)
             vim_item.menu = "(" .. vim_item.kind .. ")"
             vim_item.dup = ({
