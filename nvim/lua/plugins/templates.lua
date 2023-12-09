@@ -95,10 +95,16 @@ local template_config = {
             template = {
               "local M = {};",
               "",
-              "return M"
-            }
-          }
-        }
+              "return M",
+            },
+          },
+          {
+            name = "Empty",
+            template = {
+              "",
+            },
+          },
+        },
       },
     })
   end,
