@@ -1,7 +1,13 @@
-return {
+local is_dev = false
+
+local template_config = {
   "doganalper/template.nvim",
+  event = "VeryLazy",
   config = function()
     require("template").setup({
+      mappings = {
+        switch_template = "<leader>tt",
+      },
       templates = {
         vue = {
           {
@@ -83,7 +89,27 @@ return {
             },
           },
         },
+        lua = {
+          {
+            name = "Module",
+            template = {
+              "local M = {};",
+              "",
+              "return M"
+            }
+          }
+        }
       },
     })
   end,
 }
+
+if is_dev then
+  template_config = {
+    dev = true,
+    dir = "~/Desktop/projects/template-plugin",
+    config = function() end,
+  }
+end
+
+return template_config
