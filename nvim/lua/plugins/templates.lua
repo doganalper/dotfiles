@@ -100,9 +100,7 @@ local template_config = {
           },
           {
             name = "Empty",
-            template = {
-              "",
-            },
+            template = {},
           },
         },
       },
