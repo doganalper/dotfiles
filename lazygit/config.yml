@@ -4,3 +4,10 @@ gui:
     "Alper Doğan": "green"
   branchColors:
     'main': 'red'
+  splitDiff: 'always'
+
+os:
+  editPreset: 'nvim'
+
+git:
+  mainBranches: ['main']
