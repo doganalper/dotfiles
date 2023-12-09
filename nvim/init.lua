@@ -78,9 +78,11 @@ vim.api.nvim_command("autocmd VimResized * wincmd =")
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(args)
+    -- disable lsp inlay hints in rust because rust-analyzer has own
     if vim.bo.filetype == "rust" then
       return
     end
+
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable()
@@ -97,6 +99,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
         desc = "[T]oggle [I]nline [H]ints",
       })
     end
+  end,
+})
+
+-- highlight yank for 300ms
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yanked', {clear = true}),
+  desc = 'Highlight on yank',
+  callback = function()
+    vim.highlight.on_yank({higroup = 'ErrorMsg', timeout = 400})
   end,
 })
 

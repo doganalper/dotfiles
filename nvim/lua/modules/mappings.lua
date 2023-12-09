@@ -20,9 +20,11 @@ vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase w
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 -- Split Size Changes
--- vim.keymap.set("n", "<leader>whe", "<C-w>|", { desc = "[W]indow [H]orizontally [E]xpand", silent = true })
--- vim.keymap.set("n", "<leader>wve", "<C-w>_", { desc = "[W]indow [V]ertically [E]xpand", silent = true })
--- vim.keymap.set("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
+vim.keymap.set("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
+
+-- Improved Motion
+vim.keymap.set({"n", "v"}, "H", "_", {desc = "Go to start of line"});
+vim.keymap.set({"n", "v"}, "L", "$", {desc = "Go to end of line"});
 
 vim.keymap.set("n", "<leader>sbd", function()
   SetBackground("dark")

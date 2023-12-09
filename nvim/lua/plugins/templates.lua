@@ -6,7 +6,7 @@ local template_config = {
   config = function()
     require("template").setup({
       mappings = {
-        switch_template = "<leader>tt",
+        switch_template = "<leader>st",
       },
       templates = {
         vue = {
