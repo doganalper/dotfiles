@@ -43,6 +43,7 @@ return {
         "cssls",
         "tailwindcss",
         "html",
+        -- "prettier"
       },
       automatic_installation = true,
     })
@@ -101,9 +102,6 @@ return {
       init_options = {
         preferences = {
           includeInlayParameterNameHints = "all",
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          includeInlayFunctionParameterTypeHints = true,
-          importModuleSpecifierPreference = "non-relative",
         },
       },
       settings = {
