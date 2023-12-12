@@ -9,7 +9,7 @@
   "dir-telescope.nvim": { "branch": "main", "commit": "1f3a041f870d1edf9cc64635e79f4b829e755978" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
   "friendly-snippets": { "branch": "main", "commit": "53d3df271d031c405255e99410628c26a8f0d2b0" },
-  "gitsigns.nvim": { "branch": "main", "commit": "6e05045fb1a4845fe44f5c54aafe024444c422ba" },
+  "gitsigns.nvim": { "branch": "main", "commit": "d195f0c35ced5174d3ecce1c4c8ebb3b5bc23fa9" },
   "harpoon": { "branch": "master", "commit": "867e212ac153e793f95b316d1731f3ca1894625e" },
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
   "lsp-zero.nvim": { "branch": "v2.x", "commit": "ffebf6f7b0649f1eb81b37c37b75552f8ff96337" },

@@ -113,7 +113,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-require("helpers")
 require("modules.lazy")
 require("modules.mappings")
 require("modules.commands")

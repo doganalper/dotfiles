@@ -1,1 +1,4 @@
-return { "rafamadriz/friendly-snippets" }
+return {
+ "rafamadriz/friendly-snippets",
+  event = "VeryLazy"
+}

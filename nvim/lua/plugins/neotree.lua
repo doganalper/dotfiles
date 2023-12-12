@@ -75,7 +75,7 @@ return {
     {
       "<leader>1",
       mode = { "n" },
-      "<cmd>Neotree toggle reveal<cr>"
+      "<cmd>Neotree toggle reveal right<cr>"
     }
   }
 }

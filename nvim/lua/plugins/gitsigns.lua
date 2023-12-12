@@ -3,12 +3,19 @@ return {
   event = "VeryLazy",
   config = function()
     local gs = require("gitsigns")
+    require("helpers")
 
     gs.setup({
       on_attach = function(bufnr)
-        vim.keymap.set("n", "<leader>glc", gs.preview_hunk)
+        Map("n", "<leader>glc", gs.preview_hunk, { desc = "[G]it [L]ine [C]hanges" })
 
-        vim.keymap.set("n", "<leader>gb", function()
+        Map("n", "<leader>gfc",  gs.diffthis, { desc = "[G]it [F]ile [C]hanges" })
+
+        Map("n", "<leader>grh", gs.reset_hunk, { desc = "[G]it [R]eset [H]unk" })
+
+        Map("n", "<leader>grf", gs.reset_file, { desc = "[G]it [R]eset [F]ile" })
+
+        Map("n", "<leader>gb", function()
           gs.blame_line({ full = true })
         end, { desc = "[G]it [B]lame" })
       end,
