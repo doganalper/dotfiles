@@ -40,3 +40,7 @@ function SetBackground(type)
     vim.cmd("set guicursor=n-v-c-i:block-Cursor,i-ci-ve:ver25-Cursor2,r-cr:hor20,o:hor50")
   end
 end
+
+function Map(mode, mapping, functionality, opts)
+  vim.keymap.set(mode, mapping, functionality, opts)
+end

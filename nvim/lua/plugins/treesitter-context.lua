@@ -6,9 +6,12 @@ return {
     -- mode = 'topline'
   },
   event = "VeryLazy",
-  keys = function()
-    vim.keymap.set("n", "gu", function()
-      require("treesitter-context").go_to_context()
-    end, { silent = true })
-  end,
+  keys = {
+    {
+      "gu",
+      mode = { "n" },
+      "<cmd>lua require('treesitter-context').go_to_context()<cr>",
+      desc = "[G]o [U]pper [C]ontext",
+    },
+  },
 }

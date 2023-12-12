@@ -71,7 +71,11 @@ return {
       },
     })
   end,
-  keys = function()
-    vim.keymap.set("n", "<leader>1", "<cmd>Neotree toggle reveal<cr>")
-  end,
+  keys = {
+    {
+      "<leader>1",
+      mode = { "n" },
+      "<cmd>Neotree toggle reveal<cr>"
+    }
+  }
 }

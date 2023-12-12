@@ -15,7 +15,6 @@ return {
       integrations = {
         neotree = true,
         telescope = true,
-        treesitter_context = true,
         harpoon = true,
         mason = true,
         -- flash = false,

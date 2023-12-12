@@ -28,7 +28,7 @@ return {
           vertical = {
             -- mirror = true
             -- prompt_position = "top",
-          }
+          },
         },
         file_ignore_patterns = { "node_modules", ".git" },
         prompt_prefix = " > ",
@@ -37,6 +37,9 @@ return {
         -- colorscheme = commonDropdown,
         oldfiles = filePicker,
         find_files = filePicker,
+        current_buffer_fuzzy_find = {
+          theme = "dropdown",
+        },
         -- buffers = commonDropdown,
         -- builtin = commonDropdown,
       },
@@ -52,32 +55,77 @@ return {
     telescope.load_extension("advanced_git_search")
     telescope.load_extension("dir")
   end,
-  keys = function()
-    vim.keymap.set("n", "<leader>o", "<cmd>Telescope find_files<cr>", { desc = "Space [O]pen" })
-    vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<cr>", { desc = "Space [F]ind" })
-    vim.keymap.set("n", "<leader>wf", "<cmd>Telescope grep_string<cr>", { desc = "[W]ord [F]ind" })
-    vim.keymap.set("n", "<leader>sd", "<cmd>Telescope diagnostics<cr>", { desc = "[S]how [D]iagnostics" })
-    vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope<cr>", { desc = "Map space-space to see Telescope menu" })
-    vim.keymap.set("n", "<leader>rf", function()
-      require("telescope.builtin").oldfiles({
-        cwd_only = true,
-      })
-    end, { desc = "Space [R]ecent [F]iles" })
-    vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Space [G]it [S]tatus" })
-    vim.keymap.set(
-      "n",
+  keys = {
+    {
+      "<leader>o",
+      mode = { "n" },
+      "<cmd>Telescope find_files<cr>",
+      desc = "Space [O]pen",
+    },
+    {
+      "<leader>f",
+      mode = { "n" },
+      "<cmd>Telescope live_grep<cr>",
+      desc = "Space [F]ind",
+    },
+    {
+      "<leader>wf",
+      mode = { "n" },
+      "<cmd>Telescope grep_string<cr>",
+      desc = "[W]ord [F]ind",
+    },
+    {
+      "<leader>sd",
+      mode = { "n" },
+      "<cmd>Telescope diagnostics<cr>",
+      desc = "[S]how [D]iagnostics",
+    },
+    {
+      "<leader><leader>",
+      mode = { "n" },
+      "<cmd>Telescope<cr>",
+      desc = "Map space-space to see Telescope menu",
+    },
+    {
+      "<leader>rf",
+      mode = { "n" },
+      "<cmd>lua require('telescope.builtin').oldfiles({cwd_only=true})<cr>",
+      desc = "Space [R]ecent [F]iles",
+    },
+    {
+      "<leader>gs",
+      mode = { "n" },
+      "<cmd>lua require('telescope.builtin').oldfiles({cwd_only=true})<cr>",
+      desc = "Space [G]it [S]tatus",
+    },
+    {
       "<leader>gc",
+      mode = { "n" },
       "<cmd>Telescope advanced_git_search search_log_content<cr>",
-      { desc = "Space [G]it [C]ommits" }
-    )
-    vim.keymap.set(
-      "n",
+      desc = "Space [G]it [C]ommits",
+    },
+    {
       "<leader>gfc",
+      mode = { "n" },
       "<cmd>Telescope advanced_git_search diff_commit_file<cr>",
-      { desc = "Space [G]it [F]ile [C]ommits" }
-    )
-    vim.keymap.set("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "[B]uffers [L]ist" })
-    -- vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
-    vim.keymap.set("n", "<leader>df", "<cmd>Telescope dir live_grep<cr>", { desc = "[D]irectory [F]ind" })
-  end,
+      desc = "Space [G]it [F]ile [C]ommits",
+    },
+    {
+      "<leader>bl",
+      mode = { "n" },
+      "<cmd>Telescope buffers<cr>",
+      desc = "[B]uffers [L]ist",
+    },
+    {
+      "<leader>df",
+      mode = { "n" },
+      "<cmd>Telescope dir live_grep<cr>",
+      desc = "[D]irectory [F]ind",
+    },
+    {
+      "<leader><s-f>",
+      mode = { "n" },
+      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+    },
+  },
 }

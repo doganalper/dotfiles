@@ -1,3 +1,5 @@
+require("helpers")
+
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -87,7 +89,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable()
 
-      vim.keymap.set("n", "<leader>tih", function()
+      Map("n", "<leader>tih", function()
         if vim.lsp.inlay_hint.is_enabled() then
           print("Disabled Inlay Hints")
           vim.lsp.inlay_hint.enable(0, false)

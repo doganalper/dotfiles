@@ -20,9 +20,7 @@ return {
     {
       "gq",
       mode = { "n" },
-      function()
-        require("conform").format()
-      end,
+      "<cmd>lua require('conform').format()<cr>",
       desc = "Format File",
     },
   },

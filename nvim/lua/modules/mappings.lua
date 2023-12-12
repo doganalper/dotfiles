@@ -1,40 +1,40 @@
 require("helpers")
 
-vim.keymap.set("i", "jj", "<ESC>", { desc = "Map jj to <Esc>" })
+Map("i", "jj", "<ESC>", { desc = "Map jj to <Esc>" })
 
 -- Buffers
-vim.keymap.set("n", "gt", function()
+Map("n", "gt", function()
   vim.cmd(vim.v.count .. "bnext")
 end, { desc = "Space [B]uffer Next" })
-vim.keymap.set("n", "gT", function()
+Map("n", "gT", function()
   vim.cmd(vim.v.count .. "bprev")
 end, { desc = "Space [B]uffer Prev" })
 
 -- Set size of window
-vim.keymap.set("n", "<C-k>", "<cmd>resize +4<cr>", { desc = "Increase window height", noremap = true })
-vim.keymap.set("n", "<C-j>", "<cmd>resize -4<cr>", { desc = "Decrease window height", noremap = true })
-vim.keymap.set("n", "<C-h>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
-vim.keymap.set("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
+Map("n", "<C-k>", "<cmd>resize +4<cr>", { desc = "Increase window height", noremap = true })
+Map("n", "<C-j>", "<cmd>resize -4<cr>", { desc = "Decrease window height", noremap = true })
+Map("n", "<C-h>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
+Map("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
 
 -- Clear search with <esc>
-vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+Map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 -- Split Size Changes
-vim.keymap.set("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
+Map("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
 
 -- Improved Motion
-vim.keymap.set({"n", "v"}, "H", "_", {desc = "Go to start of line"});
-vim.keymap.set({"n", "v"}, "L", "$", {desc = "Go to end of line"});
+Map({"n", "v"}, "H", "_", {desc = "Go to start of line"});
+Map({"n", "v"}, "L", "$", {desc = "Go to end of line"});
 
-vim.keymap.set("n", "<leader>sbd", function()
+Map("n", "<leader>sbd", function()
   SetBackground("dark")
 end, { desc = "[S]et [B]ackground [D]ark" })
-vim.keymap.set("n", "<leader>sbl", function()
+Map("n", "<leader>sbl", function()
   SetBackground("light")
 end, { desc = "[S]et [B]ackground [L]ight" })
 
-vim.keymap.set({ "i", "n" }, "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "[S]ignature" })
-vim.keymap.set("n", "<CR>", function()
+Map({ "i", "n" }, "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "[S]ignature" })
+Map("n", "<CR>", function()
   if vim.bo.filetype ~= "qf" then
     vim.cmd.normal("ciw")
     vim.cmd.normal("l")

@@ -56,6 +56,9 @@ local opts = {
       lazy = "💤 ",
     },
   },
+  dev = {
+    path = "~/projects/nvim-plugins"
+  }
 }
 
 require("lazy").setup(plugins, opts)
