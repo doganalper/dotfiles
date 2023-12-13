@@ -23,8 +23,8 @@ Map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 Map("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
 
 -- Improved Motion
-Map({"n", "v"}, "H", "_", {desc = "Go to start of line"});
-Map({"n", "v"}, "L", "$", {desc = "Go to end of line"});
+Map({ "n", "v" }, "H", "_", { desc = "Go to start of line" })
+Map({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
 
 Map("n", "<leader>sbd", function()
   SetBackground("dark")
@@ -34,6 +34,8 @@ Map("n", "<leader>sbl", function()
 end, { desc = "[S]et [B]ackground [L]ight" })
 
 Map({ "i", "n" }, "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "[S]ignature" })
+
+-- Quickfix mappings
 Map("n", "<CR>", function()
   if vim.bo.filetype ~= "qf" then
     vim.cmd.normal("ciw")
@@ -43,3 +45,8 @@ Map("n", "<CR>", function()
     vim.cmd(".cc")
   end
 end, {})
+Map("n", "q", function()
+  if vim.bo.filetype == "qf" then
+    vim.cmd("ccl")
+  end
+end, { desc = "Close quick fix with [Q] key." })

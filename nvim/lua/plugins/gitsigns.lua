@@ -13,7 +13,11 @@ return {
 
         Map("n", "<leader>grh", gs.reset_hunk, { desc = "[G]it [R]eset [H]unk" })
 
-        Map("n", "<leader>grf", gs.reset_file, { desc = "[G]it [R]eset [F]ile" })
+        Map("n", "<leader>gnh", gs.next_hunk, { desc = "[G]it [N]ext [H]unk" })
+
+        Map("n", "<leader>gph", gs.prev_hunk, { desc = "[G]it [P]rev [H]unk" })
+
+        Map("n", "<leader>grf", gs.reset_buffer, { desc = "[G]it [R]eset [F]ile" })
 
         Map("n", "<leader>gb", function()
           gs.blame_line({ full = true })

@@ -1,3 +1,12 @@
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="arrow"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
 # https://www.reddit.com/r/MacOS/comments/sqwsh5/comment/k9nuaxq/?utm_source=share&utm_medium=web2x&context=3 screen scaling issue fix
 
 # Aliases
@@ -38,8 +47,8 @@ COLOR_DEF=$'\e[0m'
 COLOR_DIR=$'\e[38;5;197m'
 COLOR_GIT=$'\e[38;5;39m'
 NEW_LINE=$'\n'
-setopt PROMPT_SUBST
-export PROMPT='${COLOR_DIR}%2~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEW_LINE}'
+# setopt PROMPT_SUBST
+# export PROMPT='${COLOR_DIR}%2~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEW_LINE}'
 export DENO_INSTALL="/Users/alperdogan/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
