@@ -21,6 +21,8 @@ return {
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
     local lsp_zero = require("lsp-zero")
+    local lsp_config = require("lspconfig")
+    require("lspconfig.ui.windows").default_options.border = "single"
 
     mason.setup({
       ui = {
@@ -43,7 +45,7 @@ return {
         "cssls",
         "tailwindcss",
         "html",
-        "astro"
+        "astro",
         -- "prettier"
       },
       automatic_installation = true,
@@ -53,7 +55,6 @@ return {
       lsp_zero.default_keymaps({ buffer = bufnr })
     end)
 
-    local lsp_config = require("lspconfig")
     local root_pattern = lsp_config.util.root_pattern
 
     lsp_zero.preset("recommended")
@@ -86,12 +87,7 @@ return {
       Map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
       Map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
       Map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "[G]oto [R]eferences" })
-      Map(
-        "n",
-        "<leader>gtd",
-        vim.lsp.buf.type_definition,
-        { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
-      )
+      Map("n", "<leader>gtd", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" })
       Map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[G]oto [I]mplementation" })
     end)
 

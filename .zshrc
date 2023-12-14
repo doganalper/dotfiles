@@ -3,7 +3,12 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="arrow"
 
-plugins=(git)
+plugins=(
+  git
+  gh
+  nvm
+  # git-flow
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,6 +23,7 @@ alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
 alias kill3000="kill -9 \$(lsof -ti:3000)"
 alias weather="curl https://tr.wttr.in/istanbul"
+alias d_img="kitten icat"
 
 function video_to_gif () {
   ffmpeg -i $1  -r 15 -vf scale=1024:-1 $2
