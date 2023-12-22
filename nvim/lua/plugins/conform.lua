@@ -4,12 +4,12 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       -- Conform will run multiple formatters sequentially
-      javascript = { "prettier" },
-      typescript = { "prettier" },
+      javascript = { { "prettier", "biome" } },
+      typescript = { { "prettier", "biome" } },
       vue = { "prettier" },
-      typescriptreact = { "prettier" },
+      typescriptreact = { { "prettier", "biome" } },
       astro = { "prettier" },
-      javascriptreact = { "prettier" },
+      javascriptreact = { { "prettier", "biome" } },
       html = { "prettier" },
       htmldjango = { "prettier" },
       rust = { "rustfmt" },

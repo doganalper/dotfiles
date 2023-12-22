@@ -66,3 +66,4 @@ require("lazy").setup(plugins, opts)
 -- POSSIBLE PLUGINS (check out later)
 -- https://github.com/sindrets/diffview.nvim
 -- https://github.com/sainnhe/gruvbox-material
+-- https://github.com/nvim-treesitter/nvim-tree-docs (generate code docs)

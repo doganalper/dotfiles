@@ -9,12 +9,12 @@ return {
 
     -- Autocompletion
     { "hrsh7th/nvim-cmp" }, -- Required
-    { "hrsh7th/cmp-nvim-lsp" }, -- Required
+    { "hrsh7th/cmp-nvim-lsp", event = "VeryLazy" }, -- Required
 
     -- Snippets
-    { "L3MON4D3/LuaSnip" }, -- Required
-    { "rafamadriz/friendly-snippets" }, -- Optional
-    { "saadparwaiz1/cmp_luasnip" }, -- Optional
+    { "L3MON4D3/LuaSnip", event = "VeryLazy" }, -- Required
+    { "rafamadriz/friendly-snippets", event = "VeryLazy" }, -- Optional
+    { "saadparwaiz1/cmp_luasnip", event = "VeryLazy" }, -- Optional
   },
   config = function()
     require("helpers")
@@ -124,6 +124,11 @@ return {
     -- -- attach volar when there's a vite file
     lsp_config.volar.setup({
       root_dir = root_pattern("vite*"),
+      capabilities = capabilities,
+    })
+
+    lsp_config.biome.setup({
+      root_dir = root_pattern("biome*"),
       capabilities = capabilities,
     })
 

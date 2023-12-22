@@ -1,5 +1,6 @@
 return {
   "terrortylor/nvim-comment",
+  event = "VeryLazy",
   config = function()
     require("helpers")
     local multiLangFileTypes = { "vue", "astro" }

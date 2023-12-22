@@ -1,14 +1,19 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="arrow"
+# ============== THEME ==============
+ZSH_THEME="lambda"
+# ZSH_THEME="refined"
+# ============== THEME END ==============
 
+# ============== ZSH PLUGINS ==============
 plugins=(
   git
   gh
   nvm
   # git-flow
 )
+# ============== PLUGINS END ==============
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,6 +29,8 @@ alias projects='cd ~/Desktop/projects'
 alias kill3000="kill -9 \$(lsof -ti:3000)"
 alias weather="curl https://tr.wttr.in/istanbul"
 alias d_img="kitten icat"
+alias t="tmux"
+alias ta="tmux a"
 
 function video_to_gif () {
   ffmpeg -i $1  -r 15 -vf scale=1024:-1 $2
@@ -45,16 +52,6 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-function parse_git_branch() {
-  git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/(\1) /p'
-}
-
-COLOR_DEF=$'\e[0m'
-COLOR_DIR=$'\e[38;5;197m'
-COLOR_GIT=$'\e[38;5;39m'
-NEW_LINE=$'\n'
-# setopt PROMPT_SUBST
-# export PROMPT='${COLOR_DIR}%2~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEW_LINE}'
 export DENO_INSTALL="/Users/alperdogan/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"

@@ -30,7 +30,7 @@ return {
             -- prompt_position = "top",
           },
         },
-        file_ignore_patterns = { "node_modules", ".git" },
+        file_ignore_patterns = { "node_modules/", ".git/" },
         prompt_prefix = " > ",
       },
       pickers = {
@@ -132,6 +132,11 @@ return {
       "<leader><s-f>",
       mode = { "n" },
       "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+    },
+    {
+      "<leader><s-h>",
+      mode = { "n" },
+      "<cmd>Telescope help_tags<cr>",
     },
   },
 }

@@ -37,7 +37,7 @@ vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 -- vim.opt.cmdheight = 0
 vim.opt.list = true
-vim.opt.listchars = { leadmultispace = "• " }
+vim.opt.listchars = { leadmultispace = "• "}
 
 -- fold
 vim.opt.foldlevel = 99
@@ -77,39 +77,39 @@ vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] }
 vim.api.nvim_command("autocmd VimResized * wincmd =")
 
 -- inlay hints
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-  callback = function(args)
-    -- disable lsp inlay hints in rust because rust-analyzer has own
-    if vim.bo.filetype == "rust" then
-      return
-    end
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+--   callback = function(args)
+--     -- disable lsp inlay hints in rust because rust-analyzer has own
+--     if vim.bo.filetype == "rust" then
+--       return
+--     end
 
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.server_capabilities.inlayHintProvider then
-      vim.lsp.inlay_hint.enable()
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     if client.server_capabilities.inlayHintProvider then
+--       -- vim.lsp.inlay_hint.enable()
 
-      Map("n", "<leader>tih", function()
-        if vim.lsp.inlay_hint.is_enabled() then
-          print("Disabled Inlay Hints")
-          vim.lsp.inlay_hint.enable(0, false)
-        else
-          print("Enabled Inlay Hints")
-          vim.lsp.inlay_hint.enable(0, true)
-        end
-      end, {
-        desc = "[T]oggle [I]nline [H]ints",
-      })
-    end
-  end,
-})
+--       Map("n", "<leader>tih", function()
+--         if vim.lsp.inlay_hint.is_enabled() then
+--           print("Disabled Inlay Hints")
+--           vim.lsp.inlay_hint.enable(0, false)
+--         else
+--           print("Enabled Inlay Hints")
+--           vim.lsp.inlay_hint.enable(0, true)
+--         end
+--       end, {
+--         desc = "[T]oggle [I]nline [H]ints",
+--       })
+--     end
+--   end,
+-- })
 
 -- highlight yank for 300ms
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight_yanked', {clear = true}),
-  desc = 'Highlight on yank',
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("highlight_yanked", { clear = true }),
+  desc = "Highlight on yank",
   callback = function()
-    vim.highlight.on_yank({higroup = 'ErrorMsg', timeout = 400})
+    vim.highlight.on_yank({ higroup = "ErrorMsg", timeout = 400 })
   end,
 })
 

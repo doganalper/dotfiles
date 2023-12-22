@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     local is_transparent = true
-    local dark_theme = "frappe"
+    local dark_theme = "macchiato"
     require("catppuccin").setup({
       transparent_background = is_transparent,
       flavour = dark_theme,
