@@ -1,30 +1,30 @@
 {
-	"JSX Component": {
-		"prefix": "jsx",
-		"body": [
-			"function $1() {",
-			"    return $2",
-			"}",
-			"",
-			"export default $1"
-		],
-		"description": "Create JSX Component"
-	},
-	"StyleSheet": {
-		"prefix": "crs",
-		"body": "const styles = StyleSheet.create({$1})",
-		"description": "Create React Native StyleSheet"
-	},
-	"TSX Component": {
-		"prefix": "tsx",
-		"body": [
-			"type Props = {$3}",
-			"function $1({$2}: Props) {",
-			"    return $4",
-			"}",
-			"",
-			"export default $1"
-		],
-		"description": "Create JSX Component"
-	}
+  "JSX Component": {
+    "prefix": "jsx",
+    "body": [
+      "function $1() {",
+        "    return $2",
+        "}",
+        "",
+        "export default $1"
+    ],
+    "description": "Create JSX Component"
+  },
+  "StyleSheet": {
+    "prefix": "crs",
+    "body": "const styles = StyleSheet.create({$1})",
+    "description": "Create React Native StyleSheet"
+  },
+  "TSX Component": {
+    "prefix": "tsx",
+    "body": [
+      "type Props = {$3}",
+      "function $1({$2}: Props) {",
+        "    return $4",
+        "}",
+        "",
+        "export default $1"
+    ],
+    "description": "Create JSX Component"
+  }
 }

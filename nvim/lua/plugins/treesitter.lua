@@ -17,7 +17,7 @@ return {
         "html",
         "css",
         "rust",
-        "bash"
+        "bash",
       },
       highlight = {
         enable = true,
@@ -26,10 +26,6 @@ return {
       indent = {
         enable = true,
       },
-      -- context_commentstring = {
-      -- 	enable = true,
-      -- 	disable = commonDisables,
-      -- },
       autotag = {
         enable = true,
         enable_close_on_slash = false,

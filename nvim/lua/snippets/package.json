@@ -1,28 +1,28 @@
 {
-	"name": "example-snippets",
-	"contributes": {
-		"snippets": [
-			{
-				"language": [
-					"typescript",
-					"typescriptreact",
-					"typescript.tsx",
-					"javascript.jsx",
-					"javascriptreact",
-					"javascript",
-					"astro",
-					"vue"
-				],
-				"path": "./js.json"
-			},
-			{
-				"language": ["vue"],
-				"path": "./vue.json"
-			},
-			{
-				"language": ["javascriptreact", "typescriptreact", "typescript.tsx", "javascript.jsx"],
-				"path": "./tsx.json"
-			}
-		]
-	}
+  "name": "example-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          "javascript.jsx",
+          "javascriptreact",
+          "javascript",
+          "astro",
+          "vue"
+        ],
+        "path": "./js.json"
+      },
+      {
+        "language": ["vue"],
+        "path": "./vue.json"
+      },
+      {
+        "language": ["javascriptreact", "typescriptreact", "typescript.tsx", "javascript.jsx"],
+        "path": "./tsx.json"
+      }
+    ]
+  }
 }
