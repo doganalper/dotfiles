@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "VeryLazy",
+  event = "BufRead",
   config = function()
     require("helpers")
     local lsp = require("lsp-zero")
@@ -9,19 +9,19 @@ return {
     local lspkind = require("lspkind")
 
     local function formatForTailwindCSS(entry, vim_item)
-      if vim_item.kind == "Color" and entry.completion_item.documentation then
-        local _, _, r, g, b = string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
-        if r then
-          local color = string.format("%02x", r) .. string.format("%02x", g) .. string.format("%02x", b)
-          local group = "Tw_" .. color
-          if vim.fn.hlID(group) < 1 then
-            vim.api.nvim_set_hl(0, group, { fg = "#" .. color })
-          end
-          vim_item.kind = "■" -- or "●" or anything
-          vim_item.kind_hl_group = group
-          return vim_item
-        end
-      end
+      -- if vim_item.kind == "Color" and entry.completion_item.documentation then
+      --   local _, _, r, g, b = string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
+      --   if r then
+      --     local color = string.format("%02x", r) .. string.format("%02x", g) .. string.format("%02x", b)
+      --     local group = "Tw_" .. color
+      --     if vim.fn.hlID(group) < 1 then
+      --       vim.api.nvim_set_hl(0, group, { fg = "#" .. color })
+      --     end
+      --     vim_item.kind = "■" -- or "●" or anything
+      --     vim_item.kind_hl_group = group
+      --     return vim_item
+      --   end
+      -- end
 
       vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
       return vim_item
@@ -73,9 +73,6 @@ return {
       window = {
         documentation = cmp.config.window.bordered({}),
         completion = cmp.config.window.bordered({}),
-        -- completion = {
-        -- 	winhighlight = "Normal:NormalFloat"
-        -- }
       },
       formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -102,6 +99,7 @@ return {
       sources = cmp.config.sources({
         {
           name = "nvim_lsp",
+          max_item_count = 50,
           -- this is for filterin emmet outside of html tags
           -- TODO: this may be broken, check if anything goes wrong
           entry_filter = function(entry)
@@ -122,7 +120,7 @@ return {
         {
           name = "luasnip",
         },
-        { name = "crates" }, -- TODO: load this lazily. see: https://github.com/Saecki/crates.nvim/wiki/Stable-documentation
+        -- { name = "crates" }, -- TODO: load this lazily. see: https://github.com/Saecki/crates.nvim/wiki/Stable-documentation
       }),
     })
   end,

@@ -31,6 +31,7 @@ local plugins = {
 
   -- Treesitter stuff
   "windwp/nvim-ts-autotag",
+  "JoosepAlviste/nvim-ts-context-commentstring",
 }
 
 local opts = {
@@ -59,8 +60,8 @@ local opts = {
     },
   },
   dev = {
-    path = "~/projects/nvim-plugins"
-  }
+    path = "~/projects/nvim-plugins",
+  },
 }
 
 require("lazy").setup(plugins, opts)

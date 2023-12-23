@@ -1,15 +1,17 @@
 return {
-'kkoomen/vim-doge',
-  event = "BufRead",
+  "kkoomen/vim-doge",
+  -- event = "BufRead",
   config = function()
-    vim.cmd('call doge#install()')
+    vim.cmd("call doge#install()")
   end,
+  -- enabled = false,
   keys = {
     {
       "<leader>dg",
-      mode = {"n"},
+      mode = { "n" },
       "<cmd>DogeGenerate<cr>",
-      desc = "[D]ocument [G]enerate"
-    }
-  }
+      desc = "[D]ocument [G]enerate",
+    },
+  },
+  ft = { "javascript", "typescript", "rust" },
 }
