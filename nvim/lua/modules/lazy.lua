@@ -25,7 +25,6 @@ local plugins = {
   { import = "plugins.crates" },
   { import = "plugins.rust-tools" },
   { import = "plugins.templates" },
-  { import = "plugins.doge" },
   "princejoogie/dir-telescope.nvim",
   "nvim-lua/plenary.nvim",
 
