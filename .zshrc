@@ -36,6 +36,11 @@ function video_to_gif () {
   ffmpeg -i $1  -r 15 -vf scale=1024:-1 $2
 }
 
+function mkdir ()
+{
+  command mkdir $1 && cd $1
+}
+
 # Git aliases
 alias gf='git fetch'
 alias gpo='git push origin HEAD'

@@ -93,12 +93,6 @@ return {
       desc = "Space [R]ecent [F]iles",
     },
     {
-      "<leader>gr",
-      mode = { "n" },
-      "<cmd>lua require('telescope.builtin').oldfiles({cwd_only=true})<cr>",
-      desc = "Space [G]it [S]tatus",
-    },
-    {
       "<leader>gs",
       mode = { "n" },
       "<cmd>Telescope git_status<cr>",
