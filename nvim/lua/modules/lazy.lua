@@ -31,6 +31,9 @@ local plugins = {
   -- Treesitter stuff
   "windwp/nvim-ts-autotag",
   "JoosepAlviste/nvim-ts-context-commentstring",
+
+  -- Rust debugging
+  { import = "plugins.dap" },
 }
 
 local opts = {
