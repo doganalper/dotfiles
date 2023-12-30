@@ -12,16 +12,12 @@ yabai -m config left_padding 8
 yabai -m config right_padding 8
 yabai -m config window_gap 8
 
-yabai -m cofffig window_topmost off
-yabai -m cofffig window_opacity off
+yabai -m config window_topmost on
 yabai -m config window_opacity_duration 0.0
 
-yabai -m config window_shadow on
-yabai -m config window_border on
-yabai -m config window_border_width 4
-
-yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_opacity        0.90
+# yabai -m config window_opacity on
+# yabai -m config active_window_opacity 1.0
+# yabai -m config normal_window_opacity 0.4
 yabai -m config split_ratio                  0.50
 
 # mouse settings
@@ -39,5 +35,11 @@ yabai -m mouse_drop_action swap
 # Disable yabai for these apps
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^Discord$" manage=off
 
 echo "yabai configuration loaded.."
+
+# inactive_color=0xff494d64
+# active_color=0xffe1e3e4
+# https://github.com/FelixKratz/JankyBorders
+borders active_color=0xffff0000 width=3 &
