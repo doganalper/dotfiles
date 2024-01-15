@@ -9,19 +9,19 @@ return {
         theme = "catppuccin",
         component_separators = "",
         section_separators = "",
-        disabled_filetypes = { "fugitiveblame", "neo-tree" },
+        disabled_filetypes = { "fugitiveblame", "neo-tree", "alpha" },
       },
-      tabline = {
-        lualine_a = {
-          {
-            "buffers",
-            show_filename_only = false,
-            use_mode_colors = false,
-            separator = "",
-          },
-        },
-        lualine_z = { { "branch", color = "lualine_a_normal" } },
-      },
+      -- tabline = {
+      --   lualine_a = {
+      --     {
+      --       "buffers",
+      --       show_filename_only = false,
+      --       use_mode_colors = false,
+      --       separator = "",
+      --     },
+      --   },
+      --   lualine_z = { { "branch", color = "lualine_a_normal" } },
+      -- },
       sections = {
         lualine_b = {
           {
@@ -33,7 +33,7 @@ return {
         lualine_x = {
           { "filetype", separator = "", padding = { right = 1 } },
         },
-        lualine_y = { "diff", "diagnostics" },
+        lualine_y = { "diff", "diagnostics", "branch" },
       },
       inactive_sections = {
         lualine_c = {

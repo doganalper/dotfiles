@@ -18,16 +18,16 @@ return {
 
     telescope.setup({
       defaults = {
-        -- layout_strategy = "vertical",
-        layout_strategy = "horizontal",
+        layout_strategy = "vertical",
+        -- layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
             prompt_position = "top",
             preview_width = 0.5,
           },
           vertical = {
-            -- mirror = true
-            -- prompt_position = "top",
+            mirror = true,
+            prompt_position = "top",
           },
         },
         file_ignore_patterns = { "node_modules/", ".git/" },

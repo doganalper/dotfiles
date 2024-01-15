@@ -33,6 +33,7 @@ function SetBackground(type)
     vim.api.nvim_set_option("background", "dark")
   else
     vim.api.nvim_set_option("background", "light")
+
     -- Set cursor color
     vim.cmd("hi Cursor guibg=lightgrey guifg=black")
     vim.cmd("hi Cursor2 guibg=black guifg=black")

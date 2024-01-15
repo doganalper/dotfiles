@@ -3,8 +3,9 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
+    require("helpers")
     local is_transparent = true
-    local dark_theme = "macchiato"
+    local dark_theme = "mocha"
     require("catppuccin").setup({
       transparent_background = is_transparent,
       flavour = dark_theme,
@@ -17,7 +18,7 @@ return {
         telescope = true,
         harpoon = true,
         mason = true,
-        -- flash = false,
+        flash = true,
       },
       custom_highlights = function(colors)
         local transparent_background = { bg = colors.base }
@@ -43,18 +44,20 @@ return {
           TelescopePreviewBorder = { default = true, link = "TelescopeBorder" },
         }
 
-        -- if is_transparent == true then
-        --   returnValue = ConcatTables(returnValue, {
-        --     NormalFloat = transparent_background,
-        --     TreesitterContext = transparent_background,
-        --     GlancePreviewNormal = transparent_background,
-        --     GlanceListNormal = transparent_background,
-        --     GlanceListBorderBottom = transparent_background,
-        --     GlancePreviewBorderBottom = transparent_background,
-        --     GlanceBorderTop = transparent_background,
-        --     TelescopeNormal = transparent_background,
-        --   })
-        -- end
+        if is_transparent == true then
+          returnValue = ConcatTables(returnValue, {
+            NeoTreeNormal = transparent_background,
+            CmpNormal = { bg = "#1E1E2E" },
+            NormalFloat = transparent_background,
+            TreesitterContext = transparent_background,
+            GlancePreviewNormal = transparent_background,
+            GlanceListNormal = transparent_background,
+            GlanceListBorderBottom = transparent_background,
+            GlancePreviewBorderBottom = transparent_background,
+            GlanceBorderTop = transparent_background,
+            TelescopeNormal = transparent_background,
+          })
+        end
 
         return returnValue
       end,

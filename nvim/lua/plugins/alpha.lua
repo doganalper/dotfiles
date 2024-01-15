@@ -33,9 +33,9 @@ return {
         "࿚  Recent files",
         "<cmd>lua require('telescope.builtin').oldfiles({cwd_only=true})<cr>"
       ),
-      dashboard.button("<leader>o", "📖  Open File", "<cmd>Telescope find_files<cr>"),
-      dashboard.button("<leader>f", "🔎  Search Word", "<cmd>Telescope live_grep<cr>"),
-      dashboard.button("<leader>df", "🗂️  Search Word in Directory", "<cmd>Telescope dir live_grep<cr>"),
+      dashboard.button("<leader>o", "Open File", "<cmd>Telescope find_files<cr>"),
+      dashboard.button("<leader>f", "Search Word", "<cmd>Telescope live_grep<cr>"),
+      dashboard.button("<leader>df", "Search Word in Directory", "<cmd>Telescope dir live_grep<cr>"),
     }
 
     local function footer()

@@ -1,8 +1,10 @@
-local is_dev = false
-
-local template_config = {
+return {
   "doganalper/template.nvim",
   event = "VeryLazy",
+  -- enable = false,
+  -- dev = true,
+  -- main = "template",
+  -- config = true,
   config = function()
     require("template").setup({
       mappings = {
@@ -51,9 +53,13 @@ local template_config = {
             name = "React",
             template = {
               "type Props = {}",
-              "function Name({}: Props) {}",
-              "",
-              "export default Name",
+              "export function Name({}: Props) {}",
+            },
+          },
+          {
+            name = "React No Props",
+            template = {
+              "export function Name() {}",
             },
           },
           {
@@ -62,9 +68,7 @@ local template_config = {
               "import { View, StyleSheet } from 'react-native'",
               "",
               "type Props = {}",
-              "function Name({}: Props) {}",
-              "",
-              "export default Name",
+              "export function Name({}: Props) {}",
               "",
               "const styles = StyleSheet.create({})",
             },
@@ -107,13 +111,3 @@ local template_config = {
     })
   end,
 }
-
-if is_dev then
-  template_config = {
-    dev = true,
-    dir = "~/Desktop/projects/template-plugin",
-    config = function() end,
-  }
-end
-
-return template_config

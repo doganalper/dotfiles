@@ -35,9 +35,10 @@ vim.o.cursorline = true
 -- vim.o.cursorcolumn = true
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
--- vim.opt.cmdheight = 0
+-- vim.opt.cmdhight = 0
 vim.opt.list = true
-vim.opt.listchars = { leadmultispace = "• "}
+-- vim.opt.listchars = { leadmultispace = "• "}
+vim.opt.listchars = { leadmultispace = "- "}
 
 -- fold
 vim.opt.foldlevel = 99

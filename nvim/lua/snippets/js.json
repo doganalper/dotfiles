@@ -41,5 +41,19 @@
       "*/"
     ],
     "description": "Declare type definition with JSDOC"
+  },
+  "Arrow Function": {
+    "prefix": "arw",
+    "body": [
+      "($1) => {$2}"
+    ],
+    "description": "Create Arrow Function"
+  },
+  "Async Arrow Function": {
+    "prefix": "aarw",
+    "body": [
+      "async ($1) => {$2}"
+    ],
+    "description": "Create Async Arrow Function"
   }
 }

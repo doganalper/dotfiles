@@ -127,10 +127,10 @@ return {
       capabilities = capabilities,
     })
 
-    lsp_config.biome.setup({
-      root_dir = root_pattern("biome*"),
-      capabilities = capabilities,
-    })
+    -- lsp_config.biome.setup({
+    --   root_dir = root_pattern("biome*"),
+    --   capabilities = capabilities,
+    -- })
 
     lsp_config.lua_ls.setup({
       settings = {

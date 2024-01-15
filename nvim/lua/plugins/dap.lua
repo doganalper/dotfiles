@@ -1,7 +1,7 @@
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
-    "rcarriga/nvim-dap-ui"
+    "rcarriga/nvim-dap-ui",
   },
   config = function()
     local dap, dapui = require("dap"), require("dapui")
@@ -21,9 +21,12 @@ return {
     end
   end,
   ft = "rust",
-  -- keys = {
-  --   {
-  --     "<leader>"
-  --   }
-  -- }
+  keys = {
+    {
+      "<leader>dtb",
+      mode = { "n" },
+      "<cmd>DapToggleBreakpoint<cr>",
+      desc = "Space [D]ap [T]oggle [B]reakpoint",
+    },
+  },
 }

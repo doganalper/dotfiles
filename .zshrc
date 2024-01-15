@@ -27,10 +27,18 @@ alias tmux='tmux -f ~/.config/tmux/.tmux.conf'
 alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
 alias kill3000="kill -9 \$(lsof -ti:3000)"
-alias weather="curl https://tr.wttr.in/istanbul"
 alias d_img="kitten icat"
-alias t="tmux"
-alias ta="tmux a"
+
+function weather()
+{
+    curl https://tr.wttr.in/$1
+}
+
+function t() {
+    tmux ls | grep "main" && { tmux a -t main; return 0; }
+    #create a tmux session with name "main"
+    tmux new -s main
+}
 
 function video_to_gif () {
   ffmpeg -i $1  -r 15 -vf scale=1024:-1 $2

@@ -1,6 +1,6 @@
 return {
   "ThePrimeagen/harpoon",
-  event = "VeryLazy",
+  event = "BufRead",
   keys = {
     {
       "<leader>ha",

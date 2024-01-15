@@ -32,7 +32,17 @@ return {
           error = "",
         },
       },
+      sources = { "filesystem", "document_symbols" },
       filesystem = {
+        window = {
+          mappings = {
+            ["H"] = "toggle_hidden",
+            ["W"] = "close_all_nodes",
+            ["x"] = "open_split",
+            ["v"] = "open_vsplit",
+            ["X"] = "cut_to_clipboard",
+          },
+        },
         filtered_items = {
           hide_gitignored = false,
           hide_dotfiles = false,
@@ -44,7 +54,7 @@ return {
           icon = function(config, node, state)
             if node.type == "file" then
               return {
-                text = "",
+                text = " ",
                 highlight = config.highlight,
               }
             end
@@ -60,22 +70,20 @@ return {
         },
       },
       use_popups_for_input = true,
-      window = {
-        mappings = {
-          ["H"] = "toggle_hidden",
-          ["W"] = "close_all_nodes",
-          ["x"] = "open_split",
-          ["v"] = "open_vsplit",
-          ["X"] = "cut_to_clipboard",
-        },
-      },
+      -- filesystem = {
+      -- }),
     })
   end,
   keys = {
     {
       "<leader>1",
       mode = { "n" },
-      "<cmd>Neotree toggle reveal right<cr>"
-    }
-  }
+      "<cmd>Neotree toggle reveal float<cr>",
+    },
+    {
+      "<leader>2",
+      mode = { "n" },
+      "<cmd>Neotree document_symbols toggle reveal float<cr>",
+    },
+  },
 }
