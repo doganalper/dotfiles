@@ -1,0 +1,41 @@
+{
+  "Interface": {
+    "prefix": "intf",
+    "body": [
+      "interface $1 {",
+        "$2",
+        "}"
+    ],
+    "description": "Interface"
+  },
+  "Export Interface": {
+    "prefix": "eintf",
+    "body": [
+      "export interface $1 {",
+        "$2",
+        "}"
+    ],
+    "description": "Export Interface"
+  },
+  "Export Type": {
+    "prefix": "ety",
+    "body": [
+      "export type $1 = $2"
+    ],
+    "description": "Export Type"
+  },
+  "Type": {
+    "prefix": "ty",
+    "body": [
+      "type $1 = $2"
+    ],
+    "description": "Type"
+  },
+  "Pipe": {
+    "prefix": "pip",
+    "body": [
+      "| $1"
+    ],
+    "description": "Add Pipe"
+  }
+}

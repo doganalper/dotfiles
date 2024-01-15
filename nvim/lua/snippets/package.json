@@ -16,6 +16,15 @@
         "path": "./js.json"
       },
       {
+        "language": [
+          "typescript",
+          "typescriptreact",
+          "astro",
+          "vue"
+        ],
+        "path": "./ts.json"
+      },
+      {
         "language": ["vue"],
         "path": "./vue.json"
       },
