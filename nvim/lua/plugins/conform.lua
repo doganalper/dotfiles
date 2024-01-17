@@ -4,15 +4,25 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       -- Conform will run multiple formatters sequentially
-      javascript = { { "prettier", "biome-bak" } },
-      typescript = { { "prettier", "biome-bak" } },
+      javascript = { "prettier" },
+      typescript = { "prettier" },
       vue = { "prettier" },
-      typescriptreact = { { "prettier", "biome-bak" } },
+      typescriptreact = { "prettier" },
       astro = { "prettier" },
-      javascriptreact = { { "prettier", "biome-bak" } },
+      javascriptreact = { "prettier" },
       html = { "prettier" },
       htmldjango = { "prettier" },
       rust = { "rustfmt" },
+    },
+    formatters = {
+      prettier = {
+        args = function(self, ctx)
+          if vim.endswith(ctx.filename, ".astro") then
+            return { "--stdin-filepath", "$FILENAME", "--parser", "mdx" }
+          end
+          return { "--stdin-filepath", "$FILENAME" }
+        end,
+      },
     },
   },
   event = "VeryLazy",

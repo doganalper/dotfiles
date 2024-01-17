@@ -46,7 +46,6 @@ return {
         "tailwindcss",
         "html",
         "astro",
-        -- "prettier"
       },
       automatic_installation = true,
     })
@@ -126,11 +125,6 @@ return {
       root_dir = root_pattern("vite*"),
       capabilities = capabilities,
     })
-
-    -- lsp_config.biome.setup({
-    --   root_dir = root_pattern("biome*"),
-    --   capabilities = capabilities,
-    -- })
 
     lsp_config.lua_ls.setup({
       settings = {
