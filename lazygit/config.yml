@@ -11,3 +11,6 @@ os:
 
 git:
   mainBranches: ['main']
+  paging:
+    colorArg: always
+    pager: delta --dark --color-only --side-by-side
