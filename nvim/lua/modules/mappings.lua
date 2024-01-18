@@ -45,8 +45,11 @@ Map("n", "<CR>", function()
     vim.cmd(".cc")
   end
 end, {})
-Map("n", "q", function()
+Map("n", "X", function()
   if vim.bo.filetype == "qf" then
     vim.cmd("ccl")
   end
-end, { desc = "Close quick fix with [Q] key." })
+  if vim.bo.filetype == "fugitive" then
+    vim.cmd("bd")
+  end
+end, { desc = "Close quick fix and fugitive with [X] key." })

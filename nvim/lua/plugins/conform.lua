@@ -14,16 +14,6 @@ return {
       htmldjango = { "prettier" },
       rust = { "rustfmt" },
     },
-    formatters = {
-      prettier = {
-        args = function(self, ctx)
-          if vim.endswith(ctx.filename, ".astro") then
-            return { "--stdin-filepath", "$FILENAME", "--parser", "mdx" }
-          end
-          return { "--stdin-filepath", "$FILENAME" }
-        end,
-      },
-    },
   },
   event = "VeryLazy",
   keys = {
