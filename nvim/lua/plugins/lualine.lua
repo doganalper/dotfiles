@@ -4,7 +4,7 @@ return {
     require("lualine").setup({
       -- extensions = { "neo-tree", "fugitive" },
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         global_status = true,
         theme = "catppuccin",
         component_separators = "",
@@ -26,7 +26,7 @@ return {
         lualine_b = {
           {
             "filename",
-            path = 1,
+            path = 4,
           },
         },
         lualine_c = {},
