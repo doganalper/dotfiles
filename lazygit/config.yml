@@ -4,7 +4,7 @@ gui:
     "Alper Doğan": "green"
   branchColors:
     'main': 'red'
-  splitDiff: 'always'
+  # splitDiff: 'always'
 
 os:
   editPreset: 'nvim'
@@ -13,4 +13,4 @@ git:
   mainBranches: ['main']
   paging:
     colorArg: always
-    pager: delta --dark --color-only --side-by-side
+    pager: delta --color-only --dark --paging=never --side-by-side
