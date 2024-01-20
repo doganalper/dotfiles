@@ -1,5 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
+  event = "VeryLazy",
   dependencies = {
     "rcarriga/nvim-dap-ui",
   },
@@ -20,7 +21,6 @@ return {
       dapui.close()
     end
   end,
-  ft = "rust",
   keys = {
     {
       "<leader>dtb",

@@ -34,8 +34,14 @@ local plugins = {
   "windwp/nvim-ts-autotag",
   "JoosepAlviste/nvim-ts-context-commentstring",
 
+  -- Game
+  { import = "plugins.sudoku" },
+
   -- Rust debugging
   { import = "plugins.dap" },
+
+  -- JS/TS debugging
+  { import = "plugins.js-debug" },
 }
 
 local opts = {
