@@ -1,6 +1,14 @@
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.4",
+  dependencies = {
+    "aaronhallaert/advanced-git-search.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "tpope/vim-fugitive",
+      "tpope/vim-rhubarb",
+    },
+  },
   event = "VeryLazy",
   config = function()
     require("helpers")

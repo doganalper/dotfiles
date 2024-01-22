@@ -12,7 +12,7 @@ local plugins = {
   { import = "plugins.telescope" },
   { import = "plugins.todo-comments" },
   { import = "plugins.treesitter" },
-  { import = "plugins.vim-go" },
+  -- { import = "plugins.vim-go" },
   { import = "plugins.wilder" },
   -- { import = "plugins.glance" },
   { import = "plugins.auto-pairs" },
@@ -33,9 +33,6 @@ local plugins = {
   -- Treesitter stuff
   "windwp/nvim-ts-autotag",
   "JoosepAlviste/nvim-ts-context-commentstring",
-
-  -- Game
-  { import = "plugins.sudoku" },
 
   -- Rust debugging
   { import = "plugins.dap" },

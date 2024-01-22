@@ -5,7 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
   },
-  event = "VeryLazy",
+  -- event = "VeryLazy",
   config = function()
     require("neo-tree").setup({
       default_component_configs = {
@@ -78,12 +78,12 @@ return {
     {
       "<leader>1",
       mode = { "n" },
-      "<cmd>Neotree toggle reveal float<cr>",
+      "<cmd>Neotree toggle reveal left<cr>",
     },
     {
       "<leader>2",
       mode = { "n" },
-      "<cmd>Neotree document_symbols toggle reveal float<cr>",
+      "<cmd>Neotree document_symbols toggle reveal left<cr>",
     },
   },
 }

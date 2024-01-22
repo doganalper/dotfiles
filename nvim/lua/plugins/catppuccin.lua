@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     require("helpers")
-    local is_transparent = false
+    local is_transparent = true
     local dark_theme = "mocha"
     require("catppuccin").setup({
       transparent_background = is_transparent,
@@ -46,9 +46,9 @@ return {
 
         if is_transparent == true then
           returnValue = ConcatTables(returnValue, {
-            NeoTreeNormal = transparent_background,
+            -- NeoTreeNormal = transparent_background,
             CmpNormal = { bg = "#1E1E2E" },
-            NormalFloat = transparent_background,
+            -- NormalFloat = transparent_background,
             TreesitterContext = transparent_background,
             GlancePreviewNormal = transparent_background,
             GlanceListNormal = transparent_background,

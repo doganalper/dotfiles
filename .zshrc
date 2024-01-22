@@ -35,7 +35,7 @@ function weather()
 }
 
 function t() {
-    tmux ls | grep "main" && { tmux a -t main; return 0; }
+    tmux ls | grep "main" && { tmux a; return 0; }
     #create a tmux session with name "main"
     tmux new -s main
 }
