@@ -18,7 +18,6 @@ local plugins = {
   { import = "plugins.auto-pairs" },
   { import = "plugins.catppuccin" },
   { import = "plugins.treesitter-context" },
-  { import = "plugins.flash" },
   { import = "plugins.friendly-snippets" },
   { import = "plugins.fugitive" },
   { import = "plugins.conform" },

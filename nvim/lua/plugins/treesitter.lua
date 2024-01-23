@@ -4,6 +4,15 @@ return {
   config = function()
     local commonDisables = { "help" }
     require("nvim-treesitter.configs").setup({
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<tab>",
+          node_incremental = "<tab>",
+          scope_incremental = "<bs>",
+          node_decremental = "<s-tab>",
+        },
+      },
       ensure_installed = {
         "astro",
         "vim",
