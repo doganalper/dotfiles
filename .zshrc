@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias l='ls -l -a'
 alias config='cd ~/.config && nvim'
-alias vi="\nvim"
+# alias vi="\nvim"
 alias tmux='tmux -f ~/.config/tmux/.tmux.conf'
 alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
@@ -57,7 +57,7 @@ alias gb='git branch'
 
 # Helpful cli tools for myself
 alias cover="node ~/Desktop/projects/cover-letter-generator/index.js"
-alias accounts="~/Desktop/projects/social-account-copy/account-copy"
+alias accounts="~/Desktop/projects/social-account/target/debug/social-account-copy"
 
 eval $(/opt/homebrew/bin/brew shellenv)
 
