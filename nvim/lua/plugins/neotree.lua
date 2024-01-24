@@ -32,6 +32,13 @@ return {
           error = "",
         },
       },
+      document_symbols = {
+        window = {
+          mappings = {
+            ["o"] = "toggle_node",
+          },
+        },
+      },
       sources = { "filesystem", "document_symbols" },
       filesystem = {
         window = {
@@ -83,7 +90,7 @@ return {
     {
       "<leader>2",
       mode = { "n" },
-      "<cmd>Neotree document_symbols toggle reveal left<cr>",
+      "<cmd>Neotree document_symbols toggle reveal right<cr>",
     },
   },
 }
