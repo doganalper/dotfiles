@@ -33,7 +33,7 @@ return {
         lualine_x = {
           { "filetype", separator = "", padding = { right = 1 } },
         },
-        lualine_y = { "diff", "diagnostics", "branch" },
+        lualine_y = { "diff", "diagnostics" },
       },
       inactive_sections = {
         lualine_c = {

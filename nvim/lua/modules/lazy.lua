@@ -26,6 +26,7 @@ local plugins = {
   { import = "plugins.rust-tools" },
   { import = "plugins.templates" },
   { import = "plugins.alpha" },
+  { import = "plugins.bufferline" },
   "princejoogie/dir-telescope.nvim",
   "nvim-lua/plenary.nvim",
 
@@ -66,7 +67,7 @@ local opts = {
     },
   },
   dev = {
-    -- path = "~/Desktop/projects/nvim-plugins",
+    path = "~/Desktop/projects/nvim-plugins",
   },
 }
 
