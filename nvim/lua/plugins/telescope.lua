@@ -26,8 +26,8 @@ return {
 
     telescope.setup({
       defaults = {
-        layout_strategy = "vertical",
-        -- layout_strategy = "horizontal",
+        -- layout_strategy = "vertical",
+        layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
             prompt_position = "top",
@@ -99,12 +99,6 @@ return {
       mode = { "n" },
       "<cmd>lua require('telescope.builtin').oldfiles({cwd_only=true})<cr>",
       desc = "Space [R]ecent [F]iles",
-    },
-    {
-      "<leader>gs",
-      mode = { "n" },
-      "<cmd>Telescope git_status<cr>",
-      desc = "Space [G]it [S]tatus",
     },
     {
       "<leader>gc",

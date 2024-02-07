@@ -16,6 +16,11 @@ Map("n", "<C-j>", "<cmd>resize -4<cr>", { desc = "Decrease window height", norem
 Map("n", "<C-h>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
 Map("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
 
+-- Netrw instead of neotree
+Map("n", "<leader>1", "<cmd>Ex<cr>", { desc = "Opens netrw", noremap = true })
+Map("n", "<leader>v1", "<cmd>Vex<cr>", { desc = "Opens netrw on vertical split", noremap = true })
+Map("n", "<leader>s1", "<cmd>Hex<cr>", { desc = "Opens netrw on horizontal split", noremap = true })
+
 -- Clear search with <esc>
 Map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 

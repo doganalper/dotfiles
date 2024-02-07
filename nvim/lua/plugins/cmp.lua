@@ -1,6 +1,10 @@
 return {
   "hrsh7th/nvim-cmp",
   event = "BufRead",
+  dependencies = {
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-path",
+  },
   config = function()
     require("helpers")
     local lsp = require("lsp-zero")
@@ -15,6 +19,10 @@ return {
 
     -- see: https://twitter.com/thdxr/status/1623769303819460608?s=20&t=l1K_q3dsJzl0tZ_GS4NHig
     cmp.setup({
+      -- completion = {
+      --   -- TODO: Currently trying this for usability, trigger cmp to open on <c-e>
+      --   autocomplete = false,
+      -- },
       enabled = function()
         -- disable completion in telescope buffer
         local buftype = vim.api.nvim_buf_get_option(0, "buftype")
@@ -31,8 +39,7 @@ return {
           return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
         end
       end,
-      -- don't auto select item
-      preselect = cmp.PreselectMode.None,
+      preselect = cmp.PreselectMode.None, -- don't auto select item
       mapping = ConcatTables(lsp.defaults.cmp_mappings(), {
         ["<CR>"] = cmp.mapping.confirm(),
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -57,11 +64,12 @@ return {
         end, { "i", "s" }),
       }),
       window = {
-        -- completion = {
-        --   winhighlight = "Normal:CmpNormal"
-        -- },
-        documentation = cmp.config.window.bordered({}),
-        completion = cmp.config.window.bordered({}),
+        completion = {
+          winhighlight = "Normal:CmpNormal",
+        },
+        documentation = {
+          winhighlight = "Normal:CmpNormal",
+        },
       },
       formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -110,6 +118,16 @@ return {
           name = "luasnip",
         },
         { name = "crates" },
+      }),
+    })
+
+    -- cmp for command completion instead of wilder.nvim
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
       }),
     })
   end,

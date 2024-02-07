@@ -9,7 +9,8 @@ return {
     {
       "<leader>td",
       mode = { "n" },
-      "<cmd>TodoTelescope theme=ivy initial_mode=insert previewer=false layout_config={bottom_pane={height=12}}<cr>",
+      "<cmd>TodoQuickFix<cr>",
+-- initial_mode=insert previewer=false layout_config={bottom_pane={height=12}}
       desc = "[T]o[D]o",
     },
   },

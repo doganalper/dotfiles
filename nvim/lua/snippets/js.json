@@ -34,13 +34,18 @@
   },
   "JSDOC Typedef": {
     "prefix": "jdtype",
+    "body": "/** @type {$2} $1 */",
+    "description": "Declare type with JSDOC"
+  },
+  "JSDOC Typedef": {
+    "prefix": "jdtypedef",
     "body": [
       "/**",
       " * @typedef {Object} $1",
       " * @property {string} $2",
       "*/"
     ],
-    "description": "Declare type definition with JSDOC"
+    "description": "Declare object type with JSDOC"
   },
   "Arrow Function": {
     "prefix": "arw",
@@ -55,5 +60,10 @@
       "async ($1) => {$2}"
     ],
     "description": "Create Async Arrow Function"
+  },
+  "Export Constant": {
+    "prefix": "ec",
+    "body": "export const $1 = $2",
+    "description": "Export Constant"
   }
 }

@@ -24,7 +24,6 @@ vim.o.ignorecase = true
 vim.o.incsearch = true
 vim.o.clipboard = "unnamedplus"
 vim.o.hidden = true
--- vim.o.t_Co = 256
 vim.o.mouse = "a"
 -- vim.opt.pumheight = 30 -- this sets height of the popup menu
 vim.o.signcolumn = "yes"
@@ -32,12 +31,10 @@ vim.o.autoread = true
 vim.o.encoding = "utf-8"
 vim.o.updatetime = 100
 vim.o.cursorline = true
--- vim.o.cursorcolumn = true
+vim.o.scrolloff = 8 -- num. of lines to show before/after of cursor when going down/up
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
--- vim.opt.cmdhight = 0
 vim.opt.list = true
--- vim.opt.listchars = { leadmultispace = "• "}
 vim.opt.listchars = { leadmultispace = "- " }
 
 -- fold

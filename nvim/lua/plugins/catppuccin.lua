@@ -47,14 +47,9 @@ return {
         if is_transparent == true then
           returnValue = ConcatTables(returnValue, {
             -- NeoTreeNormal = transparent_background,
-            CmpNormal = { bg = "#1E1E2E" },
+            CmpNormal = { link = "TelescopeNormal" },
             -- NormalFloat = transparent_background,
             TreesitterContext = transparent_background,
-            GlancePreviewNormal = transparent_background,
-            GlanceListNormal = transparent_background,
-            GlanceListBorderBottom = transparent_background,
-            GlancePreviewBorderBottom = transparent_background,
-            GlanceBorderTop = transparent_background,
             TelescopeNormal = transparent_background,
           })
         end

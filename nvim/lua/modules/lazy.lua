@@ -1,7 +1,6 @@
 local plugins = {
   { import = "plugins.advanced-git-search" },
   { import = "plugins.cmp" },
-  { import = "plugins.devicons" },
   { import = "plugins.gitsigns" },
   { import = "plugins.lsp-zero" },
   { import = "plugins.lsp-kind" },
@@ -12,9 +11,6 @@ local plugins = {
   { import = "plugins.telescope" },
   { import = "plugins.todo-comments" },
   { import = "plugins.treesitter" },
-  -- { import = "plugins.vim-go" },
-  { import = "plugins.wilder" },
-  -- { import = "plugins.glance" },
   { import = "plugins.auto-pairs" },
   { import = "plugins.catppuccin" },
   { import = "plugins.treesitter-context" },
@@ -25,8 +21,23 @@ local plugins = {
   { import = "plugins.crates" },
   { import = "plugins.rust-tools" },
   { import = "plugins.templates" },
-  { import = "plugins.alpha" },
-  { import = "plugins.bufferline" },
+  { import = "plugins.neogen" },
+  { import = "plugins.big-file" },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+    },
+  },
   "princejoogie/dir-telescope.nvim",
   "nvim-lua/plenary.nvim",
 
