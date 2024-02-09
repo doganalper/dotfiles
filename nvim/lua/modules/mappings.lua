@@ -58,3 +58,11 @@ Map("n", "X", function()
     vim.cmd("bd")
   end
 end, { desc = "Close quick fix and fugitive with [X] key." })
+
+-- Auto close brackets, parenthesis, quotes
+Map("i", '"', '""<left>')
+Map("i", "'", "''<left>")
+Map("i", "(", "()<left>")
+Map("i", "{", "{}<left>")
+Map("i", "[", "[]<left>")
+Map("i", "/*", "/**/<left>")

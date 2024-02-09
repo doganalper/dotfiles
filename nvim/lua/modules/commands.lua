@@ -14,6 +14,11 @@ end, {})
 -- Turn pixel to rem
 vim.api.nvim_create_user_command("TPR", "echo (0.0625 * <q-args>)", { nargs = 1 })
 
+-- Close every other buffers except active one
+vim.api.nvim_create_user_command("Co", function()
+  vim.cmd("%bd|e#")
+end, {})
+
 -- Replace string on open buffer
 vim.api.nvim_create_user_command("RP", function(val)
   vim.cmd("%s/" .. val.args:gsub(" ", "/") .. "/g")

@@ -75,32 +75,32 @@ vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] }
 vim.api.nvim_command("autocmd VimResized * wincmd =")
 
 -- inlay hints
--- vim.api.nvim_create_autocmd("LspAttach", {
---   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
---   callback = function(args)
---     -- disable lsp inlay hints in rust because rust-analyzer has own
---     if vim.bo.filetype == "rust" then
---       return
---     end
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(args)
+    -- disable lsp inlay hints in rust because rust-analyzer has own
+    if vim.bo.filetype == "rust" then
+      return
+    end
 
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
---     if client.server_capabilities.inlayHintProvider then
---       -- vim.lsp.inlay_hint.enable()
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.server_capabilities.inlayHintProvider then
+      -- vim.lsp.inlay_hint.enable()
 
---       Map("n", "<leader>tih", function()
---         if vim.lsp.inlay_hint.is_enabled() then
---           print("Disabled Inlay Hints")
---           vim.lsp.inlay_hint.enable(0, false)
---         else
---           print("Enabled Inlay Hints")
---           vim.lsp.inlay_hint.enable(0, true)
---         end
---       end, {
---         desc = "[T]oggle [I]nline [H]ints",
---       })
---     end
---   end,
--- })
+      Map("n", "<leader>tih", function()
+        if vim.lsp.inlay_hint.is_enabled() then
+          print("Disabled Inlay Hints")
+          vim.lsp.inlay_hint.enable(0, false)
+        else
+          print("Enabled Inlay Hints")
+          vim.lsp.inlay_hint.enable(0, true)
+        end
+      end, {
+        desc = "[T]oggle [I]nline [H]ints",
+      })
+    end
+  end,
+})
 
 -- highlight yank for 300ms
 vim.api.nvim_create_autocmd("TextYankPost", {

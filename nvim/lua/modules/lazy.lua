@@ -11,7 +11,6 @@ local plugins = {
   { import = "plugins.telescope" },
   { import = "plugins.todo-comments" },
   { import = "plugins.treesitter" },
-  { import = "plugins.auto-pairs" },
   { import = "plugins.catppuccin" },
   { import = "plugins.treesitter-context" },
   { import = "plugins.friendly-snippets" },

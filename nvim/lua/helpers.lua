@@ -1,3 +1,7 @@
+--- Concats two tables and returns new table
+---@param t1 table
+---@param t2 table
+---@return table
 function ConcatTables(t1, t2)
   local T = {}
 
@@ -18,6 +22,10 @@ function HasWordsBefore()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+--- Checks whether given value exists in given table
+---@param tab table
+---@param val any
+---@return boolean
 function HasValue(tab, val)
   for index, value in ipairs(tab) do
     if value == val then
@@ -28,6 +36,12 @@ function HasValue(tab, val)
   return false
 end
 
+--- @alias backgroundType
+--- | "light"
+--- | "dark"
+--- Changes background colors
+--- If background is set to light theme, changes cursor color
+---@param type backgroundType
 function SetBackground(type)
   if type == "dark" then
     vim.api.nvim_set_option("background", "dark")
