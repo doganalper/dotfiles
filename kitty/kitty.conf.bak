@@ -4,7 +4,10 @@
 map alt+left send_text all \x1b\x62
 map alt+right send_text all \x1b\x66
 
-hide_window_decorations no
+hide_window_decorations titlebar-only
+macos_show_window_title_in menubar
+
+macos_quit_when_last_window_closed yes
 
 # Check update every 7 days
 update_check_interval 168
@@ -18,15 +21,16 @@ bold_font   JetBrainsMono Nerd Font Mono
 # font_family   Monaspace Argon Extra Light
 # bold_font     Monaspace Argon Light
 
-# background_opacity 0.96
-background_opacity 1
-background_blur 15
+# background_opacity 0.98
 # background_opacity 1
-# background_image ~/.config/kitty/bg-sky.png
-# background_image_layout scaled
+# background_blur 15
 
-font_size 12
-modify_font cell_height 120%
+# background_image ~/.config/cccp-bg.png
+# background_tint 0.994
+# background_image_layout cscaled
+
+font_size 11.7
+modify_font cell_height 110%
 
 # disable tabs mapping
 map kitty_mod+t no_op
@@ -36,6 +40,6 @@ enable_audio_bell no
 placement_strategy center
 
 # BEGIN_KITTY_THEME
-# Gruvbox Material Dark Hard
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
