@@ -3,9 +3,9 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
-    require("helpers")
-    local is_transparent = true
-    local dark_theme = "mocha"
+    local helpers = require("helpers");
+    local is_transparent = false
+    local dark_theme = "frappe"
     require("catppuccin").setup({
       transparent_background = is_transparent,
       flavour = dark_theme,
@@ -23,7 +23,7 @@ return {
       custom_highlights = function(colors)
         local transparent_background = { bg = colors.base }
         local returnValue = {
-          CursorLineNr = { fg = colors.green },
+          -- CursorLineNr = { fg = colors.green },
           LineNr = { fg = colors.red },
           LspInlayHint = { bg = colors.base },
 
@@ -45,7 +45,7 @@ return {
         }
 
         if is_transparent == true then
-          returnValue = ConcatTables(returnValue, {
+          returnValue = helpers.concatTables(returnValue, {
             -- NeoTreeNormal = transparent_background,
             CmpNormal = { link = "TelescopeNormal" },
             -- NormalFloat = transparent_background,

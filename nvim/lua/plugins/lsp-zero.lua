@@ -17,7 +17,7 @@ return {
     { "saadparwaiz1/cmp_luasnip", event = "VeryLazy" }, -- Optional
   },
   config = function()
-    require("helpers")
+    local helpers = require("helpers")
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
     local lsp_zero = require("lsp-zero")
@@ -50,7 +50,7 @@ return {
       automatic_installation = true,
     })
 
-    lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.on_attach(function(_, bufnr)
       lsp_zero.default_keymaps({ buffer = bufnr })
     end)
 
@@ -77,17 +77,17 @@ return {
       end,
     })
 
-    lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.on_attach(function(_, bufnr)
       -- lsp actions
-      Map("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
-      Map("n", "<leader>rn", function()
+      helpers.map("n", "<leader>i", vim.lsp.buf.hover, { buffer = bufnr, desc = "Space [I]nfo" })
+      helpers.map("n", "<leader>rn", function()
         vim.lsp.buf.rename()
       end, { buffer = bufnr, desc = "Space [R]e[n]ame" })
-      Map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
-      Map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
-      Map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "[G]oto [R]eferences" })
-      Map("n", "<leader>gtd", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" })
-      Map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[G]oto [I]mplementation" })
+      helpers.map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
+      helpers.map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
+      helpers.map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "[G]oto [R]eferences" })
+      helpers.map("n", "<leader>gtd", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" })
+      helpers.map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[G]oto [I]mplementation" })
     end)
 
     lsp_config.eslint.setup({

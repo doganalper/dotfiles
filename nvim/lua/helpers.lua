@@ -1,8 +1,10 @@
+local M = {}
+
 --- Concats two tables and returns new table
 ---@param t1 table
 ---@param t2 table
 ---@return table
-function ConcatTables(t1, t2)
+function M.concatTables(t1, t2)
   local T = {}
 
   for k, v in pairs(t1) do
@@ -16,7 +18,7 @@ function ConcatTables(t1, t2)
   return T
 end
 
-function HasWordsBefore()
+function M.hasWordsBefore()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -26,8 +28,8 @@ end
 ---@param tab table
 ---@param val any
 ---@return boolean
-function HasValue(tab, val)
-  for index, value in ipairs(tab) do
+function M.hasValue(tab, val)
+  for _, value in ipairs(tab) do
     if value == val then
       return true
     end
@@ -42,7 +44,7 @@ end
 --- Changes background colors
 --- If background is set to light theme, changes cursor color
 ---@param type backgroundType
-function SetBackground(type)
+function M.setBackground(type)
   if type == "dark" then
     vim.api.nvim_set_option("background", "dark")
   else
@@ -56,6 +58,8 @@ function SetBackground(type)
   end
 end
 
-function Map(mode, mapping, functionality, opts)
+function M.map(mode, mapping, functionality, opts)
   vim.keymap.set(mode, mapping, functionality, opts)
 end
+
+return M

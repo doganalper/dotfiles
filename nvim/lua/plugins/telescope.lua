@@ -11,7 +11,7 @@ return {
   },
   event = "VeryLazy",
   config = function()
-    require("helpers")
+    local helpers = require("helpers")
     local commonDropdown = {
       previewer = false,
       theme = "dropdown",
@@ -19,7 +19,7 @@ return {
 
     local telescope = require("telescope")
 
-    local filePicker = ConcatTables(commonDropdown, {
+    local filePicker = helpers.concatTables(commonDropdown, {
       hidden = true,
       no_ignore = false,
     })

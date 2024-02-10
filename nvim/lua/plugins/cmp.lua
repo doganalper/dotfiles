@@ -6,13 +6,13 @@ return {
     "hrsh7th/cmp-path",
   },
   config = function()
-    require("helpers")
+    local helpers = require("helpers")
     local lsp = require("lsp-zero")
     local luasnip = require("luasnip")
     local cmp = require("cmp")
     local lspkind = require("lspkind")
 
-    local function formatForTailwindCSS(entry, vim_item)
+    local function formatForTailwindCSS(_, vim_item)
       vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
       return vim_item
     end
@@ -40,14 +40,14 @@ return {
         end
       end,
       preselect = cmp.PreselectMode.None, -- don't auto select item
-      mapping = ConcatTables(lsp.defaults.cmp_mappings(), {
+      mapping = helpers.concatTables(lsp.defaults.cmp_mappings(), {
         ["<CR>"] = cmp.mapping.confirm(),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif HasWordsBefore() then
+          elseif helpers.hasWordsBefore() then
             cmp.complete()
           else
             fallback()

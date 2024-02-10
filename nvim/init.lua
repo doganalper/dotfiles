@@ -1,4 +1,4 @@
-require("helpers")
+local helpers = require("helpers");
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -13,6 +13,11 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+
+vim.g.netrw_banner = 0 -- gets rid of the annoying banner for netrw
+-- vim.g.netrw_browse_split = 4 -- open in prior window
+vim.g.netrw_altv = 1 -- change from left splitting to right splitting
+vim.g.netrw_liststyle = 3 -- tree style view in netrw
 
 vim.g.mapleader = " "
 vim.o.number = true
@@ -87,7 +92,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.server_capabilities.inlayHintProvider then
       -- vim.lsp.inlay_hint.enable()
 
-      Map("n", "<leader>tih", function()
+      helpers.map("n", "<leader>tih", function()
         if vim.lsp.inlay_hint.is_enabled() then
           print("Disabled Inlay Hints")
           vim.lsp.inlay_hint.enable(0, false)

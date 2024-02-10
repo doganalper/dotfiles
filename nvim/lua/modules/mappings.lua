@@ -1,47 +1,47 @@
-require("helpers")
+local helpers = require("helpers")
 
-Map("i", "jj", "<ESC>", { desc = "Map jj to <Esc>" })
+helpers.map("i", "jj", "<ESC>", { desc = "helpers.Map jj to <Esc>" })
 
 -- Buffers
-Map("n", "gt", function()
+helpers.map("n", "gt", function()
   vim.cmd(vim.v.count .. "bnext")
 end, { desc = "Space [B]uffer Next" })
-Map("n", "gT", function()
+helpers.map("n", "gT", function()
   vim.cmd(vim.v.count .. "bprev")
 end, { desc = "Space [B]uffer Prev" })
 
 -- Set size of window
-Map("n", "<C-k>", "<cmd>resize +4<cr>", { desc = "Increase window height", noremap = true })
-Map("n", "<C-j>", "<cmd>resize -4<cr>", { desc = "Decrease window height", noremap = true })
-Map("n", "<C-h>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
-Map("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
+helpers.map("n", "<C-k>", "<cmd>resize +4<cr>", { desc = "Increase window height", noremap = true })
+helpers.map("n", "<C-j>", "<cmd>resize -4<cr>", { desc = "Decrease window height", noremap = true })
+helpers.map("n", "<C-h>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
+helpers.map("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
 
 -- Netrw instead of neotree
-Map("n", "<leader>1", "<cmd>Ex<cr>", { desc = "Opens netrw", noremap = true })
-Map("n", "<leader>v1", "<cmd>Vex<cr>", { desc = "Opens netrw on vertical split", noremap = true })
-Map("n", "<leader>s1", "<cmd>Hex<cr>", { desc = "Opens netrw on horizontal split", noremap = true })
+helpers.map("n", "<leader>1", "<cmd>25Lex<cr>", { desc = "Opens netrw", noremap = true })
+-- helpers.map("n", "<leader>v1", "<cmd>Vex<cr>", { desc = "Opens netrw on vertical split", norehelpers.Map = true })
+-- helpers.map("n", "<leader>s1", "<cmd>Hex<cr>", { desc = "Opens netrw on horizontal split", norehelpers.Map = true })
 
 -- Clear search with <esc>
-Map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+helpers.map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 -- Split Size Changes
-Map("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
+helpers.map("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
 
 -- Improved Motion
-Map({ "n", "v" }, "H", "_", { desc = "Go to start of line" })
-Map({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
+helpers.map({ "n", "v" }, "H", "_", { desc = "Go to start of line" })
+helpers.map({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
 
-Map("n", "<leader>sbd", function()
-  SetBackground("dark")
+helpers.map("n", "<leader>sbd", function()
+  helpers.setBackground("dark")
 end, { desc = "[S]et [B]ackground [D]ark" })
-Map("n", "<leader>sbl", function()
-  SetBackground("light")
+helpers.map("n", "<leader>sbl", function()
+  helpers.setBackground("light")
 end, { desc = "[S]et [B]ackground [L]ight" })
 
-Map({ "i", "n" }, "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "[S]ignature" })
+helpers.map({ "i", "n" }, "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "[S]ignature" })
 
--- Quickfix mappings
-Map("n", "<CR>", function()
+-- Quickfix helpers.Mappings
+helpers.map("n", "<CR>", function()
   if vim.bo.filetype ~= "qf" then
     vim.cmd.normal("ciw")
     vim.cmd.normal("l")
@@ -50,7 +50,7 @@ Map("n", "<CR>", function()
     vim.cmd(".cc")
   end
 end, {})
-Map("n", "X", function()
+helpers.map("n", "X", function()
   if vim.bo.filetype == "qf" then
     vim.cmd("ccl")
   end
@@ -60,9 +60,9 @@ Map("n", "X", function()
 end, { desc = "Close quick fix and fugitive with [X] key." })
 
 -- Auto close brackets, parenthesis, quotes
-Map("i", '"', '""<left>')
-Map("i", "'", "''<left>")
-Map("i", "(", "()<left>")
-Map("i", "{", "{}<left>")
-Map("i", "[", "[]<left>")
-Map("i", "/*", "/**/<left>")
+helpers.map("i", '"', '""<left>')
+helpers.map("i", "'", "''<left>")
+helpers.map("i", "(", "()<left>")
+helpers.map("i", "{", "{}<left>")
+helpers.map("i", "[", "[]<left>")
+helpers.map("i", "/*", "/**/<left>")
