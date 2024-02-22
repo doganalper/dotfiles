@@ -1,7 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
-  enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
@@ -13,17 +12,16 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-            deleted = "✖", -- this can only be used in the git_status source
-            renamed = "", -- this can only be used in the git_status source
+            added = "",
+            deleted = "",
+            modified = "",
+            renamed = "",
             -- Status type
-            untracked = "U",
-            ignored = "",
-            -- unstaged  = "",
-            unstaged = "M",
-            staged = "S",
-            conflict = "",
+            untracked = "",
+            ignored = "",
+            unstaged = "",
+            staged = "",
+            conflict = "",
           },
         },
         highlights = {
@@ -31,6 +29,9 @@ return {
           info = "",
           warn = "",
           error = "",
+        },
+        last_modified = {
+          enabled = false,
         },
       },
       document_symbols = {
@@ -67,12 +68,12 @@ return {
               }
             end
 
-            -- if node.type == "directory" then
-            --   return {
-            --     text = "• ",
-            --     highlight = config.highlight,
-            --   }
-            -- end
+            if node.type == "directory" then
+              return {
+                text = "• ",
+                highlight = config.highlight,
+              }
+            end
             return require("neo-tree.sources.common.components").icon(config, node, state)
           end,
         },

@@ -1,10 +1,14 @@
+local function maximize_status()
+  return vim.t.maximized and " " or ""
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
     require("lualine").setup({
       -- extensions = { "neo-tree", "fugitive" },
       options = {
-        icons_enabled = true,
+        icons_enabled = false,
         global_status = true,
         theme = "catppuccin",
         component_separators = "",
@@ -23,27 +27,27 @@ return {
       --   lualine_z = { { "branch", color = "lualine_a_normal" } },
       -- },
       sections = {
-        lualine_b = {
+        lualine_b = { "location" },
+        lualine_c = {
+          "%=",
           {
             "filename",
             path = 4,
           },
         },
-        lualine_c = {},
         lualine_x = {
-          { "filetype", separator = "", padding = { right = 1 } },
+          maximize_status,
         },
-        lualine_y = { "diff", "diagnostics", "branch" },
+        lualine_y = { "diagnostics", "diff", "branch" },
+        lualine_z = {},
       },
       inactive_sections = {
         lualine_c = {
+          "%=",
           {
             "filename",
             path = 1,
           },
-        },
-        lualine_y = {
-          { "filetype", separator = "", padding = { right = 0 } },
         },
       },
     })

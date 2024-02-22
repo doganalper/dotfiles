@@ -48,7 +48,7 @@ return {
         current_buffer_fuzzy_find = {
           theme = "dropdown",
         },
-        -- buffers = commonDropdown,
+        buffers = commonDropdown,
         -- builtin = commonDropdown,
       },
       extensions = {

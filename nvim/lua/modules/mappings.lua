@@ -16,11 +16,6 @@ helpers.map("n", "<C-j>", "<cmd>resize -4<cr>", { desc = "Decrease window height
 helpers.map("n", "<C-h>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
 helpers.map("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
 
--- Netrw instead of neotree
-helpers.map("n", "<leader>1", "<cmd>25Lex<cr>", { desc = "Opens netrw", noremap = true })
--- helpers.map("n", "<leader>v1", "<cmd>Vex<cr>", { desc = "Opens netrw on vertical split", norehelpers.Map = true })
--- helpers.map("n", "<leader>s1", "<cmd>Hex<cr>", { desc = "Opens netrw on horizontal split", norehelpers.Map = true })
-
 -- Clear search with <esc>
 helpers.map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
@@ -65,4 +60,4 @@ helpers.map("i", "'", "''<left>")
 helpers.map("i", "(", "()<left>")
 helpers.map("i", "{", "{}<left>")
 helpers.map("i", "[", "[]<left>")
-helpers.map("i", "/*", "/**/<left>")
+helpers.map("i", "/*", "/**/<left><left>")

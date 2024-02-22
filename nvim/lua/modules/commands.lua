@@ -14,6 +14,11 @@ end, {})
 -- Turn pixel to rem
 vim.api.nvim_create_user_command("TPR", "echo (0.0625 * <q-args>)", { nargs = 1 })
 
+-- Toggle line wrap
+vim.api.nvim_create_user_command("TWW", function()
+  vim.o.wrap = not vim.o.wrap
+end, {})
+
 -- Close every other buffers except active one
 vim.api.nvim_create_user_command("Co", function()
   vim.cmd("%bd|e#")

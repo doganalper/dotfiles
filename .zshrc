@@ -2,7 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # ============== THEME ==============
-ZSH_THEME="lambda"
+ZSH_THEME="candy"
 # ZSH_THEME="refined"
 # ============== THEME END ==============
 

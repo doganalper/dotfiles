@@ -23,9 +23,28 @@ local plugins = {
   { import = "plugins.neogen" },
   { import = "plugins.big-file" },
   {
+    "declancm/maximize.nvim",
+    config = true,
+    keys = {
+      {
+        "<leader>m",
+        mode = { "n" },
+        "<Cmd>lua require('maximize').toggle()<CR>",
+        desc = "[M]aximize/[M]inimize Split",
+      },
+    },
+  },
+  { "folke/neodev.nvim", opts = {} },
+  {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      modes = {
+        search = {
+          enabled = false,
+        },
+      },
+    },
     keys = {
       {
         "s",

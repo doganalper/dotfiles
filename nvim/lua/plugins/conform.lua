@@ -4,6 +4,7 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       -- Conform will run multiple formatters sequentially
+      css = { "prettier" },
       javascript = { "prettier" },
       typescript = { "prettier" },
       vue = { "prettier" },

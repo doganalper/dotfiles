@@ -46,6 +46,7 @@ return {
         "tailwindcss",
         "html",
         "astro",
+        "marksman",
       },
       automatic_installation = true,
     })
@@ -86,7 +87,12 @@ return {
       helpers.map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
       helpers.map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
       helpers.map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "[G]oto [R]eferences" })
-      helpers.map("n", "<leader>gtd", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" })
+      helpers.map(
+        "n",
+        "<leader>gtd",
+        vim.lsp.buf.type_definition,
+        { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
+      )
       helpers.map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[G]oto [I]mplementation" })
     end)
 
@@ -123,6 +129,10 @@ return {
     -- -- attach volar when there's a vite file
     lsp_config.volar.setup({
       root_dir = root_pattern("vite*"),
+      capabilities = capabilities,
+    })
+
+    lsp_config.marksman.setup({
       capabilities = capabilities,
     })
 
