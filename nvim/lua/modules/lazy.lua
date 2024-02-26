@@ -34,7 +34,7 @@ local plugins = {
       },
     },
   },
-  { "folke/neodev.nvim", opts = {} },
+  { "folke/neodev.nvim", opts = {}, ft = "lua" },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -104,5 +104,3 @@ require("lazy").setup(plugins, opts)
 
 -- POSSIBLE PLUGINS (check out later)
 -- https://github.com/sindrets/diffview.nvim
--- https://github.com/sainnhe/gruvbox-material
---  https://github.com/kkoomen/vim-doge (generate code docs)

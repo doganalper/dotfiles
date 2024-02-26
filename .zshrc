@@ -28,6 +28,7 @@ alias lg='lazygit'
 alias projects='cd ~/Desktop/projects'
 alias kill3000="kill -9 \$(lsof -ti:3000)"
 alias d_img="kitten icat"
+alias c="clear"
 
 function weather()
 {
