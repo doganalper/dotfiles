@@ -40,6 +40,7 @@
   "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },
   "template.nvim": { "branch": "main", "commit": "3cb26f46f9536bed2c3995f6076cab2fa2bd627a" },
   "todo-comments.nvim": { "branch": "main", "commit": "833d8dd8b07eeda37a09e99460f72a02616935cb" },
+  "ts-error-translator.nvim": { "branch": "main", "commit": "79ff88cbd595b1a9d1d10e02cd3dfa1aacf2ae2f" },
   "vim-fugitive": { "branch": "master", "commit": "4bc9d989930e37989b038540cc49e63728d3f220" },
   "vim-rhubarb": { "branch": "master", "commit": "ee69335de176d9325267b0fd2597a22901d927b1" },
   "vscode-js-debug": { "branch": "main", "commit": "d5c3db44de45bb3175c22f14fd36fffba1efcdf9" }

@@ -22,6 +22,7 @@ local plugins = {
   { import = "plugins.templates" },
   { import = "plugins.neogen" },
   { import = "plugins.big-file" },
+  { "dmmulroy/ts-error-translator.nvim", config = true },
   {
     "declancm/maximize.nvim",
     config = true,
