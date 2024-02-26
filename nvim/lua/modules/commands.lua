@@ -55,7 +55,7 @@ quote_type=double
 
 [*.md]
 trim_trailing_whitespace = false
-		]])
+    ]])
     filewrite:close()
   else
     print("Error")
