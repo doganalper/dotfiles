@@ -28,7 +28,7 @@ return {
           LspInlayHint = { bg = colors.base },
 
           -- NeoTree Related
-          NeoTreeNormal = { bg = colors.base },
+          -- NeoTreeNormal = { bg = colors.base },
           NeoTreeGitAdded = { fg = colors.text },
           NeoTreeGitModified = { fg = colors.text },
           NeoTreeGitUntracked = { fg = colors.text },

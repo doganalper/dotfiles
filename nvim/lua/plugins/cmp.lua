@@ -63,14 +63,14 @@ return {
           end
         end, { "i", "s" }),
       }),
-      window = {
-        completion = {
-          winhighlight = "Normal:CmpNormal",
-        },
-        documentation = {
-          winhighlight = "Normal:CmpNormal",
-        },
-      },
+      -- window = {
+      --   completion = {
+      --     winhighlight = "Normal:CmpNormal",
+      --   },
+      --   documentation = {
+      --     winhighlight = "Normal:CmpNormal",
+      --   },
+      -- },
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = lspkind.cmp_format({

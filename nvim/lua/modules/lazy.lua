@@ -24,6 +24,17 @@ local plugins = {
   { import = "plugins.big-file" },
   { "dmmulroy/ts-error-translator.nvim", config = true },
   {
+    -- https://github.com/Exafunction/codeium.vim?tab=readme-ov-file#-installation-options
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
+    config = function()
+      -- TODO: change this mapping
+      vim.keymap.set("i", "<C-g>", function()
+        return vim.fn["codeium#Accept"]()
+      end, { expr = true, silent = true })
+    end,
+  },
+  {
     "declancm/maximize.nvim",
     config = true,
     keys = {

@@ -1,4 +1,4 @@
-local helpers = require("helpers");
+local helpers = require("helpers")
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -44,6 +44,9 @@ vim.opt.foldenable = true
 
 -- tmux color problem
 vim.o.termguicolors = true
+
+-- codeium
+vim.g.codeium_disable_bindings = 1
 
 -- hover width
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
