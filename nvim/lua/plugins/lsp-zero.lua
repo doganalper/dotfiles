@@ -156,13 +156,17 @@ return {
       "astro",
       "typescriptreact",
       "javascriptreact",
-      "htmldjango",
+      "blade"
     }
     lsp_config.html.setup({
       filetypes = htmlFileTypes,
       capabilities = capabilities,
     })
     lsp_config.emmet_ls.setup({
+      filetypes = htmlFileTypes,
+      capabilities = capabilities,
+    })
+    lsp_config.tailwindcss.setup({
       filetypes = htmlFileTypes,
       capabilities = capabilities,
     })

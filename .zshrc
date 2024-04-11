@@ -29,6 +29,10 @@ alias projects='cd ~/Desktop/projects'
 alias kill3000="kill -9 \$(lsof -ti:3000)"
 alias d_img="kitten icat"
 alias c="clear"
+alias fzf="fzf --reverse --height=40% --border"
+alias nfzf="nvim \$(fzf)"
+alias c="clear"
+alias n="nvim"
 
 function weather()
 {
@@ -96,3 +100,11 @@ export PATH="/Users/alperdogan/.local/share/bob/nvim-bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/alperdogan/Library/Application Support/Herd/config/php/83/"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/alperdogan/Library/Application Support/Herd/bin/":$PATH

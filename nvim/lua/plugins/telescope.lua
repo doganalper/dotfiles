@@ -27,15 +27,15 @@ return {
     telescope.setup({
       defaults = {
         -- layout_strategy = "vertical",
-        layout_strategy = "horizontal",
+        layout_strategy = "vertical",
         layout_config = {
           horizontal = {
             prompt_position = "top",
             preview_width = 0.5,
           },
           vertical = {
-            mirror = true,
-            prompt_position = "top",
+            -- mirror = true,
+            prompt_position = "bottom",
           },
         },
         file_ignore_patterns = { "node_modules/", ".git/" },
@@ -127,7 +127,7 @@ return {
     {
       "<leader><s-f>",
       mode = { "n" },
-      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+      "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>",
     },
     {
       "<leader><s-h>",

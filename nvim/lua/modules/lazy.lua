@@ -24,6 +24,20 @@ local plugins = {
   { import = "plugins.big-file" },
   { "dmmulroy/ts-error-translator.nvim", config = true },
   {
+    "rest-nvim/rest.nvim",
+    dependencies = {
+      {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+      },
+    },
+    ft = "http",
+    config = function()
+      require("rest-nvim").setup()
+    end,
+  },
+  {
     -- https://github.com/Exafunction/codeium.vim?tab=readme-ov-file#-installation-options
     "Exafunction/codeium.vim",
     event = "BufEnter",
@@ -113,6 +127,10 @@ local opts = {
 }
 
 require("lazy").setup(plugins, opts)
+
+-- vim.g.gruvbox_material_background = "medium"
+-- vim.cmd('colorscheme gruvbox-material')
+vim.cmd("colorscheme catppuccin")
 
 -- POSSIBLE PLUGINS (check out later)
 -- https://github.com/sindrets/diffview.nvim

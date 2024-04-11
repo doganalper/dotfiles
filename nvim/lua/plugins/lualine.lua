@@ -4,13 +4,14 @@ end
 
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = false,
   config = function()
     require("lualine").setup({
       -- extensions = { "neo-tree", "fugitive" },
       options = {
         icons_enabled = false,
         global_status = true,
-        theme = "catppuccin",
+        -- theme = "catppuccin",
         component_separators = "",
         section_separators = "",
         disabled_filetypes = { "fugitiveblame", "neo-tree", "alpha" },
