@@ -36,6 +36,8 @@ vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 vim.opt.list = true
 vim.opt.listchars = { leadmultispace = "- " }
+vim.o.laststatus = 3
+vim.o.winbar = "%F %m %= %y"
 
 -- fold
 vim.opt.foldlevel = 99
@@ -47,6 +49,14 @@ vim.o.termguicolors = true
 
 -- codeium
 vim.g.codeium_disable_bindings = 1
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "WinSeparator", { bg = "None" })
+    vim.api.nvim_set_hl(0, "Winbar", { fg = "grey" })
+  end,
+})
 
 -- hover width
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
