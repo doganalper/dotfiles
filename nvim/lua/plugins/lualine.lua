@@ -16,14 +16,13 @@ return {
       },
       sections = {
         lualine_b = { "location" },
-        lualine_c = {},
-        -- lualine_c = {
-        --   "%=",
-        --   {
-        --     "filename",
-        --     path = 4,
-        --   },
-        -- },
+        lualine_c = {
+          "%=",
+          {
+            "filename",
+            path = 4,
+          },
+        },
         lualine_x = {
           maximize_status,
         },

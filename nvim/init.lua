@@ -37,7 +37,7 @@ vim.opt.splitbelow = true -- Split windows below to the current windows
 vim.opt.list = true
 vim.opt.listchars = { leadmultispace = "- " }
 vim.o.laststatus = 3
-vim.o.winbar = "%F %m %= %y"
+-- vim.o.winbar = "%= %F %m %="
 
 -- fold
 vim.opt.foldlevel = 99
@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
     vim.api.nvim_set_hl(0, "WinSeparator", { bg = "None" })
-    vim.api.nvim_set_hl(0, "Winbar", { fg = "grey" })
+    -- vim.api.nvim_set_hl(0, "Winbar", { fg = "None" })
   end,
 })
 
