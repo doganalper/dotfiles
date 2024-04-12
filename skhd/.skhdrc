@@ -26,3 +26,10 @@ shift + alt - 2 : yabai -m window --space 2
 shift + alt - 3 : yabai -m window --space 3
 shift + alt - 4 : yabai -m window --space 4
 shift + alt - 5 : yabai -m window --space 5
+
+# Open kitty terminal
+cmd - k : open -a /Applications/kitty.app/Contents/MacOS/kitty
+cmd - b : open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
+
+shift + alt - up : yabai -m window --resize right:-40:0 2> /dev/null || yabai -m window --resize left:-40:0 2> /dev/null
+shift + alt - down : yabai -m window --resize right:40:0 2> /dev/null || yabai -m window --resize left:40:0 2> /dev/null
