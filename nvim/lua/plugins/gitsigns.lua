@@ -6,6 +6,13 @@ return {
     local helpers = require("helpers")
 
     gs.setup({
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+      },
       on_attach = function()
         helpers.map("n", "<leader>glc", gs.preview_hunk, { desc = "[G]it [L]ine [C]hanges" })
 
