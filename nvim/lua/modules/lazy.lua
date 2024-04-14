@@ -25,6 +25,7 @@ local plugins = {
   { "dmmulroy/ts-error-translator.nvim", config = true },
   {
     "rest-nvim/rest.nvim",
+    enabled = false,
     dependencies = {
       {
         "vhyrro/luarocks.nvim",
