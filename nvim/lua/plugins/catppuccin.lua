@@ -43,7 +43,7 @@ return {
           TelescopePromptBorder = { default = true, link = "TelescopeBorder" },
           TelescopeResultsBorder = { default = true, link = "TelescopeBorder" },
           TelescopePreviewBorder = { default = true, link = "TelescopeBorder" },
-          CmpNormal = { link = "NormalFloat" },
+          CmpNormal = { link = "NeoTreeNormal" },
         }
 
         if is_transparent == true then
