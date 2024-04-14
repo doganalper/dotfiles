@@ -54,6 +54,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
     vim.api.nvim_set_hl(0, "WinSeparator", { bg = "None" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "None" })
+    vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None", fg = "None" })
     -- vim.api.nvim_set_hl(0, "Winbar", { fg = "None" })
   end,
 })
