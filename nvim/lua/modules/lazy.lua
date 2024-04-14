@@ -92,9 +92,6 @@ local plugins = {
 
   -- Rust debugging
   { import = "plugins.dap" },
-
-  -- JS/TS debugging
-  { import = "plugins.js-debug" },
 }
 
 local opts = {
