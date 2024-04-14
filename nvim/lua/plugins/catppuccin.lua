@@ -6,7 +6,7 @@ return {
   config = function()
     local helpers = require("helpers")
     local is_transparent = false
-    local dark_theme = "macchiato"
+    local dark_theme = "mocha"
     require("catppuccin").setup({
       transparent_background = is_transparent,
       flavour = dark_theme,

@@ -72,12 +72,13 @@ return {
         },
       },
       formatting = {
-        fields = { "kind", "abbr", "menu" },
+        fields = { "kind", "abbr" },
         format = lspkind.cmp_format({
           mode = "text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
           maxwidth = 70, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
           ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
           before = function(entry, vim_item)
+            vim_item.menu = ""
             vim_item.dup = ({
               nvim_lsp = 0,
               path = 0,
