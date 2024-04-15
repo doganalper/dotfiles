@@ -5,6 +5,7 @@ return {
     "aaronhallaert/advanced-git-search.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
+      'nvim-telescope/telescope-ui-select.nvim',
       "tpope/vim-fugitive",
       "tpope/vim-rhubarb",
     },
@@ -57,10 +58,14 @@ return {
           git_flags = {},
           git_diff_flags = {},
         },
+        ["ui-select"] = {
+          require("telescope.themes").get_cursor({})
+        }
       },
     })
 
     telescope.load_extension("advanced_git_search")
+    telescope.load_extension("ui-select")
     telescope.load_extension("dir")
   end,
   keys = {
