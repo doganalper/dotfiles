@@ -26,6 +26,8 @@ helpers.map("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
 helpers.map({ "n", "v" }, "H", "_", { desc = "Go to start of line" })
 helpers.map({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
 
+helpers.map({ "t" }, "<ESC>", "<C-\\><C-n>", { desc = "Escape terminal mode" })
+
 helpers.map("n", "<leader>sbd", function()
   helpers.setBackground("dark")
 end, { desc = "[S]et [B]ackground [D]ark" })

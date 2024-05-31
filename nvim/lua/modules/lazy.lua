@@ -12,6 +12,7 @@ local plugins = {
   { import = "plugins.todo-comments" },
   { import = "plugins.treesitter" },
   { import = "plugins.catppuccin" },
+  { import = "plugins.tokyonight" },
   { import = "plugins.treesitter-context" },
   { import = "plugins.friendly-snippets" },
   { import = "plugins.fugitive" },
@@ -128,7 +129,8 @@ require("lazy").setup(plugins, opts)
 
 -- vim.g.gruvbox_material_background = "medium"
 -- vim.cmd('colorscheme gruvbox-material')
-vim.cmd("colorscheme catppuccin")
+-- vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme tokyonight")
 
 -- POSSIBLE PLUGINS (check out later)
 -- https://github.com/sindrets/diffview.nvim

@@ -64,12 +64,14 @@ return {
         end, { "i", "s" }),
       }),
       window = {
-        completion = {
-          winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal,CursorLine:PmenuSel",
-        },
-        documentation = {
-          winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal",
-        },
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+        -- completion = {
+        --   winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal,CursorLine:PmenuSel",
+        -- },
+        -- documentation = {
+        --   winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal",
+        -- },
       },
       formatting = {
         fields = { "kind", "abbr" },
