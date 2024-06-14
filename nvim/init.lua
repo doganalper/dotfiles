@@ -100,15 +100,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client.server_capabilities.inlayHintProvider then
-      -- vim.lsp.inlay_hint.enable()
-
       helpers.map("n", "<leader>tih", function()
         if vim.lsp.inlay_hint.is_enabled() then
           print("Disabled Inlay Hints")
-          vim.lsp.inlay_hint.enable(0, false)
+          vim.lsp.inlay_hint.enable(false)
         else
           print("Enabled Inlay Hints")
-          vim.lsp.inlay_hint.enable(0, true)
+          vim.lsp.inlay_hint.enable(true)
         end
       end, {
         desc = "[T]oggle [I]nline [H]ints",

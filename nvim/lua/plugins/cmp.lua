@@ -79,6 +79,7 @@ return {
           mode = "text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
           maxwidth = 70, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
           ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          symbol_map = { Codeium = "", },
           before = function(entry, vim_item)
             vim_item.menu = ""
             vim_item.dup = ({
@@ -96,6 +97,7 @@ return {
         end,
       },
       sources = cmp.config.sources({
+        { name = "codeium" },
         {
           name = "nvim_lsp",
           -- max_item_count = 50,

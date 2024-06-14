@@ -4,6 +4,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
+    "nvim-tree/nvim-web-devicons"
   },
   -- event = "VeryLazy",
   config = function()
@@ -59,24 +60,24 @@ return {
         follow_current_file = {
           enabled = true,
         },
-        components = {
-          icon = function(config, node, state)
-            if node.type == "file" then
-              return {
-                text = " ",
-                highlight = config.highlight,
-              }
-            end
-
-            if node.type == "directory" then
-              return {
-                text = "• ",
-                highlight = config.highlight,
-              }
-            end
-            return require("neo-tree.sources.common.components").icon(config, node, state)
-          end,
-        },
+        -- components = {
+        --   icon = function(config, node, state)
+        --     if node.type == "file" then
+        --       return {
+        --         text = " ",
+        --         highlight = config.highlight,
+        --       }
+        --     end
+        --
+        --     if node.type == "directory" then
+        --       return {
+        --         text = "• ",
+        --         highlight = config.highlight,
+        --       }
+        --     end
+        --     return require("neo-tree.sources.common.components").icon(config, node, state)
+        --   end,
+        -- },
       },
       use_popups_for_input = true,
       -- filesystem = {

@@ -1,3 +1,20 @@
+local function getVueTsPluginPathFromMason()
+  local mason_registry = require("mason-registry")
+  local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+    .. "/node_modules/@vue/language-server"
+
+  return vue_language_server_path
+end
+
+local function getTsPluginPathFromMason()
+  local mason_registry = require("mason-registry")
+  local typescript_language_server_path = mason_registry.get_package("typescript-language-server"):get_install_path()
+    .. "/node_modules/typescript/lib"
+
+  print(typescript_language_server_path)
+  return typescript_language_server_path
+end
+
 return {
   "VonHeikemen/lsp-zero.nvim",
   branch = "v2.x",
@@ -105,6 +122,13 @@ return {
         preferences = {
           includeInlayParameterNameHints = "all",
         },
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = getVueTsPluginPathFromMason(),
+            languages = { "vue" },
+          },
+        },
       },
       settings = {
         completions = {
@@ -116,6 +140,7 @@ return {
         "typescript",
         "typescriptreact",
         "javascriptreact",
+        "vue",
       },
       capabilities = capabilities,
     })
@@ -130,6 +155,11 @@ return {
     lsp_config.volar.setup({
       root_dir = root_pattern("vite*"),
       capabilities = capabilities,
+      init_options = {
+        typescript = {
+          tsdk = getTsPluginPathFromMason(),
+        },
+      },
     })
 
     lsp_config.marksman.setup({
@@ -156,7 +186,7 @@ return {
       "astro",
       "typescriptreact",
       "javascriptreact",
-      "blade"
+      "blade",
     }
     lsp_config.html.setup({
       filetypes = htmlFileTypes,

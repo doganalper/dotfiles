@@ -3,6 +3,9 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
+    style = "night",
+    day_brightness = 0.3,
+    transparent = true,
     on_highlights = function(hl, colors)
       -- hl.LineNrBelow = { fg = colors.grey }
       -- hl.LineNrAbove = { fg = colors.grey }

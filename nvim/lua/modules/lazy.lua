@@ -40,14 +40,10 @@ local plugins = {
     end,
   },
   {
-    -- https://github.com/Exafunction/codeium.vim?tab=readme-ov-file#-installation-options
-    "Exafunction/codeium.vim",
+    "Exafunction/codeium.nvim",
     event = "BufEnter",
     config = function()
-      -- TODO: change this mapping
-      vim.keymap.set("i", "<C-g>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true, silent = true })
+      require("codeium").setup({})
     end,
   },
   {
@@ -63,6 +59,11 @@ local plugins = {
     },
   },
   { "folke/neodev.nvim", opts = {}, ft = "lua" },
+  {
+    'stevearc/dressing.nvim',
+    enabled = false,
+    opts = {},
+  },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
