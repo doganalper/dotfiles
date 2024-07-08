@@ -4,7 +4,7 @@
 map alt+left send_text all \x1b\x62
 map alt+right send_text all \x1b\x66
 
-# hide_window_decorations titlebar-only
+hide_window_decorations titlebar-only
 macos_show_window_title_in menubar
 
 macos_quit_when_last_window_closed yes
@@ -15,14 +15,14 @@ update_check_interval 168
 # background_tint 1
 # background_tint 1
 
-# font_family JetBrainsMono Nerd Font Mono
-# italic_font JetBrainsMono Nerd Font Mono
-# bold_font   JetBrainsMono Nerd Font Mono
-italic_font   Monaspace Argon Light
-font_family   Monaspace Argon Extra Light
-bold_font     Monaspace Argon Light
+font_family JetBrainsMono Nerd Font Mono
+italic_font JetBrainsMono Nerd Font Mono
+bold_font   JetBrainsMono Nerd Font Mono
+# italic_font   Monaspace Argon Light
+# font_family   Monaspace Argon Extra Light
+# bold_font     Monaspace Argon Light
 
-# background_opacity 0.98
+# background_opacity 0.97
 # background_opacity 1
 # background_blur 15
 
@@ -30,8 +30,8 @@ bold_font     Monaspace Argon Light
 # background_tint 0.994
 # background_image_layout cscaled
 
-font_size 12
-modify_font cell_height 120%
+font_size 12.5
+modify_font cell_height 125%
 
 # disable tabs mapping
 map kitty_mod+t no_op
@@ -41,6 +41,6 @@ enable_audio_bell no
 placement_strategy center
 
 # BEGIN_KITTY_THEME
-# Gruvbox Material Dark Medium
+# Catppuccin-Macchiato
 include current-theme.conf
 # END_KITTY_THEME

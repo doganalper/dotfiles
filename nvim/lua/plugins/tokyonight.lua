@@ -5,10 +5,10 @@ return {
   opts = {
     style = "night",
     day_brightness = 0.3,
-    transparent = true,
+    -- transparent = true,
     on_highlights = function(hl, colors)
-      -- hl.LineNrBelow = { fg = colors.grey }
-      -- hl.LineNrAbove = { fg = colors.grey }
+      hl.LineNrBelow = { fg = colors.white }
+      hl.LineNrAbove = { fg = colors.white }
       hl.CursorLineNr = { fg = colors.red }
       -- hl.LspInlayHint = { bg = colors.base }
 

@@ -23,7 +23,47 @@ local plugins = {
   { import = "plugins.templates" },
   { import = "plugins.neogen" },
   { import = "plugins.big-file" },
+  { import = "plugins.devicons" },
   { "dmmulroy/ts-error-translator.nvim", config = true },
+  {
+    "dnlhc/glance.nvim",
+    config = function()
+      require("glance").setup({
+        border = {
+          enable = true,
+          top_char = "―",
+          bottom_char = "―",
+        },
+        folds = {
+          fold_closed = "",
+          fold_open = "",
+          folded = true, -- Automatically fold list on startup
+        },
+        hooks = {
+          before_open = function(results, open, jump, method)
+            local uri = vim.uri_from_bufnr(0)
+            if #results == 1 then
+              local target_uri = results[1].uri or results[1].targetUri
+              if target_uri == uri then
+                jump(results[1])
+              else
+                open(results)
+              end
+            else
+              open(results)
+            end
+          end,
+        },
+      })
+    end,
+    event = "VeryLazy",
+    keys = function()
+      vim.keymap.set("n", "gd", "<CMD>Glance definitions<CR>", { desc = "[G]oto [D]efinition" })
+      vim.keymap.set("n", "gr", "<CMD>Glance references<CR>")
+      vim.keymap.set("n", "<leader>gtd", "<CMD>Glance type_definitions<CR>")
+      vim.keymap.set("n", "gi", "<CMD>Glance implementations<CR>")
+    end,
+  },
   {
     "rest-nvim/rest.nvim",
     enabled = false,
@@ -60,8 +100,7 @@ local plugins = {
   },
   { "folke/neodev.nvim", opts = {}, ft = "lua" },
   {
-    'stevearc/dressing.nvim',
-    enabled = false,
+    "stevearc/dressing.nvim",
     opts = {},
   },
   {
@@ -128,10 +167,9 @@ local opts = {
 
 require("lazy").setup(plugins, opts)
 
--- vim.g.gruvbox_material_background = "medium"
--- vim.cmd('colorscheme gruvbox-material')
 -- vim.cmd("colorscheme catppuccin")
 vim.cmd("colorscheme tokyonight")
 
 -- POSSIBLE PLUGINS (check out later)
 -- https://github.com/sindrets/diffview.nvim
+-- https://github.com/nvim-pack/nvim-spectre

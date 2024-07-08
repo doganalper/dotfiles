@@ -101,16 +101,16 @@ return {
       helpers.map("n", "<leader>rn", function()
         vim.lsp.buf.rename()
       end, { buffer = bufnr, desc = "Space [R]e[n]ame" })
-      helpers.map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
-      helpers.map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
-      helpers.map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "[G]oto [R]eferences" })
-      helpers.map(
-        "n",
-        "<leader>gtd",
-        vim.lsp.buf.type_definition,
-        { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
-      )
-      helpers.map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[G]oto [I]mplementation" })
+      -- helpers.map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
+      -- helpers.map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
+      -- helpers.map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "[G]oto [R]eferences" })
+      -- helpers.map(
+      --   "n",
+      --   "<leader>gtd",
+      --   vim.lsp.buf.type_definition,
+      --   { buffer = bufnr, desc = "[G]oto [T]ype [D]efinition" }
+      -- )
+      -- helpers.map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[G]oto [I]mplementation" })
     end)
 
     lsp_config.eslint.setup({
@@ -126,7 +126,7 @@ return {
           {
             name = "@vue/typescript-plugin",
             location = getVueTsPluginPathFromMason(),
-            languages = { "vue" },
+            languages = { "typescript", "vue" },
           },
         },
       },
@@ -155,11 +155,11 @@ return {
     lsp_config.volar.setup({
       root_dir = root_pattern("vite*"),
       capabilities = capabilities,
-      init_options = {
-        typescript = {
-          tsdk = getTsPluginPathFromMason(),
-        },
-      },
+      -- init_options = {
+      --   typescript = {
+      --     tsdk = getTsPluginPathFromMason(),
+      --   },
+      -- },
     })
 
     lsp_config.marksman.setup({
@@ -186,7 +186,6 @@ return {
       "astro",
       "typescriptreact",
       "javascriptreact",
-      "blade",
     }
     lsp_config.html.setup({
       filetypes = htmlFileTypes,

@@ -37,10 +37,12 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Discord$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+# yabai -m rule --add app="^Xcode$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
 
 echo "yabai configuration loaded.."
 
 inactive_color=0xff696d66
 active_color=0xffe1e3e6
 # https://github.com/FelixKratz/JankyBorders
-borders active_color=0x99ff0000 width=4 &
+borders active_color=0x99ff0000 width=3 &

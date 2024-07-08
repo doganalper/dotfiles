@@ -5,7 +5,6 @@ return {
     "aaronhallaert/advanced-git-search.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
-      'nvim-telescope/telescope-ui-select.nvim',
       "tpope/vim-fugitive",
       "tpope/vim-rhubarb",
     },
@@ -49,8 +48,7 @@ return {
         current_buffer_fuzzy_find = {
           theme = "dropdown",
         },
-        buffers = commonDropdown,
-        -- builtin = commonDropdown,
+        builtin = commonDropdown,
       },
       extensions = {
         advanced_git_search = {
@@ -65,7 +63,6 @@ return {
     })
 
     telescope.load_extension("advanced_git_search")
-    telescope.load_extension("ui-select")
     telescope.load_extension("dir")
   end,
   keys = {
