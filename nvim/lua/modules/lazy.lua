@@ -24,6 +24,7 @@ local plugins = {
   { import = "plugins.neogen" },
   { import = "plugins.big-file" },
   { import = "plugins.devicons" },
+  { import = 'plugins.diffview' },
   { "dmmulroy/ts-error-translator.nvim", config = true },
   {
     "dnlhc/glance.nvim",
@@ -167,8 +168,8 @@ local opts = {
 
 require("lazy").setup(plugins, opts)
 
--- vim.cmd("colorscheme catppuccin")
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme catppuccin")
+-- vim.cmd("colorscheme tokyonight")
 
 -- POSSIBLE PLUGINS (check out later)
 -- https://github.com/sindrets/diffview.nvim

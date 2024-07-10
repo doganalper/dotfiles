@@ -108,12 +108,12 @@ return {
       "<cmd>Telescope advanced_git_search search_log_content<cr>",
       desc = "Space [G]it [C]ommits",
     },
-    {
-      "<leader>gfc",
-      mode = { "n" },
-      "<cmd>Telescope advanced_git_search diff_commit_file<cr>",
-      desc = "Space [G]it [F]ile [C]ommits",
-    },
+    -- {
+    --   "<leader>gfc",
+    --   mode = { "n" },
+    --   "<cmd>Telescope advanced_git_search diff_commit_file<cr>",
+    --   desc = "Space [G]it [F]ile [C]ommits",
+    -- },
     {
       "<leader>bl",
       mode = { "n" },
