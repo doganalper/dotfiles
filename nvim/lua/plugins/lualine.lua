@@ -7,9 +7,9 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         global_status = true,
-        -- theme = "catppuccin",
+        theme = "auto",
         component_separators = "",
         section_separators = "",
         disabled_filetypes = { "fugitiveblame", "neo-tree", "alpha" },

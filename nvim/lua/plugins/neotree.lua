@@ -87,12 +87,12 @@ return {
     {
       "<leader>1",
       mode = { "n" },
-      "<cmd>Neotree toggle reveal left<cr>",
+      "<cmd>Neotree toggle reveal float<cr>",
     },
     {
       "<leader>2",
       mode = { "n" },
-      "<cmd>Neotree document_symbols toggle reveal right<cr>",
+      "<cmd>Neotree document_symbols toggle reveal float<cr>",
     },
   },
 }

@@ -101,7 +101,7 @@ return {
       helpers.map("n", "<leader>rn", function()
         vim.lsp.buf.rename()
       end, { buffer = bufnr, desc = "Space [R]e[n]ame" })
-      -- helpers.map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
+      helpers.map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Space [C]ode [A]ction" })
       -- helpers.map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "[G]oto [D]efinition" })
       -- helpers.map("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "[G]oto [R]eferences" })
       -- helpers.map(
