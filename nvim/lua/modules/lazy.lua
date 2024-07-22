@@ -24,7 +24,9 @@ local plugins = {
   { import = "plugins.neogen" },
   { import = "plugins.big-file" },
   { import = "plugins.devicons" },
-  { import = 'plugins.diffview' },
+  { import = "plugins.diffview" },
+  { import = "plugins.copilot" },
+  { import = "plugins.copilot-chat" },
   { "dmmulroy/ts-error-translator.nvim", config = true },
   {
     "dnlhc/glance.nvim",
@@ -82,6 +84,7 @@ local plugins = {
   },
   {
     "Exafunction/codeium.nvim",
+    enabled = false,
     event = "BufEnter",
     config = function()
       require("codeium").setup({})
@@ -172,5 +175,4 @@ vim.cmd("colorscheme catppuccin")
 -- vim.cmd("colorscheme tokyonight")
 
 -- POSSIBLE PLUGINS (check out later)
--- https://github.com/sindrets/diffview.nvim
 -- https://github.com/nvim-pack/nvim-spectre
