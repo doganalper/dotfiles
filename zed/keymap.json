@@ -1,0 +1,22 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space o": "file_finder::Toggle",
+      "space 1": "workspace::ToggleLeftDock",
+      "g q": "editor::Format",
+      "t t": "terminal_panel::ToggleFocus",
+      "c b e": "pane::CloseInactiveItems",
+      "b d": "pane::CloseActiveItem",
+      "c a": "editor::ToggleCodeActions",
+      "L": "vim::EndOfLine",
+      "H": "vim::FirstNonWhitespace",
+      "space 2": "outline::Toggle",
+      "]d": "editor::GoToDiagnostic",
+      "[d": "editor::GoToPrevDiagnostic",
+      "space i": "editor::Hover",
+      "m f": "pane::GoForward",
+      "m p": "pane::GoBack"
+    }
+  }
+]

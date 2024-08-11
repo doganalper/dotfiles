@@ -8,5 +8,7 @@
 * tpm
 
 <!-- macos specific  -->
+* aerospace
+<!-- not relative anymore --->
 * skhd
 * yabai

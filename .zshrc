@@ -101,6 +101,7 @@ export PATH="/Users/alperdogan/.local/share/bob/nvim-bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+source <(fzf --zsh)
 
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/alperdogan/Library/Application Support/Herd/config/php/83/"

@@ -60,12 +60,12 @@ vim.o.scrolloff = 8 -- num. of lines to show before/after of cursor when going d
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 vim.opt.list = true
-vim.opt.listchars = { leadmultispace = "- " }
+vim.opt.listchars = { leadmultispace = "- ", tab = "» " }
 -- vim.o.laststatus = 3
 -- vim.o.winbar = "%= %F %m %="
 
 -- fold
-vim.opt.foldlevel = 99
+vim.opt.foldlevel = 3
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = true
 

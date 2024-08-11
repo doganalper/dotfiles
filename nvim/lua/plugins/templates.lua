@@ -40,14 +40,14 @@ local default_templates = {
     {
       name = "React",
       template = {
-        "type Props = {}",
-        "export function Name({}: Props) {}",
+        "type {F_NAME_NO_EXTENSION}Props = {|}",
+        "export function {F_NAME_NO_EXTENSION}({|}: {F_NAME_NO_EXTENSION}Props) {|}",
       },
     },
     {
       name = "React No Props",
       template = {
-        "export function Name() {}",
+        "export function {F_NAME_NO_EXTENSION}() {}",
       },
     },
     {
@@ -110,12 +110,15 @@ return {
   "doganalper/template.nvim",
   event = "VeryLazy",
   -- enable = false,
-  -- dev = true,
+  dev = true,
   -- main = "template",
   -- config = true,
   opts = {
     mappings = {
       switch_template = "<leader>st",
+    },
+    excluded_file_names = {
+      "copilot"
     },
     templates = default_templates,
   },

@@ -5,7 +5,7 @@ return {
   priority = 1000,
   config = function()
     local helpers = require("helpers")
-    local is_transparent = false
+    local is_transparent = true
     local dark_theme = "mocha"
     require("catppuccin").setup({
       transparent_background = is_transparent,
@@ -29,7 +29,7 @@ return {
           LspInlayHint = { bg = colors.base },
 
           -- NeoTree Related
-          -- NeoTreeNormal = { bg = colors.base },
+          NeoTreeNormal = { bg = colors.base },
           NeoTreeGitAdded = { fg = colors.text },
           NeoTreeGitModified = { fg = colors.text },
           NeoTreeGitUntracked = { fg = colors.text },

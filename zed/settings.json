@@ -1,0 +1,12 @@
+{
+  "ui_font_size": 14,
+  "buffer_font_size": 13.5,
+  "vim_mode": true,
+  "format_on_save": "off",
+  "relative_line_numbers": true,
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte - No Italics",
+    "dark": "Catppuccin Latte - No Italics"
+  }
+}

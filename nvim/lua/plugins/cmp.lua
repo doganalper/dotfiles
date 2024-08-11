@@ -97,7 +97,6 @@ return {
         end,
       },
       sources = cmp.config.sources({
-        { name = "codeium" },
         {
           name = "nvim_lsp",
           -- max_item_count = 50,
