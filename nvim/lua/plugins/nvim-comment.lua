@@ -1,6 +1,5 @@
 return {
   "terrortylor/nvim-comment",
-  enabled = false,
   event = "VeryLazy",
   config = function()
     local helpers = require("helpers")

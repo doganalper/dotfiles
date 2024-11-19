@@ -5,6 +5,7 @@
         "cmp_mappings"
     ],
     "diagnostics.disable": [
-        "unused-local"
+        "unused-local",
+        "missing-fields"
     ]
 }

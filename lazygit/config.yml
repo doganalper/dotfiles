@@ -4,7 +4,11 @@ gui:
     "Alper Doğan": "green"
   branchColors:
     'main': 'red'
+    'master': 'red'
   # splitDiff: 'always'
+  showCommandLog: true
+  mainPanelSplitMode: 'horizontal'
+  sidePanelWidth: 0.25
 
 os:
   editPreset: 'nvim'
@@ -13,4 +17,5 @@ git:
   mainBranches: ['main']
   paging:
     colorArg: always
-    pager: delta --color-only --dark --paging=never --side-by-side
+    pager: delta --dark --paging=never --side-by-side
+    # pager: delta --color-only --dark --paging=never --side-by-side

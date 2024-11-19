@@ -4,6 +4,20 @@ vim.api.nvim_create_user_command("GA", "Git add .", {})
 vim.api.nvim_create_user_command("GC", "Git commit -m <q-args>", { nargs = 1 })
 vim.api.nvim_create_user_command("GP", "Git push", {})
 vim.api.nvim_create_user_command("GPO", "Git push origin HEAD", {})
+
+vim.api.nvim_create_user_command("DiffThis", "Gvdiffsplit!", {})
+
+vim.api.nvim_create_user_command("GitBrowse", function()
+  require("snacks.gitbrowse").open()
+end, {})
+
+-- terminal command
+vim.api.nvim_create_user_command("T", "10 split | terminal", {})
+
+vim.api.nvim_create_user_command("CBE", "%bdelete|edit#|bdelete#", {})
+
+vim.api.nvim_create_user_command("RunRequest", "lua require('rest-nvim').run()", {})
+
 vim.api.nvim_create_user_command("TSI", function()
   vim.cmd("norm O // @ts-ignore")
 end, {})
@@ -13,6 +27,14 @@ end, {})
 
 -- Turn pixel to rem
 vim.api.nvim_create_user_command("TPR", "echo (0.0625 * <q-args>)", { nargs = 1 })
+
+-- Toggle transparent background
+vim.api.nvim_create_user_command("TTB", function()
+  local cat = require("catppuccin")
+  cat.options.transparent_background = not cat.options.transparent_background
+  cat.compile()
+  vim.cmd.colorscheme(vim.g.colors_name)
+end, {})
 
 -- Toggle line wrap
 vim.api.nvim_create_user_command("TWW", function()
@@ -33,6 +55,22 @@ end, { nargs = 1 })
 vim.api.nvim_create_user_command("RPL", function(val)
   vim.cmd("s/" .. val.args:gsub(" ", "/") .. "/g")
 end, { nargs = 1 })
+
+-- Run Jest Tests
+vim.api.nvim_create_user_command("Jest", function()
+  vim.cmd("lua require('neotest').run.run({ jestCommand = 'npm run test' })")
+  vim.cmd("lua require('neotest').summary.open()")
+end, { nargs = 0 })
+
+-- Run Vitest Tests
+vim.api.nvim_create_user_command("Vitest", function()
+  vim.cmd("lua require('neotest').run.run(vim.fn.expand('%'))")
+  vim.cmd("lua require('neotest').summary.open()")
+end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("VitestNearest", function()
+  vim.cmd("lua require('neotest').run.run({ vitestCommand = 'npx vitest run' })")
+end, { nargs = 0 })
 
 vim.api.nvim_create_user_command("Note", function()
   vim.cmd("vnew notes.md")
@@ -55,7 +93,7 @@ quote_type=double
 
 [*.md]
 trim_trailing_whitespace = false
-    ]])
+		]])
     filewrite:close()
   else
     print("Error")
@@ -71,7 +109,9 @@ local links = {
   { "gh", "https://github.com/" },
   { "3000", "http://localhost:3000/" },
   { "8895", "http://localhost:8895/" },
+  { "5173", "http://localhost:5173/" },
   { "go", "http://google.com" },
+  { "mdn", "https://developer.mozilla.org/en-US/" },
 
   -- JOB SPECIFIC LINKS
 }

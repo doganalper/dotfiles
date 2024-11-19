@@ -1,22 +1,23 @@
-local function toggle_diffview(openCmd)
+local function toggle_diffview(openCmd, closeCmd)
   local lib = require("diffview.lib")
   local view = lib.get_current_view()
-
   if view then
-    vim.cmd.DiffviewClose()
+    closeCmd()
   else
     openCmd()
   end
 end
 
 return {
- "sindrets/diffview.nvim",
+  "sindrets/diffview.nvim",
   keys = {
     {
       "<leader>gfc",
       mode = { "n" },
       function()
-        toggle_diffview(vim.cmd.DiffviewFileHistory)
+        toggle_diffview(function()
+          vim.cmd.DiffviewFileHistory("%")
+        end, vim.cmd.DiffviewClose)
       end,
       desc = "Space [G]it [F]ile [C]ommits",
     },
@@ -24,9 +25,9 @@ return {
       "<leader>gda",
       mode = { "n" },
       function()
-        toggle_diffview(vim.cmd.DiffviewOpen)
+        toggle_diffview(vim.cmd.DiffviewOpen, vim.cmd.DiffviewClose)
       end,
-      desc = "Space [D]iff [V]iew [A]ll",
-    }
-  }
+      desc = "Space [G]it [F]ile [C]ommits",
+    },
+  },
 }

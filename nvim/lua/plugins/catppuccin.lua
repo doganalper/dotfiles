@@ -1,12 +1,12 @@
 return {
   "catppuccin/nvim",
   name = "catppuccin",
-  enabled = true,
+  -- enabled = false,
   priority = 1000,
   config = function()
     local helpers = require("helpers")
-    local is_transparent = true
-    local dark_theme = "mocha"
+    local is_transparent = false
+    local dark_theme = "macchiato"
     require("catppuccin").setup({
       transparent_background = is_transparent,
       flavour = dark_theme,
@@ -29,13 +29,14 @@ return {
           LspInlayHint = { bg = colors.base },
 
           -- NeoTree Related
-          NeoTreeNormal = { bg = colors.base },
+          -- NeoTreeNormal = { bg = colors.base },
           NeoTreeGitAdded = { fg = colors.text },
           NeoTreeGitModified = { fg = colors.text },
           NeoTreeGitUntracked = { fg = colors.text },
           NeoTreeGitTracked = { fg = colors.text },
 
           -- Telescope Related
+          TelescopeNormal = { default = true, link = "NeoTreeNormal" },
           TelescopePreviewNormal = { default = true, link = "TelescopeNormal" },
           TelescopePromptNormal = { default = true, link = "TelescopeNormal" },
           TelescopeResultsNormal = { default = true, link = "TelescopeNormal" },
@@ -44,21 +45,53 @@ return {
           TelescopeResultsBorder = { default = true, link = "TelescopeBorder" },
           TelescopePreviewBorder = { default = true, link = "TelescopeBorder" },
           CmpNormal = { link = "NeoTreeNormal" },
+
+          -- DapUi
+          DapBreakpoint = { fg = colors.red },
         }
 
         if is_transparent == true then
           returnValue = helpers.concatTables(returnValue, {
             -- NeoTreeNormal = transparent_background,
             CmpNormal = { link = "TelescopeNormal" },
-            NormalFloat = transparent_background,
+            -- NormalFloat = transparent_background,
             TreesitterContext = transparent_background,
             TelescopeNormal = transparent_background,
+            CursorColumn = { link = "CursorLine" },
           })
         end
 
         return returnValue
       end,
       color_overrides = {
+        -- latte = {
+        --   rosewater = "#c14a4a",
+        --   flamingo = "#c14a4a",
+        --   red = "#c14a4a",
+        --   maroon = "#c14a4a",
+        --   pink = "#945e80",
+        --   mauve = "#945e80",
+        --   peach = "#c35e0a",
+        --   yellow = "#b47109",
+        --   green = "#6c782e",
+        --   teal = "#4c7a5d",
+        --   sky = "#4c7a5d",
+        --   sapphire = "#4c7a5d",
+        --   blue = "#45707a",
+        --   lavender = "#45707a",
+        --   text = "#654735",
+        --   subtext1 = "#73503c",
+        --   subtext0 = "#805942",
+        --   overlay2 = "#8c6249",
+        --   overlay1 = "#8c856d",
+        --   overlay0 = "#a69d81",
+        --   surface2 = "#bfb695",
+        --   surface1 = "#d1c7a3",
+        --   surface0 = "#e3dec3",
+        --   base = "#f9f5d7",
+        --   mantle = "#f0ebce",
+        --   crust = "#e8e3c8",
+        -- },
         -- mocha = {
         --   rosewater = "#ea6962",
         --   flamingo = "#ea6962",
@@ -87,34 +120,6 @@ return {
         --   mantle = "#191b1c",
         --   crust = "#141617",
         -- },
-        -- latte = {
-        --   rosewater = "#c14a4a",
-        --   flamingo = "#c14a4a",
-        --   pink = "#945e80",
-        --   mauve = "#945e80",
-        --   red = "#c14a4a",
-        --   maroon = "#c14a4a",
-        --   peach = "#c35e0a",
-        --   yellow = "#a96b2c",
-        --   green = "#6c782e",
-        --   teal = "#4c7a5d",
-        --   sky = "#4c7a5d",
-        --   sapphire = "#4c7a5d",
-        --   blue = "#45707a",
-        --   lavender = "#45707a",
-        --   text = "#654735",
-        --   subtext1 = "#7b5d44",
-        --   subtext0 = "#8f6f56",
-        --   overlay2 = "#a28368",
-        --   overlay1 = "#b6977a",
-        --   overlay0 = "#c9aa8c",
-        --   surface2 = "#A79C86",
-        --   surface1 = "#C9C19F",
-        --   surface0 = "#DFD6B1",
-        --   base = "#fbf1c7",
-        --   mantle = "#F3EAC1",
-        --   crust = "#E7DEB7",
-        -- },
       },
       styles = {
         comments = { "italic" },
@@ -131,7 +136,5 @@ return {
         operators = {},
       },
     })
-
-    -- vim.cmd("colorscheme catppuccin")
   end,
 }

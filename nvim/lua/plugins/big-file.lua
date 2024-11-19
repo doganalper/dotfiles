@@ -1,5 +1,6 @@
 return {
   "LunarVim/bigfile.nvim",
+  enabled = false,
   opts = {
     pattern = function(bufnr, filesize_mib)
       if string.find(vim.api.nvim_buf_get_name(bufnr), "fugitive") then

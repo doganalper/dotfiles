@@ -6,13 +6,6 @@ return {
     local helpers = require("helpers")
 
     gs.setup({
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
       on_attach = function()
         helpers.map("n", "<leader>glc", gs.preview_hunk, { desc = "[G]it [L]ine [C]hanges" })
 
@@ -20,9 +13,9 @@ return {
 
         helpers.map("n", "<leader>ghr", gs.reset_hunk, { desc = "[G]it [H]unk [R]eset" })
 
-        helpers.map("n", "<leader>gnh", gs.next_hunk, { desc = "[G]it [N]ext [H]unk" })
+        helpers.map("n", "]g", gs.next_hunk, { desc = "[G]it [N]ext [H]unk" })
 
-        helpers.map("n", "<leader>gph", gs.prev_hunk, { desc = "[G]it [P]rev [H]unk" })
+        helpers.map("n", "[g", gs.prev_hunk, { desc = "[G]it [P]rev [H]unk" })
 
         helpers.map("n", "<leader>gfr", gs.reset_buffer, { desc = "[G]it [F]ile [R]eset" })
 

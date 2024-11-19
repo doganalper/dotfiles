@@ -12,25 +12,26 @@ return {
   event = "VeryLazy",
   config = function()
     local helpers = require("helpers")
-    local commonDropdown = {
-      previewer = false,
-      theme = "dropdown",
-    }
+    -- local commonDropdown = {
+    --   previewer = false,
+    --   theme = "dropdown",
+    -- }
 
     local telescope = require("telescope")
 
-    local filePicker = helpers.concatTables(commonDropdown, {
-      hidden = true,
-      no_ignore = false,
-    })
+    -- local filePicker = helpers.concatTables(commonDropdown, {
+    --   hidden = true,
+    --   no_ignore = false,
+    -- })
 
     telescope.setup({
       defaults = {
         -- layout_strategy = "vertical",
-        layout_strategy = "vertical",
+        layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
-            prompt_position = "top",
+            -- prompt_position = "top",
+            prompt_position = "bottom",
             preview_width = 0.5,
           },
           vertical = {
@@ -40,15 +41,21 @@ return {
         },
         file_ignore_patterns = { "node_modules/", ".git/" },
         prompt_prefix = " > ",
+        mappings = {
+          i = {
+            ["<C-f>"] = require("telescope.actions").to_fuzzy_refine,
+          },
+        },
       },
       pickers = {
         -- colorscheme = commonDropdown,
-        oldfiles = filePicker,
-        find_files = filePicker,
+        -- oldfiles = filePicker,
+        -- find_files = filePicker,
         current_buffer_fuzzy_find = {
-          theme = "dropdown",
+          theme = "ivy",
         },
-        builtin = commonDropdown,
+        -- buffers = commonDropdown,
+        -- builtin = commonDropdown,
       },
       extensions = {
         advanced_git_search = {
@@ -56,9 +63,6 @@ return {
           git_flags = {},
           git_diff_flags = {},
         },
-        ["ui-select"] = {
-          require("telescope.themes").get_cursor({})
-        }
       },
     })
 
@@ -129,12 +133,17 @@ return {
     {
       "<leader><s-f>",
       mode = { "n" },
-      "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>",
+      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
     },
     {
       "<leader><s-h>",
       mode = { "n" },
       "<cmd>Telescope help_tags<cr>",
+    },
+    {
+      "<leader>lp",
+      mode = { "n" },
+      "<cmd>Telescope resume<cr>",
     },
   },
 }

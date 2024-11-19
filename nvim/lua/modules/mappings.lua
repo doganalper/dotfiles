@@ -1,7 +1,5 @@
 local helpers = require("helpers")
 
-helpers.map("i", "jj", "<ESC>", { desc = "helpers.Map jj to <Esc>" })
-
 -- Buffers
 helpers.map("n", "gt", function()
   vim.cmd(vim.v.count .. "bnext")
@@ -16,6 +14,9 @@ helpers.map("n", "<C-j>", "<cmd>resize -4<cr>", { desc = "Decrease window height
 helpers.map("n", "<C-h>", "<cmd>vertical resize -4<cr>", { desc = "Decrease window width", noremap = true })
 helpers.map("n", "<C-l>", "<cmd>vertical resize +4<cr>", { desc = "Increase window width", noremap = true })
 
+-- terminal mappings
+helpers.map("t", "<esc>", "<C-\\><C-n>", { desc = "Terminal escape" })
+
 -- Clear search with <esc>
 helpers.map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
@@ -26,7 +27,8 @@ helpers.map("n", "<leader>weq", "<C-w>=", { desc = "[W]indow [EQ]uall" })
 helpers.map({ "n", "v" }, "H", "_", { desc = "Go to start of line" })
 helpers.map({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
 
-helpers.map({ "t" }, "<ESC>", "<C-\\><C-n>", { desc = "Escape terminal mode" })
+helpers.map("n", "]c", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
+helpers.map("n", "[c", "<cmd>cprevious<cr>", { desc = "Prev quickfix item" })
 
 helpers.map("n", "<leader>sbd", function()
   helpers.setBackground("dark")
@@ -63,3 +65,12 @@ helpers.map("i", "(", "()<left>")
 helpers.map("i", "{", "{}<left>")
 helpers.map("i", "[", "[]<left>")
 helpers.map("i", "/*", "/**/<left><left>")
+
+vim.keymap.set("t", "<ESC>", function()
+  if string.find(vim.api.nvim_buf_get_name(0), "lazygit") then
+    vim.cmd("LazyGit")
+    return
+  end
+
+  vim.cmd("stopinsert")
+end, { buffer = true })

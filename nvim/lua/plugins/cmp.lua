@@ -4,6 +4,14 @@ return {
   dependencies = {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-path",
+    -- {
+    --   "MattiasMTS/cmp-dbee",
+    --   dependencies = {
+    --     { "kndndrj/nvim-dbee" },
+    --   },
+    --   ft = "sql",
+    --   opts = {},
+    -- },
   },
   config = function()
     local helpers = require("helpers")
@@ -64,31 +72,37 @@ return {
         end, { "i", "s" }),
       }),
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered({
+          -- winhighlight = "Normal:CmpNormal",
+        }),
+        documentation = cmp.config.window.bordered({
+          -- winhighlight = "Normal:CmpNormal",
+        }),
         -- completion = {
         --   winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal,CursorLine:PmenuSel",
         -- },
         -- documentation = {
-        --   winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal",
+        --   winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal,CursorLine:PmenuSel",
         -- },
       },
       formatting = {
-        fields = { "kind", "abbr" },
+        -- fields = { "kind", "abbr" },
         format = lspkind.cmp_format({
-          mode = "text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+          -- mode = "text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
           maxwidth = 70, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          symbol_map = {
+            Copilot = "",
+          },
           ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-          symbol_map = { Codeium = "", },
-          before = function(entry, vim_item)
-            vim_item.menu = ""
-            vim_item.dup = ({
-              nvim_lsp = 0,
-              path = 0,
-            })[entry.source.name] or 0
-            vim_item = formatForTailwindCSS(entry, vim_item) -- for tailwind css autocomplete
-            return vim_item
-          end,
+          -- before = function(entry, vim_item)
+          --   vim_item.menu = ""
+          --   vim_item.dup = ({
+          --     nvim_lsp = 0,
+          --     path = 0,
+          --   })[entry.source.name] or 0
+          --   vim_item = formatForTailwindCSS(entry, vim_item) -- for tailwind css autocomplete
+          --   return vim_item
+          -- end,
         }),
       },
       snippet = {
@@ -97,9 +111,12 @@ return {
         end,
       },
       sources = cmp.config.sources({
+        { name = "vim-dadbod-completion" },
+        -- { name = "cmp-dbee" },
+        { name = "copilot" },
         {
           name = "nvim_lsp",
-          -- max_item_count = 50,
+          max_item_count = 25,
           -- this is for filterin emmet outside of html tags
           -- TODO: this may be broken, check if anything goes wrong
           entry_filter = function(entry)
@@ -119,8 +136,7 @@ return {
         },
         {
           name = "luasnip",
-        },
-        { name = "crates" },
+        }
       }),
     })
 

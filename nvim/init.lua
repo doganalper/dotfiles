@@ -12,32 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
-
-local rocks_config = {
-  rocks_path = vim.env.HOME .. "/.local/share/nvim/rocks",
-}
-
-vim.g.rocks_nvim = rocks_config
-
-local luarocks_path = {
-  vim.fs.joinpath(rocks_config.rocks_path, "share", "lua", "5.1", "?.lua"),
-  vim.fs.joinpath(rocks_config.rocks_path, "share", "lua", "5.1", "?", "init.lua"),
-}
-package.path = package.path .. ";" .. table.concat(luarocks_path, ";")
-
-local luarocks_cpath = {
-  vim.fs.joinpath(rocks_config.rocks_path, "lib", "lua", "5.1", "?.so"),
-  vim.fs.joinpath(rocks_config.rocks_path, "lib64", "lua", "5.1", "?.so"),
-  -- Remove the dylib and dll paths if you do not need macos or windows support
-  vim.fs.joinpath(rocks_config.rocks_path, "lib", "lua", "5.1", "?.dylib"),
-  vim.fs.joinpath(rocks_config.rocks_path, "lib64", "lua", "5.1", "?.dylib"),
-  vim.fs.joinpath(rocks_config.rocks_path, "lib", "lua", "5.1", "?.dll"),
-  vim.fs.joinpath(rocks_config.rocks_path, "lib64", "lua", "5.1", "?.dll"),
-}
-package.cpath = package.cpath .. ";" .. table.concat(luarocks_cpath, ";")
-
-vim.opt.runtimepath:append(vim.fs.joinpath(rocks_config.rocks_path, "lib", "luarocks", "rocks-5.1", "rocks.nvim", "*"))
 
 vim.g.mapleader = " "
 vim.o.number = true
@@ -56,16 +32,16 @@ vim.o.autoread = true
 vim.o.encoding = "utf-8"
 vim.o.updatetime = 100
 vim.o.cursorline = true
+vim.o.cursorcolumn = true
 vim.o.scrolloff = 8 -- num. of lines to show before/after of cursor when going down/up
 vim.opt.splitright = true -- Split windows right to the current windows
 vim.opt.splitbelow = true -- Split windows below to the current windows
 vim.opt.list = true
-vim.opt.listchars = { leadmultispace = "- ", tab = "» " }
--- vim.o.laststatus = 3
--- vim.o.winbar = "%= %F %m %="
+vim.opt.listchars = { leadmultispace = "- ", tab = "│─", trail = "─" }
+vim.opt.laststatus = 3
 
 -- fold
-vim.opt.foldlevel = 3
+vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = true
 
@@ -74,16 +50,6 @@ vim.o.termguicolors = true
 
 -- codeium
 vim.g.codeium_disable_bindings = 1
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    vim.api.nvim_set_hl(0, "WinSeparator", { bg = "None" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "None" })
-    vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None", fg = "None" })
-    -- vim.api.nvim_set_hl(0, "Winbar", { fg = "None" })
-  end,
-})
 
 -- hover width
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -106,6 +72,65 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.cmd("setfiletype markdown")
   end,
 })
+
+---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
+local progress = vim.defaulttable()
+vim.api.nvim_create_autocmd("LspProgress", {
+  ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
+    if not client or type(value) ~= "table" then
+      return
+    end
+    local p = progress[client.id]
+
+    for i = 1, #p + 1 do
+      if i == #p + 1 or p[i].token == ev.data.params.token then
+        p[i] = {
+          token = ev.data.params.token,
+          msg = ("[%3d%%] %s%s"):format(
+            value.kind == "end" and 100 or value.percentage or 100,
+            value.title or "",
+            value.message and (" **%s**"):format(value.message) or ""
+          ),
+          done = value.kind == "end",
+        }
+        break
+      end
+    end
+
+    local msg = {} ---@type string[]
+    progress[client.id] = vim.tbl_filter(function(v)
+      return table.insert(msg, v.msg) or not v.done
+    end, p)
+
+    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+    vim.notify(table.concat(msg, "\n"), "info", {
+      id = "lsp_progress",
+      title = client.name,
+      opts = function(notif)
+        notif.icon = #progress[client.id] == 0 and " "
+          or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+      end,
+    })
+  end,
+})
+
+-- vim.api.nvim_create_autocmd("LspProgress", {
+--   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
+--   callback = function(ev)
+--     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+--     vim.notify(vim.lsp.status(), "info", {
+--       id = "lsp_progress",
+--       title = "LSP Progress",
+--       opts = function(notif)
+--         notif.icon = ev.data.params.value.kind == "end" and " "
+--           or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+--       end,
+--     })
+--   end,
+-- })
 
 -- autocommands
 -- don't auto comment new line
@@ -140,6 +165,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    -- vim.api.nvim_set_hl(0, "WinSeparator", { bg = "None" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "None" })
+    vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None", fg = "None" })
+  end,
+})
+
+-- vim.api.nvim_create_autocmd("TermEnter", {
+--   callback = function()
+--     -- If the terminal window is lazygit, we do not make changes to avoid clashes
+--     if string.find(vim.api.nvim_buf_get_name(0), "lazygit") then
+--       return
+--     end
+--     vim.keymap.set("t", "<ESC>", function()
+--       vim.cmd("stopinsert")
+--     end, { buffer = true })
+--   end,
+-- })
+
 -- highlight yank for 300ms
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yanked", { clear = true }),
@@ -148,6 +194,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ higroup = "ErrorMsg", timeout = 400 })
   end,
 })
+
+vim.cmd("autocmd bufwritepost ~/.config/kitty/kitty.conf :silent !kill -SIGUSR1 $(pgrep kitty) ")
 
 require("modules.lazy")
 require("modules.mappings")

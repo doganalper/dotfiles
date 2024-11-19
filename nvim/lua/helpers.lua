@@ -45,17 +45,21 @@ end
 --- If background is set to light theme, changes cursor color
 ---@param type backgroundType
 function M.setBackground(type)
-  if type == "dark" then
-    vim.api.nvim_set_option("background", "dark")
-  else
-    vim.api.nvim_set_option("background", "light")
+  -- if type == "dark" then
+  --   -- vim.cmd("colorscheme catppuccin")
+  --   vim.api.nvim_set_option("background", "dark")
+  --   vim.o.cursorcolumn = false
+  -- else
+  --   -- vim.cmd("colorscheme tokyonight-day")
+  --   vim.api.nvim_set_option("background", "light")
 
-    -- Set cursor color
-    vim.cmd("hi Cursor guibg=grey guifg=black")
-    vim.cmd("hi Cursor2 guibg=black guifg=black")
-    vim.cmd("hi NeoTreeCursorLine guibg=#bdc0cc")
-    vim.cmd("set guicursor=n-v-c-i:block-Cursor,i-ci-ve:ver25-Cursor2,r-cr:hor20,o:hor50")
-  end
+  --   -- Set cursor color
+  --   -- vim.o.cursorcolumn = true
+  --   vim.cmd("hi Cursor guibg=grey guifg=black")
+  --   vim.cmd("hi Cursor2 guibg=black guifg=black")
+  --   vim.cmd("hi NeoTreeCursorLine guibg=#bdc0cc")
+  --   vim.cmd("set guicursor=n-v-c-i:block-Cursor,i-ci-ve:ver25-Cursor2,r-cr:hor20,o:hor50")
+  -- end
 end
 
 function M.map(mode, mapping, functionality, opts)

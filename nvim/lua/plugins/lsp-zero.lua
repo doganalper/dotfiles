@@ -1,20 +1,3 @@
-local function getVueTsPluginPathFromMason()
-  local mason_registry = require("mason-registry")
-  local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-    .. "/node_modules/@vue/language-server"
-
-  return vue_language_server_path
-end
-
-local function getTsPluginPathFromMason()
-  local mason_registry = require("mason-registry")
-  local typescript_language_server_path = mason_registry.get_package("typescript-language-server"):get_install_path()
-    .. "/node_modules/typescript/lib"
-
-  print(typescript_language_server_path)
-  return typescript_language_server_path
-end
-
 return {
   "VonHeikemen/lsp-zero.nvim",
   branch = "v2.x",
@@ -56,7 +39,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "rust_analyzer",
-        "tsserver",
+        "ts_ls",
         "volar",
         "vuels",
         "cssls",
@@ -64,6 +47,14 @@ return {
         "html",
         "astro",
         "marksman",
+      },
+      handlers = {
+        -- NOTE: this is temporary, ts_ls will be released later but before that it gives error about tsserver will be deprecated
+        -- function(server_name)
+        --   if server_name == "tsserver" then
+        --     server_name = "ts_ls"
+        --   end
+        -- end,
       },
       automatic_installation = true,
     })
@@ -117,17 +108,10 @@ return {
       capabilities = capabilities,
     })
 
-    lsp_config.tsserver.setup({
+    lsp_config.ts_ls.setup({
       init_options = {
         preferences = {
           includeInlayParameterNameHints = "all",
-        },
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = getVueTsPluginPathFromMason(),
-            languages = { "typescript", "vue" },
-          },
         },
       },
       settings = {
@@ -140,7 +124,6 @@ return {
         "typescript",
         "typescriptreact",
         "javascriptreact",
-        "vue",
       },
       capabilities = capabilities,
     })
@@ -155,11 +138,6 @@ return {
     lsp_config.volar.setup({
       root_dir = root_pattern("vite*"),
       capabilities = capabilities,
-      -- init_options = {
-      --   typescript = {
-      --     tsdk = getTsPluginPathFromMason(),
-      --   },
-      -- },
     })
 
     lsp_config.marksman.setup({
@@ -186,16 +164,14 @@ return {
       "astro",
       "typescriptreact",
       "javascriptreact",
+      "htmldjango",
+      "php",
     }
     lsp_config.html.setup({
       filetypes = htmlFileTypes,
       capabilities = capabilities,
     })
     lsp_config.emmet_ls.setup({
-      filetypes = htmlFileTypes,
-      capabilities = capabilities,
-    })
-    lsp_config.tailwindcss.setup({
       filetypes = htmlFileTypes,
       capabilities = capabilities,
     })
