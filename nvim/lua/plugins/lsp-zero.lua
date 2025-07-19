@@ -48,14 +48,6 @@ return {
         "astro",
         "marksman",
       },
-      handlers = {
-        -- NOTE: this is temporary, ts_ls will be released later but before that it gives error about tsserver will be deprecated
-        -- function(server_name)
-        --   if server_name == "tsserver" then
-        --     server_name = "ts_ls"
-        --   end
-        -- end,
-      },
       automatic_installation = true,
     })
 

@@ -35,7 +35,12 @@ local plugins = {
           keys = {
             { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
             { icon = " ", key = "F", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-            { icon = " ", key = "r", desc = "Recent Files", action = ":lua require('telescope.builtin').oldfiles({cwd_only=true})" },
+            {
+              icon = " ",
+              key = "r",
+              desc = "Recent Files",
+              action = ":lua require('telescope.builtin').oldfiles({cwd_only=true})",
+            },
             {
               icon = " ",
               key = "c",
@@ -54,13 +59,6 @@ local plugins = {
       },
       gitbrowse = {
         enabled = false,
-        -- what = "file",
-        -- url_patterns = {
-        --   ["bitbucket.kartaca.com"] = {
-        --     branch = "/-/browse?at={branch}",
-        --     file = "/-/browse/{file}?at={branch}#lines-{line}",
-        --   },
-        -- },
       },
     },
   },
@@ -193,6 +191,7 @@ local plugins = {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
+    enabled = false,
     event = "InsertEnter",
     opts = {
       panel = {
@@ -216,24 +215,6 @@ local plugins = {
     enabled = true,
     config = true,
   },
-  -- {
-  --   "kndndrj/nvim-dbee",
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --   },
-  --   build = function()
-  --     -- Install tries to automatically detect the install method.
-  --     -- if it fails, try calling it with one of these parameters:
-  --     --    "curl", "wget", "bitsadmin", "go"
-  --     require("dbee").install()
-  --   end,
-  --   config = function()
-  --     require("dbee").setup(--[[optional config]])
-  --   end,
-  --   keys = {
-  --     { "<leader>db", "<cmd>lua require('dbee').toggle()<cr>", desc = "Toggle dbee" },
-  --   },
-  -- },
   {
     "dnlhc/glance.nvim",
     config = function()
@@ -277,21 +258,6 @@ local plugins = {
     opts = {},
   },
   {
-    "Exafunction/codeium.nvim",
-    enabled = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      require("codeium").setup({})
-
-      vim.keymap.set("i", "<C-g>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true, silent = true })
-    end,
-  },
-  {
     "declancm/maximize.nvim",
     config = true,
     keys = {
@@ -332,6 +298,9 @@ local plugins = {
         desc = "Flash Treesitter",
       },
     },
+  },
+  {
+    "rest-nvim/rest.nvim",
   },
   "princejoogie/dir-telescope.nvim",
   "nvim-lua/plenary.nvim",

@@ -1,6 +1,7 @@
 return {
   "simrat39/rust-tools.nvim",
   ft = "rust",
+  enabled = false,
   config = function()
     HOME_PATH = os.getenv("HOME") .. "/"
     MASON_PATH = HOME_PATH .. ".local/share/nvim/mason/packages/"

@@ -1,7 +1,7 @@
 return {
   "doganalper/template.nvim",
   event = "VeryLazy",
-  -- enable = false,
+  enabled = false,
   -- dev = true,
   -- main = "template",
   -- config = true,
