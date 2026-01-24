@@ -1,7 +1,7 @@
 return {
   "doganalper/template.nvim",
   event = "VeryLazy",
-  enabled = false,
+  -- enable = false,
   -- dev = true,
   -- main = "template",
   -- config = true,
@@ -15,7 +15,7 @@ return {
           name = "1 - React",
           template = {
             "interface I{F_NAME_NO_EXTENSION}Props {|}",
-            "export function {F_NAME_NO_EXTENSION}({|}: I{F_NAME_NO_EXTENSION}Props) {|}",
+            "export function {F_NAME_NO_EXTENSION}({|}: Readonly<I{F_NAME_NO_EXTENSION}Props>) {|}",
           },
         },
         {

@@ -3,8 +3,8 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    transparent = false,
-    style = "moon",
+    transparent = true,
+    style = "storm",
     on_highlights = function(hl, colors)
       hl.LineNrBelow = { fg = colors.grey }
       hl.LineNrAbove = { fg = colors.grey }

@@ -3,7 +3,9 @@ return {
   branch = "v2.x",
   dependencies = {
     -- LSP Support
-    { "neovim/nvim-lspconfig" }, -- Required
+    -- { "neovim/nvim-lspconfig" }, -- Required
+    { "mason-org/mason.nvim", version = "^1.0.0" },  -- explicit v1 lock
+    { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" }, -- same here
     { "williamboman/mason.nvim" }, -- Optional
     { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
@@ -40,13 +42,22 @@ return {
         "lua_ls",
         "rust_analyzer",
         "ts_ls",
-        "volar",
+        "gopls",
+        -- "volar",
         "vuels",
         "cssls",
         "tailwindcss",
         "html",
         "astro",
         "marksman",
+      },
+      handlers = {
+        -- NOTE: this is temporary, ts_ls will be released later but before that it gives error about tsserver will be deprecated
+        -- function(server_name)
+        --   if server_name == "tsserver" then
+        --     server_name = "ts_ls"
+        --   end
+        -- end,
       },
       automatic_installation = true,
     })
@@ -102,8 +113,13 @@ return {
 
     lsp_config.ts_ls.setup({
       init_options = {
-        preferences = {
-          includeInlayParameterNameHints = "all",
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            -- location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+            location = "/home/adogan/.nvm/versions/node/v20.18.0/lib/node_modules/@vue/typescript-plugin",
+            languages = { "javascript", "typescript", "vue" },
+          },
         },
       },
       settings = {
@@ -112,6 +128,7 @@ return {
         },
       },
       filetypes = {
+        "vue",
         "javascript",
         "typescript",
         "typescriptreact",
@@ -165,6 +182,11 @@ return {
     })
     lsp_config.emmet_ls.setup({
       filetypes = htmlFileTypes,
+      capabilities = capabilities,
+    })
+
+    lsp_config.gopls.setup({
+      filetypes = { "go" },
       capabilities = capabilities,
     })
 

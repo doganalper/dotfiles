@@ -100,6 +100,12 @@ trim_trailing_whitespace = false
   end
 end, {})
 
+vim.api.nvim_create_user_command("CopyRelPath", function()
+  local rel_path = vim.fn.expand("%")
+  vim.fn.setreg("+", rel_path)
+  print("Copied relative path: " .. rel_path)
+end, {})
+
 local links = {
   { "vuetify", "https://v2.vuetifyjs.com/en/" },
   { "vue2", "https://v2.vuejs.org/" },

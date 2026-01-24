@@ -117,21 +117,6 @@ vim.api.nvim_create_autocmd("LspProgress", {
   end,
 })
 
--- vim.api.nvim_create_autocmd("LspProgress", {
---   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
---   callback = function(ev)
---     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
---     vim.notify(vim.lsp.status(), "info", {
---       id = "lsp_progress",
---       title = "LSP Progress",
---       opts = function(notif)
---         notif.icon = ev.data.params.value.kind == "end" and " "
---           or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
---       end,
---     })
---   end,
--- })
-
 -- autocommands
 -- don't auto comment new line
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
@@ -165,14 +150,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    -- vim.api.nvim_set_hl(0, "WinSeparator", { bg = "None" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "None" })
-    vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None", fg = "None" })
-  end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern = "*",
+--   callback = function()
+--     -- vim.api.nvim_set_hl(0, "WinSeparator", { bg = "None" })
+--     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "None", link = 'Normal' })
+--     vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None", fg = "None", link = 'Normal' })
+--   end,
+-- })
 
 -- vim.api.nvim_create_autocmd("TermEnter", {
 --   callback = function()
