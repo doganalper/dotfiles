@@ -1,5 +1,13 @@
 local helpers = require("helpers")
 
+-- Cleanup
+helpers.del("grn")
+helpers.del("grr")
+helpers.del("gra", "x")
+helpers.del("gra")
+helpers.del("gri")
+helpers.del("grt")
+
 -- Buffers
 helpers.map("n", "gt", function()
   vim.cmd(vim.v.count .. "bnext")

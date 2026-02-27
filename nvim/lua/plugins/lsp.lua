@@ -5,7 +5,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     lazy = true,
-    version="*",
+    version = "*",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
     },
@@ -18,33 +18,6 @@ return {
       if cmp_nvim_lsp_ok then
         capabilities = cmp_nvim_lsp.default_capabilities()
       end
-
-      vim.lsp.config("*", {
-        flags = {
-          debounce_text_changes = 150,
-        },
-        capabilities = capabilities,
-        on_init = function(client)
-          client.server_capabilities.semanticTokensProvider = nil
-          if client.name == "eslint" then
-            if client.server_capabilities.textDocument then
-              client.server_capabilities.textDocument.diagnostic = nil
-            end
-            if client.server_capabilities.diagnosticProvider then
-              client.server_capabilities.diagnosticProvider = nil
-            end
-          end
-        end,
-        on_attach = function(client, bufnr)
-          local opts = { buffer = bufnr, desc = "" }
-
-          helpers.map("n", "<leader>i", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Space [I]nfo" }))
-          helpers.map("n", "<leader>rn", function()
-            vim.lsp.buf.rename()
-          end, vim.tbl_extend("force", opts, { desc = "Space [R]e[N]ame" }))
-          helpers.map("n", "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Space [C]ode [A]ction" }))
-        end,
-      })
 
       require("lspconfig")
 
@@ -74,6 +47,44 @@ return {
         "marksman",
         "emmet_ls",
       }
+
+      for _, server in ipairs(servers) do
+        vim.lsp.config(server, {
+          flags = {
+            debounce_text_changes = 150,
+          },
+          capabilities = capabilities,
+          on_init = function(client)
+            client.server_capabilities.semanticTokensProvider = nil
+            if client.name == "eslint" then
+              if client.server_capabilities.textDocument then
+                client.server_capabilities.textDocument.diagnostic = nil
+              end
+              if client.server_capabilities.diagnosticProvider then
+                client.server_capabilities.diagnosticProvider = nil
+              end
+            end
+          end,
+          on_attach = function(client, bufnr)
+            local opts = { buffer = bufnr, desc = "" }
+
+            helpers.map("n", "<leader>i", function()
+              vim.lsp.buf.hover({
+                border = "rounded",
+              })
+            end, vim.tbl_extend("force", opts, { desc = "Space [I]nfo" }))
+            helpers.map("n", "<leader>rn", function()
+              vim.lsp.buf.rename()
+            end, vim.tbl_extend("force", opts, { desc = "Space [R]e[N]ame" }))
+            helpers.map(
+              "n",
+              "<leader>ca",
+              vim.lsp.buf.code_action,
+              vim.tbl_extend("force", opts, { desc = "Space [C]ode [A]ction" })
+            )
+          end,
+        })
+      end
 
       vim.lsp.enable(servers)
 

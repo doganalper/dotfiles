@@ -66,4 +66,10 @@ function M.map(mode, mapping, functionality, opts)
   vim.keymap.set(mode, mapping, functionality, opts)
 end
 
+function M.del(mapping, mode)
+  mode = mode or 'n'
+
+  vim.api.nvim_del_keymap(mode, mapping)
+end
+
 return M

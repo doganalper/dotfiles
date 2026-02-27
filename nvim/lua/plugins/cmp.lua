@@ -73,37 +73,34 @@ return {
         end, { "i", "s" }),
       },
       window = {
-        -- completion = cmp.config.window.bordered({
-        --   -- winhighlight = "Normal:CmpNormal",
-        -- }),
-        -- documentation = cmp.config.window.bordered({
-        --   winhighlight = "Normal:CmpNormal",
-        -- }),
-        completion = {
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel",
-        },
-        documentation = {
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel",
-        },
+        completion = vim.tbl_extend("force", cmp.config.window.bordered(), {
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        }),
+        documentation = vim.tbl_extend("force", cmp.config.window.bordered(), {
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        }),
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
       },
       formatting = {
-        fields = { "kind", "abbr" },
+        fields = { "icon", "abbr" },
         format = lspkind.cmp_format({
-          mode = "symbol", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-          maxwidth = 70, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-          symbol_map = {
-            Copilot = "",
+          maxwidth = {
+            -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            -- can also be a function to dynamically calculate max width such as
+            -- menu = function() return math.floor(0.45 * vim.o.columns) end,
+            menu = 50, -- leading text (labelDetails)
+            abbr = 50, -- actual suggestion item
           },
           ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-          -- before = function(entry, vim_item)
-          --   vim_item.menu = ""
-          --   vim_item.dup = ({
-          --     nvim_lsp = 0,
-          --     path = 0,
-          --   })[entry.source.name] or 0
-          --   vim_item = formatForTailwindCSS(entry, vim_item) -- for tailwind css autocomplete
-          --   return vim_item
-          -- end,
+          show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+
+          -- The function below will be called before any actual modifications from lspkind
+          -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+          before = function(entry, vim_item)
+            -- ...
+            return vim_item
+          end,
         }),
       },
       snippet = {

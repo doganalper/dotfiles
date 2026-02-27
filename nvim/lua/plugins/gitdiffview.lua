@@ -27,7 +27,7 @@ return {
       function()
         toggle_diffview(vim.cmd.DiffviewOpen, vim.cmd.DiffviewClose)
       end,
-      desc = "Space [G]it [F]ile [C]ommits",
+      desc = "Space [G]it [D]iff [A]ctive File",
     },
   },
 }
